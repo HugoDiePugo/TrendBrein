@@ -1,6 +1,6 @@
-# Trendbrein · versie 0.7.0
+# Trendbrein · versie 0.8.0
 
-Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De v0.7.0-dataset bevat **152 nodes, 346 verbindingen en zes tours met samen 59 stappen**. De inhoud van `graph.json` en `tours.json` is ongewijzigd overgenomen uit de v0.7.0-bundle; de app ondersteunt de bijbehorende bronmetadata, selectieargumentatie en tourhandoff. De versie in Onderzoeksmodus komt rechtstreeks uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`, `CHANGELOG_v0.7.0.md` en de historische audit `EVIDENCE_AUDIT_v0.6.0.md`.
+Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De v0.8.0-dataset bevat **152 nodes, 346 verbindingen en zes tours met samen 61 stappen**. De inhoud van `graph.json` en `tours.json` is ongewijzigd overgenomen uit de v0.8.0-bundle; de app ondersteunt de bijbehorende bronmetadata, selectieargumentatie en tourhandoff. De versie in Onderzoeksmodus komt rechtstreeks uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`, `CHANGELOG_v0.8.0.md` en de historische audit `EVIDENCE_AUDIT_v0.6.0.md`.
 
 ## Installatie en starten
 
@@ -99,6 +99,10 @@ Voeg in `src/data/tours.json` een object toe aan de `tours`-array binnen `{ "met
 {
   "id": "demo-extra-route",
   "title": "Demo · Extra route",
+  "intro": {
+    "title": "Welkom bij deze route",
+    "text": "Deze korte inleiding verschijnt voordat de eerste node wordt geselecteerd."
+  },
   "nextTourId": "demo-vervolgroute",
   "nextTourLabel": "Ga door naar het vervolg",
   "nextTourDescription": "Een korte uitleg over de volgende route.",
@@ -106,13 +110,14 @@ Voeg in `src/data/tours.json` een object toe aan de `tours`-array binnen `{ "met
     {
       "nodeId": "demo-0",
       "title": "Demo · Beginpunt",
-      "text": "DEMO — Uitleg bij deze stap."
+      "text": "DEMO — Uitleg bij deze stap.",
+      "phase": "Oriëntatie"
     }
   ]
 }
 ```
 
-Elke tour heeft minimaal één stap. Bij meerdere tours opent `Volg mijn reis` eerst een routekeuze met titel, description en aantal stappen. De aanbevolen ingang start rechtstreeks `main-story`. Vorige/volgende selecteert de bijbehorende node en centreert de camera. De persoonlijke `step.text` staat in het routepaneel, terwijl het detailpaneel de analyse en bronnen toont. Op mobiel opent `Bekijk verdieping` dezelfde inhoud in een dialoog en keert sluiten terug naar dezelfde tourstap. De laatste stap kan een primaire vervolgknop tonen; in v0.7.0 leidt `main-story` daarmee rechtstreeks naar `from-trends-to-options`. Afronden en de sluitknop blijven beschikbaar. Zelf een node kiezen of de huidige node wegfilteren verlaat de tour. Pan en zoom blijven beschikbaar.
+Elke tour heeft minimaal één stap. Bij meerdere tours opent `Volg mijn reis` eerst een routekeuze met titel, description en aantal stappen. De aanbevolen ingang start rechtstreeks `main-story`. Een optionele `intro` verschijnt vóór de eerste stap, zonder nodefocus; `phase` groepeert stappen subtiel in het routepaneel. Vorige/volgende selecteert de bijbehorende node en centreert de camera. De persoonlijke `step.text` staat in het routepaneel, terwijl het detailpaneel de analyse en bronnen toont. Op mobiel opent `Bekijk verdieping` dezelfde inhoud in een dialoog en keert sluiten terug naar dezelfde tourstap. De laatste stap kan een primaire vervolgknop tonen; in v0.8.0 leidt `main-story` daarmee rechtstreeks naar `from-trends-to-options`. Afronden en de sluitknop blijven beschikbaar. Zelf een node kiezen of de huidige node wegfilteren verlaat de tour. Pan en zoom blijven beschikbaar.
 
 ### Validatie en uitbreiden
 
@@ -137,7 +142,7 @@ Voeg nieuwe node-/edge-types toe in `src/types/graph.ts`. Voeg daarbij een categ
 - Op een smal scherm zitten zoeken en lagen achter een knop. Tijdens tours opent de verdieping als dialoog. In `Kern` blijven de drie shortlist-richtingen via een compacte, aanklikbare lijst herkenbaar.
 - Lettertypen worden via Google Fonts geladen met lokale systeemfonts als fallback. Voor volledig offline gebruik kun je de import bovenaan `styles.css` verwijderen of de fonts zelf hosten.
 
-## Technische keuzes en grenzen van v0.7.0
+## Technische keuzes en grenzen van v0.8.0
 
 - `MultiDirectedGraph` bewaart richting en meerdere betekenissen tussen hetzelfde paar nodes.
 - Een deterministische spiraal geeft alle nodes een geldige startpositie. ForceAtlas2 rekent eenmalig 180 iteraties uit; de kaart blijft daarna rustig. Dit is gecontroleerd met de huidige 152 nodes en 346 edges. Bij honderden/duizenden nodes moet deze berekening naar een worker en zijn aparte performancetests nodig.
@@ -156,7 +161,7 @@ Vite gebruikt `base: './'`, zodat assets ook vanuit een GitHub Pages-repositorys
 
 ## Validatie van deze versie
 
-Productiebuild en integriteitstests controleren ongewijzigde datasetvelden, display-ID-zoeken, gestructureerde referenties, matrix- en Kanscheckdata, ontbrekende verwijzingen, ongeldige waarden/bronnen, ongeldige tours, permanente nodegroottes, eindige layoutposities/parallelle relaties en lege/losse nodes. Browsercontrole omvat de kaart, zoeken, filters, selectie, detailnavigatie, Onderzoeksmodus en alle 59 tourstappen.
+Productiebuild en integriteitstests controleren ongewijzigde datasetvelden, display-ID-zoeken, gestructureerde referenties, matrix- en Kanscheckdata, ontbrekende verwijzingen, ongeldige waarden/bronnen, ongeldige tours, permanente nodegroottes, eindige layoutposities/parallelle relaties en lege/losse nodes. Browsercontrole omvat de kaart, zoeken, filters, selectie, detailnavigatie, Onderzoeksmodus en alle 61 tourstappen.
 
 Technische referenties: [Sigma lifecycle](https://www.sigmajs.org/docs/advanced/lifecycle/), [Sigma camera](https://www.sigmajs.org/docs/typedoc/sigma/src/classes/Camera/), [Graphology ForceAtlas2](https://graphology.github.io/standard-library/layout-forceatlas2.html).
 

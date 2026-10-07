@@ -1,15 +1,16 @@
-# Trendbrein dataset v0.7.0
+# Trendbrein dataset v0.8.0
 
 - 152 nodes
 - 346 edges
 - 3 geselecteerde hoofdtrends, 15 ideation-richtingen, 3 verkende voorbeelden en 3 voorlopige kansrichtingen
-- 6 guided tours met samen 59 stappen
+- 6 guided tours met samen 61 stappen
 - Doorzoekbare `displayId`- en aliasvelden en gestructureerde nodeverwijzingen
 - Eén configureerbare 2×2-scenariomatrix en 3 Kanschecks, standaard alleen zichtbaar in Onderzoeksmodus
 - Generieke evidence- en counterevidenceblokken, waaronder de twee algoritmetakken
 - Brondata met publicatie-/campagnedatum, `z.d.`, datumtoelichting en afzonderlijke geraadpleegd-datum
 - Metadata voor de aanbevolen hoofdroute en de kaartpresets `Kern` en `Alles`
 - Een expliciete vervolgroute van `main-story` naar `from-trends-to-options`
+- Een intro en fase-aanduidingen per tour voor een duidelijke vertelvolgorde
 - Selectieargumentatie bij de 3 voorlopige kansrichtingen
 - Korte summaries met uitgebreidere bodies voor verdieping
 - Eigen observaties staan volledig in dezelfde signalenbank; er is geen aparte inhoudelijke categorie voor.
