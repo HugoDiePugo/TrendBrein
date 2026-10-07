@@ -1,6 +1,6 @@
-# Trendbrein · versie 0.6.0
+# Trendbrein · versie 0.7.0
 
-Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De aangeleverde v0.6.0-werkdataset bevat **152 nodes, 346 verbindingen en zes tours met samen 59 stappen**. De JSON-bestanden zijn ongewijzigd overgenomen; inhoud, statussen en confidence blijven precies zoals aangeleverd. De versie in Onderzoeksmodus komt rechtstreeks uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`, `CHANGELOG_v0.6.0.md` en `EVIDENCE_AUDIT_v0.6.0.md`.
+Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De v0.7.0-dataset bevat **152 nodes, 346 verbindingen en zes tours met samen 59 stappen**. De inhoud van `graph.json` en `tours.json` is ongewijzigd overgenomen uit de v0.7.0-bundle; de app ondersteunt de bijbehorende bronmetadata, selectieargumentatie en tourhandoff. De versie in Onderzoeksmodus komt rechtstreeks uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`, `CHANGELOG_v0.7.0.md` en de historische audit `EVIDENCE_AUDIT_v0.6.0.md`.
 
 ## Installatie en starten
 
@@ -14,7 +14,7 @@ npm run dev
 Open de lokale URL die Vite toont, standaard http://127.0.0.1:5173. De ontwikkelserver luistert alleen op localhost.
 
 ```sh
-npm test          # dertien controles op validatie, zoeken en graph-opbouw
+npm test          # veertien controles op validatie, zoeken en graph-opbouw
 npm run build    # TypeScript strict-controle en statische productiebuild
 npm run preview  # productiebuild lokaal bekijken
 ```
@@ -93,12 +93,15 @@ Meerdere relaties tussen hetzelfde paar nodes zijn toegestaan. Ze kunnen op het 
 
 ### Een guided tour toevoegen
 
-Voeg in `src/data/tours.json` een object toe aan de `tours`-array binnen `{ "meta": { ... }, "tours": [ ... ] }`. De eerdere losse array wordt ook ondersteund. Tourmetadata en optionele `description` blijven behouden:
+Voeg in `src/data/tours.json` een object toe aan de `tours`-array binnen `{ "meta": { ... }, "tours": [ ... ] }`. De eerdere losse array wordt ook ondersteund. Tourmetadata en optionele `description` blijven behouden. Een tour kan met `nextTourId`, `nextTourLabel` en `nextTourDescription` een expliciete vervolgroute aanbieden:
 
 ```json
 {
   "id": "demo-extra-route",
   "title": "Demo · Extra route",
+  "nextTourId": "demo-vervolgroute",
+  "nextTourLabel": "Ga door naar het vervolg",
+  "nextTourDescription": "Een korte uitleg over de volgende route.",
   "steps": [
     {
       "nodeId": "demo-0",
@@ -109,7 +112,7 @@ Voeg in `src/data/tours.json` een object toe aan de `tours`-array binnen `{ "met
 }
 ```
 
-Elke tour heeft minimaal één stap. Bij meerdere tours opent `Volg mijn reis` eerst een routekeuze met titel, description en aantal stappen. Vorige/volgende selecteert de bijbehorende node en centreert de camera. De persoonlijke `step.text` staat in het routepaneel, terwijl het detailpaneel tegelijk de volledige node toont. De tour heeft een sluitknop en eindigt met Afronden. Zelf een node kiezen of de huidige node wegfilteren verlaat de tour. Pan en zoom blijven beschikbaar. Zoekresultaten, verbonden nodes en tourstappen openen automatisch hun eigen categorie als die verborgen was; andere filters blijven behouden.
+Elke tour heeft minimaal één stap. Bij meerdere tours opent `Volg mijn reis` eerst een routekeuze met titel, description en aantal stappen. De aanbevolen ingang start rechtstreeks `main-story`. Vorige/volgende selecteert de bijbehorende node en centreert de camera. De persoonlijke `step.text` staat in het routepaneel, terwijl het detailpaneel de analyse en bronnen toont. Op mobiel opent `Bekijk verdieping` dezelfde inhoud in een dialoog en keert sluiten terug naar dezelfde tourstap. De laatste stap kan een primaire vervolgknop tonen; in v0.7.0 leidt `main-story` daarmee rechtstreeks naar `from-trends-to-options`. Afronden en de sluitknop blijven beschikbaar. Zelf een node kiezen of de huidige node wegfilteren verlaat de tour. Pan en zoom blijven beschikbaar.
 
 ### Validatie en uitbreiden
 
@@ -125,15 +128,16 @@ Voeg nieuwe node-/edge-types toe in `src/types/graph.ts`. Voeg daarbij een categ
 - Zoeken herkent ook interne node-ID's, zichtbare S-ID's en aliases. Gestructureerde verwijzingen in analyses zijn inline klikbaar en staan daarnaast onder `Genoemde nodes`.
 - `Onderzoeksmodus` toont de ruwe status, confidence met uitleg, sourceType, tags, relatietype, node-ID en datasetversie. Deze modus staat standaard uit.
 - `Kern` is de rustige standaardweergave: alle data blijft aanwezig, terwijl hoofdonderdelen visueel voorrang krijgen. `Alles` geeft detailnodes meer nadruk. Hover, selectie en ver inzoomen maken detailnodelabels zichtbaar.
-- Driver- en hoofdtrenddetails tonen hun directe evidence als klikbare nodes. Bij bewust zwakke DESTEP-dimensies blijft de aangeleverde evidence-note zichtbaar.
-- De algoritmische hoofdtrend toont aanbevelingen en pricing als twee afzonderlijke, klikbare takken. Shortlistnodes tonen hun gekoppelde trend en waardeverschuiving.
+- Nodes met `evidenceRefs` of `counterEvidenceRefs` tonen die als klikbare bewijsblokken. Bij bewust zwakke DESTEP-dimensies blijft de aangeleverde evidence-note zichtbaar.
+- De algoritmische hoofdtrend toont aanbevelingen en pricing als twee afzonderlijke, klikbare takken. Beide takken tonen hun eigen bewijs; de hoofdtrend toont ook de gekoppelde tegentrend.
+- Shortlistnodes tonen hun gekoppelde trend, waardeverschuiving en het aangeleverde blok `Waarom deze richting bleef staan`.
 - De AI-scenarioanalyse toont een interactieve 2×2-matrix. Opportunity-nodes bevatten een Kanscheck met klikbare bestaande oplossingen en concrete volgende tests.
 - Alle categorieën hebben een eigen kleur en basisgrootte in `graphStyles.ts`. `importance` geeft extra gewicht. Selectie krijgt een subtiele lichtende ring.
 - De UI-basiskleuren staan bij `:root` in `styles.css`, de graphkleuren in `graphStyles.ts`; dit is een voorlopig palet. CSS verzorgt sterren, ornamenten en overgangen zonder extra animatiebibliotheek. De voorkeur voor minder beweging wordt gerespecteerd.
-- Op een smal scherm zitten zoeken en lagen achter een knop. Het detailpanel wordt een schuifpaneel; de mobiele versie is een functionele basis.
+- Op een smal scherm zitten zoeken en lagen achter een knop. Tijdens tours opent de verdieping als dialoog. In `Kern` blijven de drie shortlist-richtingen via een compacte, aanklikbare lijst herkenbaar.
 - Lettertypen worden via Google Fonts geladen met lokale systeemfonts als fallback. Voor volledig offline gebruik kun je de import bovenaan `styles.css` verwijderen of de fonts zelf hosten.
 
-## Technische keuzes en grenzen van v0.6.0
+## Technische keuzes en grenzen van v0.7.0
 
 - `MultiDirectedGraph` bewaart richting en meerdere betekenissen tussen hetzelfde paar nodes.
 - Een deterministische spiraal geeft alle nodes een geldige startpositie. ForceAtlas2 rekent eenmalig 180 iteraties uit; de kaart blijft daarna rustig. Dit is gecontroleerd met de huidige 152 nodes en 346 edges. Bij honderden/duizenden nodes moet deze berekening naar een worker en zijn aparte performancetests nodig.
@@ -148,7 +152,7 @@ Voeg nieuwe node-/edge-types toe in `src/types/graph.ts`. Voeg daarbij een categ
 
 `npm run build` maakt `dist/`. Publiceer de **inhoud van dist**, inclusief `assets/` en `favicon.svg`, bij je statische host. Upload niet `src/` als website.
 
-Vite gebruikt `base: './'`, zodat assets ook vanuit een GitHub Pages-repositorysubpad werken. Er is geen router en dus geen server-side routefallback nodig. Bij GitHub Actions: checkout, Node instellen, `npm ci`, `npm test`, `npm run build`, en `dist` als Pages-artifact publiceren. Kies in de repository-instellingen Pages → GitHub Actions. Er is nog niets online gepubliceerd.
+Vite gebruikt `base: './'`, zodat assets ook vanuit een GitHub Pages-repositorysubpad werken. Er is geen router en dus geen server-side routefallback nodig. De workflow `.github/workflows/deploy-pages.yml` bouwt en publiceert iedere push naar `main`. De publieke versie staat op https://hugodiepugo.github.io/TrendBrein/.
 
 ## Validatie van deze versie
 
