@@ -35,7 +35,7 @@ export function TourChooser({
       >
         <div className="tour-chooser-heading">
           <div>
-            <span className="eyebrow">Guided tours</span>
+            <span className="eyebrow">Mijn routes</span>
             <h2 id="tour-chooser-title">Welke route wil je volgen?</h2>
           </div>
           <button
@@ -47,7 +47,7 @@ export function TourChooser({
           </button>
         </div>
         <p className="tour-chooser-intro">
-          Elke route legt een ander spoor door dezelfde neurale kaart.
+          Volg een route om mijn proces stap voor stap te bekijken.
         </p>
         <div className="tour-options">
           {tours.map((tour, index) => (

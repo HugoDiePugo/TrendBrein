@@ -21,17 +21,16 @@ export function Intro({
       <div className="intro-orbit orbit-one" />
       <div className="intro-orbit orbit-two" />
       <div className="intro-content">
-        <span className="eyebrow">Een kaart van mijn gedachten</span>
+        <span className="eyebrow">Mijn Trendbrein</span>
         <h1>
-          Hoe kijk ik
-          <br />
-          naar de <em>wereld?</em>
+          Mijn <em>denkproces</em>
         </h1>
-        <p>
-          Van een losse observatie naar een nieuwe verbinding.
-          <br />
-          Verken de kaart, volg een gedachte en ontdek hoe
-          <br className="desktop-break" /> alles met elkaar kan samenhangen.
+        <p className="intro-summary">
+          Een interactieve verkenning van mijn denkproces.
+        </p>
+        <p className="intro-guide">
+          Volg mijn reis van signalen naar trends en kansrichtingen, of verken
+          het netwerk zelf.
         </p>
         {entry?.title && <h2 className="entry-title">{entry.title}</h2>}
         <div className="intro-actions entry-actions">
@@ -60,16 +59,11 @@ export function Intro({
             <ArrowRight size={16} />
           </button>
         </div>
-        <small>
-          {demo
-            ? "TECHNISCHE DEMO · Alle inhoud en verbanden zijn fictieve testdata."
-            : "Een interactieve verkenning van mijn denkproces."}
-        </small>
-      </div>
-      <div className="intro-index">
-        <span>01 — OBSERVEREN</span>
-        <span>02 — VERBINDEN</span>
-        <span>03 — VERBEELDEN</span>
+        {demo && (
+          <small>
+            TECHNISCHE DEMO · Alle inhoud en verbanden zijn fictieve testdata.
+          </small>
+        )}
       </div>
     </div>
   );

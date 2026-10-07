@@ -21,7 +21,7 @@ export function GuidedTour({
 }) {
   const step = tour.steps[index];
   return (
-    <section className="tour-panel" aria-label="Guided Tour">
+    <section className="tour-panel" aria-label="Mijn route">
       <div className="tour-heading">
         <span className="eyebrow">{tour.title}</span>
         <button

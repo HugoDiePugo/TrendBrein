@@ -162,7 +162,7 @@ export default function App() {
           <Network size={23} />
           <span>
             trend<span className="brand-light">brein</span>
-            <small>ATLAS VAN EEN DENKPROCES</small>
+            <small>ATLAS VAN MIJN DENKPROCES</small>
           </span>
         </button>
         <div className="header-right">
@@ -202,7 +202,7 @@ export default function App() {
           >
             <aside className={`sidebar ${mobileFilters ? "mobile-open" : ""}`}>
               <div className="sidebar-title">
-                <span className="eyebrow">Jouw perspectief</span>
+                <span className="eyebrow">Mijn Trendbrein</span>
                 <button
                   className="mobile-only icon-button"
                   onClick={() => setMobileFilters(false)}
@@ -212,14 +212,12 @@ export default function App() {
                 </button>
               </div>
               <h1>
-                Alles begint met
+                Verken mijn
                 <br />
-                een verbinding.
+                Trendbrein.
               </h1>
               <p className="sidebar-description">
-                Volg je nieuwsgierigheid.
-                <br />
-                Elke node opent een nieuwe gedachte.
+                Kies een node om mijn signalen, trends en verbanden te bekijken.
               </p>
               <Search data={data} enabled={enabled} onSelect={freeSelect} />
               <Filters data={data} enabled={enabled} onChange={filter} />
@@ -235,7 +233,7 @@ export default function App() {
                 <small>
                   {data.demo
                     ? "Alle nodes en relaties zijn demo-data."
-                    : "Vrij verkennen of stap voor stap."}
+                    : "Verken vrij of volg mijn route stap voor stap."}
                 </small>
               </div>
             </aside>
@@ -243,8 +241,8 @@ export default function App() {
               <div className="map-title">
                 <span className="eyebrow">
                   {tourIndex !== null || tourIntro
-                    ? "Guided tour"
-                    : "Explore mode"}
+                    ? "Mijn route"
+                    : "Vrij verkennen"}
                 </span>
                 <h2>De neurale kaart</h2>
                 <span className="live-indicator">
@@ -363,7 +361,7 @@ export default function App() {
               <span className="footer-note">
                 {data.demo
                   ? "Geen onderzoeksresultaten of trendconclusies"
-                  : "Een verbonden denkproces"}
+                  : "Mijn signalen, trends en verbanden"}
               </span>
             </span>
             <span>
