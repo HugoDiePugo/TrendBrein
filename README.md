@@ -2,6 +2,8 @@
 
 Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De ongewijzigde v0.8.0-dataset bevat **152 nodes, 346 verbindingen en zes tours met samen 61 stappen**. De app ondersteunt de bijbehorende bronmetadata, selectieargumentatie, tourhandoff en lokaal opgeslagen tourvoortgang. De versie in Onderzoeksmodus komt rechtstreeks uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`, `CHANGELOG_v0.8.1.md`, `CHANGELOG_v0.8.0.md` en de historische audit `EVIDENCE_AUDIT_v0.6.0.md`.
 
+Voor de inlevering staat een korte ingang voor beoordelaars in [docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx](docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx).
+
 ## Installatie en starten
 
 Gebruik Node.js 22 LTS of nieuwer en npm. De eerste versie is ook getest met de lokaal aanwezige Node.js 18.16.
