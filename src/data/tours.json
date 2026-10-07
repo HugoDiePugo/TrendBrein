@@ -1,0 +1,349 @@
+{
+  "meta": {
+    "version": "0.7.0",
+    "updated": "2026-10-05",
+    "description": "Routes zijn in de ik-vorm geschreven. De hoofdroute vertelt mijn proces; de themaroutes gaan dieper op analyse in."
+  },
+  "tours": [
+    {
+      "id": "main-story",
+      "title": "Van techniek naar regie",
+      "description": "Mijn hoofdverhaal. Ik begon heel technisch en kwam uiteindelijk steeds terug bij dezelfde vraag: wie houdt de regie?",
+      "steps": [
+        {
+          "nodeId": "R_TECH_LENS",
+          "title": "Ik begon gewoon als engineer",
+          "text": "In het begin keek ik eigenlijk precies zoals ik altijd kijk. Ik zag AI, sensoren, microcontrollers en slimme producten. Daar ging mijn aandacht automatisch naartoe. Dat leverde veel signalen op, maar ik merkte ook dat ik heel snel dacht in oplossingen. Dat is handig als engineer, maar hier moest ik eerst leren om gewoon te kijken."
+        },
+        {
+          "nodeId": "S11",
+          "title": "Bij deze ging ik meteen de fout in",
+          "text": "Bij deze ESP32-keychain dacht ik bijna meteen: leuk ding, dit zou ik zelf ook kunnen bouwen. Ik zat dus al bij een productidee terwijl ik eigenlijk nog aan het signaleren was. Tegelijk zag ik in de reacties dat mensen hem wilden kopen. Toen werd het interessanter. Niet alleen de techniek viel op, maar ook dat kleine beetje karakter."
+        },
+        {
+          "nodeId": "S12",
+          "title": "Toen zag ik ineens iets anders",
+          "text": "Bij de digitale haarclip gebeurde ongeveer hetzelfde. Mijn eerste gedachte was weer technisch. Maar als ik daar even doorheen keek, was het rare juist dat het scherm helemaal geen nuttige functie hoefde te hebben. De elektronica werd gewoon onderdeel van iemands stijl. Vanaf hier ben ik meer gaan kijken naar waarom iemand zoiets wil."
+        },
+        {
+          "nodeId": "C_EXPRESSIVE",
+          "title": "Het werd meer dan één gek gadget",
+          "text": "Toen ik de haarclips, digitale ogen, pins, smart earrings en AI-brillen naast elkaar zette, begon er wel echt een patroon te ontstaan. Ik zag eigenlijk twee dingen tegelijk. Technologie wordt persoonlijker en expressiever, en makers kunnen steeds makkelijker zelf iets bouwen en remixen. Die twee horen bij elkaar, maar ik wil ze niet op één hoop gooien."
+        },
+        {
+          "nodeId": "T_EXPRESSIVE",
+          "title": "Mijn eerste echte trend",
+          "text": "Hier kwam ik uit op mijn eerste hoofdtrend: technologie krijgt naast functie ook steeds meer waarde als expressie. Dus niet alleen: wat kan dit apparaat? Ook: past het bij mij, ziet het er vet uit, kan ik het aanpassen en zegt het iets over mij? Dat vond ik een veel interessantere laag dan alleen 'wearables worden populairder'."
+        },
+        {
+          "nodeId": "VS_FUNCTION_EXPRESS",
+          "title": "Van nuttig naar ook persoonlijk",
+          "text": "De waardeverschuiving die ik hier zie is van vooral functioneel naar ook expressief. Functie verdwijnt natuurlijk niet. Alleen komt er iets bij. Mensen dragen en kopen technologie ook omdat het karakter, stijl of identiteit toevoegt. Ik heb dat inmiddels niet alleen in makerfilmpjes gezien, maar ook in crowdfunding en bij grote merken."
+        },
+        {
+          "nodeId": "CT_DIGITAL_REST",
+          "title": "Maar toen werd het verhaal te makkelijk",
+          "text": "Als ik hier was gestopt, zou het een heel netjes verhaal zijn: steeds meer technologie, steeds persoonlijker. Alleen zag ik ook precies het tegenovergestelde. Dumbphones, minder schermtijd, mensen die rust zoeken. Dat vond ik eigenlijk juist goed, want het dwong me om niet alleen bewijs voor mijn eigen idee te zoeken."
+        },
+        {
+          "nodeId": "S59",
+          "title": "Oortjes bleken ineens veel interessanter",
+          "text": "Mensen met oortjes in een drukke omgeving vond ik eerst gewoon een normale observatie. Later zag ik er iets anders in. Je gebruikt technologie om juist minder van je omgeving binnen te krijgen. Je maakt zelf een soort filter op de wereld. Toen kwam het woord regie eigenlijk vanzelf naar boven."
+        },
+        {
+          "nodeId": "R_REGIE",
+          "title": "Hier viel voor mij het kwartje",
+          "text": "Tot hier dacht ik eigenlijk dat ik drie losse onderwerpen aan het onderzoeken was. Pas bij het terugkijken merkte ik dat ik telkens ongeveer dezelfde soort vraag stelde: hoeveel laat ik een systeem voor mij bepalen en waar wil ik zelf kunnen ingrijpen? Daar werd regie voor mij de rode draad, niet een vierde trend."
+        },
+        {
+          "nodeId": "T_AI_TRUST",
+          "title": "Bij AI wordt regie een stuk serieuzer",
+          "text": "Bij AI-agents gaat het niet meer alleen om een slim antwoord. Zo'n systeem kan ook echt iets doen. Dan vind ik 'hoe slim is het?' ineens niet genoeg. Ik wil weten wat het mag doen, wat het heeft gedaan en wanneer ik kan ingrijpen. Daardoor kwam ik op mijn tweede hoofdtrend: van vooral capaciteit naar vertrouwen en beheersbaarheid."
+        },
+        {
+          "nodeId": "VS_CAPABILITY_TRUST",
+          "title": "Meer kunnen is niet automatisch beter",
+          "text": "Hier moest ik mijn eigen conclusie ook iets preciezer maken. De bedrijven en regels laten duidelijk zien dat beheersbaarheid serieuzer wordt. De OECD-bron gaat specifiek over toekomstig AI-gebruik door de overheid en laat zien dat toezicht, transparantie en fairness daar echte vertrouwensvragen zijn. Dat is dus ondersteuning voor de menselijke kant, maar geen bewijs dat iedere AI-gebruiker hetzelfde verwacht."
+        },
+        {
+          "nodeId": "T_ALGO_PERSONAL",
+          "title": "Diezelfde vraag zat al in mijn eigen feed",
+          "text": "Bij algoritmes merkte ik hetzelfde, maar veel alledaagser. Een feed die mij goed kent vind ik vaak gewoon chill. Maar zodra data invloed krijgt op wat ik betaal, voelt het heel anders. Dan wordt ineens belangrijk waarom die prijs verandert en of ik eerlijk behandeld word."
+        },
+        {
+          "nodeId": "VS_HIDDEN_CONTROL",
+          "title": "Ik denk niet dat personalisatie weggaat",
+          "text": "Mijn conclusie is dus niet dat alles weer hetzelfde voor iedereen moet worden. Dat lijkt me ook niet realistisch. Ik denk eerder dat er naast personalisatie meer behoefte komt aan uitleg, keuze en instellingen. Dus: maak het slim voor mij, maar laat mij wel snappen en beïnvloeden wat er gebeurt."
+        },
+        {
+          "nodeId": "R_BROADEN",
+          "title": "Waar ik uiteindelijk op uitkwam",
+          "text": "Aan het einde merkte ik vooral dat mijn manier van kijken veranderd was. Ik begon steeds bij wat technisch mogelijk was, maar ik eindigde vaker bij de vraag wat iemand nodig heeft om zich vrij, veilig of in controle te voelen. Vanaf hier kan ik die waarden pas gaan vertalen naar mogelijke richtingen voor een bedrijfsidee."
+        }
+      ],
+      "nextTourId": "from-trends-to-options",
+      "nextTourLabel": "Ga door naar de kansenfase",
+      "nextTourDescription": "Bekijk hoe ik vanuit de drie hoofdtrends eerst breed ideeën maak en daarna terugga naar drie kansrichtingen."
+    },
+    {
+      "id": "expressive-tech",
+      "title": "Technologie als expressie",
+      "description": "Mijn route van embedded makerproject naar trend, DESTEP, waardeverschuiving en een concrete productkans.",
+      "steps": [
+        {
+          "nodeId": "S11",
+          "title": "Het begon met iets wat ik zelf snap",
+          "text": "Deze keychain trok mij meteen omdat ik zelf embedded projecten maak. Ik keek eerst naar de hardware. Pas daarna viel me op dat mensen vooral reageerden op het karakter en meteen vroegen of hij te koop was."
+        },
+        {
+          "nodeId": "S12",
+          "title": "Een scherm als accessoire",
+          "text": "Bij de digitale haarclip werd het voor mij duidelijker. Het display hoeft hier niet nuttig te zijn. Het mag gewoon zichtbaar zijn en onderdeel van stijl worden. Dat vond ik een heel ander gebruik van embedded techniek dan ik normaal gewend ben."
+        },
+        {
+          "nodeId": "S15",
+          "title": "Makers bouwen op elkaar voort",
+          "text": "Toen iemand het idee pakte en er een Magic 8 Ball van maakte, zag ik ook een tweede patroon. Mensen consumeren zo'n idee niet alleen. Ze maken het na, veranderen het en delen het weer."
+        },
+        {
+          "nodeId": "S38",
+          "title": "Ik wilde uit de makerbubbel",
+          "text": "Ik vond alleen TikTok-filmpjes te zwak. Daarom ben ik gaan zoeken naar dingen waar mensen ook echt geld voor over hebben. dott kreeg honderden Kickstarter-backers. Dat is nog geen massamarkt, maar wel een veel sterker signaal dan alleen likes."
+        },
+        {
+          "nodeId": "S47",
+          "title": "Techniek kan gewoon sieraad worden",
+          "text": "Lumia vond ik een goed signaal omdat de techniek juist als oorbel wordt ontworpen. Dan zie je dat functionaliteit en uitstraling niet meer los van elkaar hoeven te staan."
+        },
+        {
+          "nodeId": "T_EXPRESSIVE",
+          "title": "Trendpiramide en DESTEP",
+          "text": "Hier trek ik het patroon omhoog. Producten worden expressiever, de markt kan makerproducten sneller testen, consumenten zoeken personalisatie en maatschappelijk lopen digitale en fysieke identiteit meer door elkaar. Bij DESTEP zijn vooral sociaal-cultureel, technologisch en economisch sterk. Demografie en ecologie zijn in mijn bronnen juist zwak. Dat zet ik er ook gewoon bij."
+        },
+        {
+          "nodeId": "VS_FUNCTION_EXPRESS",
+          "title": "Waardeverschuiving",
+          "text": "Mijn gekozen verschuiving is van vooral functioneel naar ook expressief. Het gedrag dat daarbij hoort is zichtbaar dragen, personaliseren, remixen en betalen voor technologie die ook iets van jezelf laat zien."
+        },
+        {
+          "nodeId": "CT_PRIVACY_WEARABLE",
+          "title": "De grens",
+          "text": "De tegenkant zit vooral bij privacy en digitale rust. Een slimme bril kan voor de drager superhandig zijn, terwijl iemand ernaast juist minder controle voelt. Dat voorkomt dat ik van deze trend alleen een positief gadgetverhaal maak."
+        },
+        {
+          "nodeId": "OPP_EXPRESSIVE_MODULAR",
+          "title": "Mijn kans, maar niet vanaf nul",
+          "text": "Ik vind dit nog steeds de kans die het beste bij mij past, maar ik weet nu ook dat programmeerbare badges en display-wearables al bestaan. Dus 'ik maak een badge met een scherm' is geen kans. Als ik hiermee doorga, moet mijn verschil echt zitten in klein formaat, fashion-first ontwerp, meerdere bevestigingen en hele simpele personalisatie."
+        }
+      ]
+    },
+    {
+      "id": "ai-control",
+      "title": "AI: van kunnen naar vertrouwen",
+      "description": "Hoe ik van losse AI-waarschuwingen naar een complete trend, DESTEP, scenario en kans ben gegaan.",
+      "steps": [
+        {
+          "nodeId": "S02",
+          "title": "De rare tegenstelling",
+          "text": "Ik vond het meteen opvallend dat mensen uit de AI-industrie zelf waarschuwen voor de technologie die ze tegelijk verder ontwikkelen. Daar zat voor mij vanaf het begin een spanning in."
+        },
+        {
+          "nodeId": "S05",
+          "title": "Er zit ook gewoon geld achter",
+          "text": "Daarna werd voor mij duidelijk dat safety niet losstaat van economie. Als er gigantisch veel geld en concurrentie in AI zit, is vertragen voor een bedrijf niet alleen een technische keuze."
+        },
+        {
+          "nodeId": "S04",
+          "title": "Agents veranderen de vraag",
+          "text": "Bij agents werd controle voor mij concreet. Een verkeerd antwoord kan ik negeren. Een agent die al iets heeft verstuurd of verwijderd is een ander verhaal."
+        },
+        {
+          "nodeId": "S33",
+          "title": "Governance wordt zichtbaar",
+          "text": "Toen ik safetyframeworks van bedrijven erbij legde, zag ik dat controle zelf een serieus onderdeel van AI-ontwikkeling wordt. Niet alleen het model, ook de manier waarop risico's worden beheerst moet worden uitgelegd."
+        },
+        {
+          "nodeId": "S42",
+          "title": "Niet alleen bedrijven vinden dit belangrijk",
+          "text": "Deze bron hielp mij om niet alleen naar bedrijven en safetyframeworks te kijken. Wel moest ik hem precies lezen: de OECD vraagt hier naar toekomstig AI-gebruik door de overheid. Toezicht, transparantie en fairness zijn daar duidelijke vertrouwensvragen, maar ik kan dit niet zomaar doortrekken naar ieder AI-product."
+        },
+        {
+          "nodeId": "T_AI_TRUST",
+          "title": "Trendpiramide en DESTEP",
+          "text": "Toen ik alles naast elkaar legde, bleef de trend overeind maar werd mijn formulering scherper. Technologie, economie en politiek zijn sterke drivers. De sociaal-culturele kant zie ik als ondersteunend: bij publieke AI spelen toezicht en fairness mee in vertrouwen, maar mijn bron bewijst geen algemene consumententrend voor alle AI."
+        },
+        {
+          "nodeId": "VS_CAPABILITY_TRUST",
+          "title": "Waardeverschuiving",
+          "text": "Mijn verschuiving is van maximale capaciteit naar aantoonbare beheersbaarheid. Hoe meer ik een systeem laat doen, hoe belangrijker het voor mij wordt dat ik grenzen, logs en een stopknop heb."
+        },
+        {
+          "nodeId": "SC_AI_MATRIX",
+          "title": "Scenario's",
+          "text": "Daarna heb ik autonomie en controle als twee assen gekruist. Dat levert vier uitersten op. Niet om de toekomst te voorspellen, maar om te zien wat er gebeurt als AI veel zelfstandiger wordt terwijl controle wel of niet meegroeit."
+        },
+        {
+          "nodeId": "SC_AI_CERT_AGENT",
+          "title": "Het scenario dat ik het interessantst vind",
+          "text": "De gecertificeerde agent combineert veel autonomie met duidelijke grenzen. Dat vind ik veel interessanter dan simpelweg 'mens doet alles zelf' of 'agent mag alles'."
+        },
+        {
+          "nodeId": "OPP_AI_PERMISSION",
+          "title": "Hier moest ik mijn idee al bijstellen",
+          "text": "Mijn eerste idee, een approval-laag voor agents, bestaat in feite al in OpenAI en LangGraph. Dat is eigenlijk een nuttige uitkomst van het onderzoek. De interessantere vraag is of één platform-onafhankelijke policygateway waarde heeft als je meerdere agentframeworks en tools gebruikt. Dat moet ik nog bewijzen."
+        }
+      ]
+    },
+    {
+      "id": "algorithmic-regie",
+      "title": "Wie stuurt mijn keuzes?",
+      "description": "Van mijn eigen social feed naar prijsalgoritmes, consumentengedrag, fairness en een transparantiekans.",
+      "steps": [
+        {
+          "nodeId": "S22",
+          "title": "Het begon gewoon bij mijn eigen feed",
+          "text": "Ik merkte hoe snel mijn feed verandert als ik ergens langer naar kijk. Dat vind ik meestal handig. Maar het zette me wel aan het denken over hoeveel van mijn volgende keuzes eigenlijk al voor mij zijn voorgesorteerd."
+        },
+        {
+          "nodeId": "S36",
+          "title": "Dit is echt ontworpen",
+          "text": "Meta beschrijft zelf hoe zulke aanbevelingen met AI worden geselecteerd. Daardoor wist ik dat mijn ervaring niet alleen gevoel was, maar onderdeel van een heel systeem om relevantie te voorspellen."
+        },
+        {
+          "nodeId": "S23",
+          "title": "Bij prijzen voelde het ineens anders",
+          "text": "Toen ik hetzelfde idee van voorspellen bij prijzen tegenkwam, kreeg ik meteen een veel sterkere fairness-reactie. Content personaliseren voelt vaak fijn. Een prijs aanpassen op wat een systeem denkt dat ik wil betalen voelt een stuk gevoeliger."
+        },
+        {
+          "nodeId": "S63",
+          "title": "Dat gevoel bleek niet alleen van mij",
+          "text": "Dit onderzoek was precies het gat dat ik nog had. 64% noemt prijsalgoritmes oneerlijk en 23% vindt vergelijken lastig. Daarmee zit er echt consumentengedrag en beleving onder mijn eigen reactie."
+        },
+        {
+          "nodeId": "T_ALGO_PERSONAL",
+          "title": "Trendpiramide en DESTEP",
+          "text": "De brede trend is dat aanbod steeds meer door data en voorspellingen wordt aangepast. Techniek en economie trekken dit hard vooruit. Sociaal-cultureel ontstaat spanning rond fairness. Politiek zie je juist regels die meer uitleg en keuze afdwingen. Ecologie en demografie zijn in mijn analyse geen sterke drivers."
+        },
+        {
+          "nodeId": "VS_HIDDEN_CONTROL",
+          "title": "Waardeverschuiving",
+          "text": "Ik verwacht niet dat personalisatie verdwijnt. Mijn verschuiving zit in de verwachting eromheen: als een systeem mij persoonlijk behandelt, wil ik beter kunnen begrijpen waarom en er soms ook voor kunnen kiezen om dat niet te laten gebeuren."
+        },
+        {
+          "nodeId": "S52",
+          "title": "Regie wordt deels een recht",
+          "text": "De DSA vind ik daarom interessant. Grote platforms moeten ook een aanbevelingsoptie bieden die niet op profiling is gebaseerd. Dat is eigenlijk precies die beweging van slim voor mij naar ook keuze voor mij."
+        },
+        {
+          "nodeId": "OPP_PRICE_TRANSPARENCY",
+          "title": "Deze kans is juist zwakker geworden",
+          "text": "Bij dit idee kwam ik erachter dat heel veel al bestaat. Prijshistorie is standaard bij verschillende tools en Price Parity probeert zelfs persoonlijke prijsverschillen te detecteren. Het probleem rond fairness blijft interessant, maar mijn oplossing is nu nog niet onderscheidend genoeg. Deze kans mag dus ook gewoon afvallen als ik geen betere invalshoek vind."
+        }
+      ]
+    },
+    {
+      "id": "signal-to-opportunity",
+      "title": "Van één signaal naar een kans",
+      "description": "Een korte methoderoute waarmee ik laat zien hoe ik van waarneming naar trend, analyse, waardeverschuiving en kans ga.",
+      "steps": [
+        {
+          "nodeId": "S12",
+          "title": "1. Eerst alleen het signaal",
+          "text": "Ik zie een digitale haarclip met een ESP32 en display. Op dit punt probeer ik nog niet te zeggen dat dit dé toekomst is. Het is gewoon iets dat mij opvalt."
+        },
+        {
+          "nodeId": "C_EXPRESSIVE",
+          "title": "2. Dan pas clusteren",
+          "text": "Eén haarclip is geen trend. Daarom leg ik hem naast keychains, andere haarclips, digitale ogen, crowdfundingpins, smart earrings en AI-brillen. Dan ontstaat er pas genoeg patroon om verder te kijken."
+        },
+        {
+          "nodeId": "T_EXPRESSIVE",
+          "title": "3. Van product naar trendniveau",
+          "text": "Ik trek het vervolgens omhoog via de trendpiramide. Wat zie ik in producten, wat gebeurt er in de markt, wat verandert er bij consumenten en welke grotere maatschappelijke beweging zit eronder?"
+        },
+        {
+          "nodeId": "D_SOCIAL_EXPRESSION",
+          "title": "4. Waarom gebeurt dit?",
+          "text": "Met DESTEP probeer ik de drivers te vinden. Hier zijn sociaal-cultureel, technologisch en economisch sterk. Ik zet ook gewoon eerlijk neer welke letters weinig verklaren."
+        },
+        {
+          "nodeId": "CT_DIGITAL_REST",
+          "title": "5. Ook zoeken naar wat niet past",
+          "text": "Daarna kijk ik bewust naar de tegenkant. Als ik alleen maar bewijs verzamel voor meer wearable tech, maak ik mijn eigen conclusie vanzelf waar. Digitale rust en privacy laten zien waar de grenzen zitten."
+        },
+        {
+          "nodeId": "VS_FUNCTION_EXPRESS",
+          "title": "6. Naar de waardeverschuiving",
+          "text": "Pas hier kom ik op de diepere laag: van vooral functioneel naar ook expressief. Nu gaat het niet meer over een haarclip, maar over gedrag en behoefte."
+        },
+        {
+          "nodeId": "SHORT_01",
+          "title": "7. En dan pas naar een kansrichting",
+          "text": "Hier stop ik bewust met steeds verder analyseren en kies ik een richting om mee te nemen. Van de expressieve ideeën past deze het beste bij zowel de waardeverschuiving als mijn eigen embedded achtergrond. Ik hoef nu nog niet te beslissen of het uiteindelijk een clip, badge, sieraad of iets anders wordt."
+        }
+      ]
+    },
+    {
+      "id": "from-trends-to-options",
+      "title": "Van trends naar meerdere kansrichtingen",
+      "description": "Eerst breed creëren, daarna terugbrengen naar maximaal drie richtingen.",
+      "steps": [
+        {
+          "nodeId": "C_IDEA_POOL",
+          "title": "Niet meteen één idee kiezen",
+          "text": "Ik schiet zelf snel in een productidee. Daarom heb ik het hier expres breder gedaan. De opdracht vraagt uiteindelijk maximaal drie kansrijke opties, maar tijdens het creëren kan ik natuurlijk veel meer richtingen bedenken."
+        },
+        {
+          "nodeId": "T_EXPRESSIVE",
+          "title": "Eén trend kan veel kanten op",
+          "text": "Uit expressieve technologie kwam niet alleen een digitale clip. Ik kan ook denken aan creator-kits, digitale sieraden, character gadgets of een technische dienst voor kleine fashionmerken."
+        },
+        {
+          "nodeId": "IDEA_EXP_02",
+          "title": "Bijvoorbeeld mensen zelf laten maken",
+          "text": "Deze richting pakt juist de prosumerkant. In plaats van één accessoire verkopen, kan de kans ook zijn dat ik anderen de tools geef om zelf expressieve technologie te bouwen."
+        },
+        {
+          "nodeId": "T_AI_TRUST",
+          "title": "Bij AI geldt hetzelfde",
+          "text": "Regie over AI kan een dashboard zijn, autonomieniveaus, veilige defaults, activity logs of training. Mijn eerste technische oplossing hoeft dus niet meteen het eindpunt te zijn."
+        },
+        {
+          "nodeId": "IDEA_AI_01",
+          "title": "Bijvoorbeeld autonomie als instelling",
+          "text": "Bij AI bleef ik hier zelf het langst bij hangen. Niet omdat dit automatisch het product moet worden, maar omdat instelbare autonomie heel direct laat zien wat ik met 'regie' bedoel. Daardoor hielp dit idee mij om de bredere kansrichting scherper te krijgen."
+        },
+        {
+          "nodeId": "T_ALGO_PERSONAL",
+          "title": "Personalisatie is breder dan prijs",
+          "text": "PrijsKompas bleek te smal. De grotere vraag is hoe ik als gebruiker grip houd op systemen die mijn feed, aanbod of prijs aanpassen."
+        },
+        {
+          "nodeId": "IDEA_ALGO_01",
+          "title": "Bijvoorbeeld personalisatie die ik zelf stuur",
+          "text": "Hier merkte ik dat mijn eerste focus op prijs eigenlijk te smal was. Als ik de gebruiker meer invloed wil geven, kan dat net zo goed bij een feed of aanbevelingssysteem spelen. Dat inzicht trok mijn kans weer open."
+        },
+        {
+          "nodeId": "SHORT_01",
+          "title": "Voorlopige richting 1",
+          "text": "Uit de expressieve-techpool houd ik voorlopig expressieve embedded accessoires over. Nog geen definitief product, wel een richting die bij de trend en bij mij past."
+        },
+        {
+          "nodeId": "SHORT_02",
+          "title": "Voorlopige richting 2",
+          "text": "Bij AI kies ik voorlopig menselijke regie over AI-autonomie. Dat laat ruimte om later pas te ontdekken welke concrete oplossing en doelgroep het interessantst zijn."
+        },
+        {
+          "nodeId": "SHORT_03",
+          "title": "Voorlopige richting 3",
+          "text": "Deze blijft over omdat hij beter bij de hele trend past dan alleen PrijsKompas. Ik leg nog niet vast waar de beste toepassing zit. Wat ik wel meeneem is de richting: personalisatie behouden, maar uitleg, keuze en controle ernaast zetten."
+        },
+        {
+          "nodeId": "R_BROADEN",
+          "title": "Hier stopt deze opdracht ongeveer",
+          "text": "Ik hoef nu nog niet te bewijzen welk van deze drie een startup wordt. Ik laat vooral zien hoe ik vanuit signalen en veranderende waarden naar kansrichtingen kom. Daarna kan ik in een volgende fase pas verder kiezen en onderzoeken."
+        }
+      ]
+    }
+  ]
+}

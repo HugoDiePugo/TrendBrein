@@ -1,0 +1,373 @@
+import { useCallback, useState } from "react";
+import {
+  ArrowUpRight,
+  FlaskConical,
+  Network,
+  Route,
+  SlidersHorizontal,
+  X,
+} from "lucide-react";
+import graphJson from "./data/graph.json";
+import toursJson from "./data/tours.json";
+import { validateData } from "./schemas/graphSchema";
+import { nodeTypes, type GraphPreset, type NodeType } from "./types/graph";
+import { NeuralMap } from "./components/NeuralMap/NeuralMap";
+import { Filters } from "./components/Filters/Filters";
+import { Search } from "./components/Search/Search";
+import { NodeDetail } from "./components/NodeDetail/NodeDetail";
+import { TourDetailDialog } from "./components/NodeDetail/TourDetailDialog";
+import { GuidedTour } from "./components/GuidedTour/GuidedTour";
+import { TourChooser } from "./components/GuidedTour/TourChooser";
+import { Intro } from "./components/Intro/Intro";
+
+function load() {
+  try {
+    return { ok: true as const, ...validateData(graphJson, toursJson) };
+  } catch (error) {
+    return {
+      ok: false as const,
+      error: error instanceof Error ? error.message : String(error),
+    };
+  }
+}
+const loaded = load();
+export default function App() {
+  const entryExperience = loaded.ok
+    ? (loaded.data.meta?.entryExperience as
+        | {
+            title?: string;
+            recommendedTourId?: string;
+            primaryAction?: { label?: string; description?: string };
+            secondaryAction?: { label?: string; description?: string };
+          }
+        | undefined)
+    : undefined;
+  const graphPresentation = loaded.ok
+    ? (loaded.data.meta?.graphPresentation as
+        | {
+            defaultPreset?: GraphPreset;
+            presets?: Record<
+              GraphPreset,
+              { label?: string; description?: string }
+            >;
+          }
+        | undefined)
+    : undefined;
+  const [intro, setIntro] = useState(true);
+  const [selected, setSelected] = useState<string | null>(null);
+  const [enabled, setEnabled] = useState(new Set<NodeType>(nodeTypes));
+  const [focusVersion, setFocusVersion] = useState(0);
+  const [tourIndex, setTourIndex] = useState<number | null>(null);
+  const [tourChooser, setTourChooser] = useState(false);
+  const [mobileTourDetail, setMobileTourDetail] = useState(false);
+  const [routeId, setRouteId] = useState(
+    loaded.ok
+      ? (entryExperience?.recommendedTourId ?? loaded.tours[0]?.id ?? "")
+      : "",
+  );
+  const [graphPreset, setGraphPreset] = useState<GraphPreset>(
+    graphPresentation?.defaultPreset ?? "core",
+  );
+  const [mobileFilters, setMobileFilters] = useState(false);
+  const [researchMode, setResearchMode] = useState(false);
+  const select = useCallback((id: string | null) => {
+    setSelected(id);
+    setFocusVersion((v) => v + 1);
+    if (id && loaded.ok) {
+      const node = loaded.data.nodes.find((n) => n.id === id);
+      if (node) setEnabled((prev) => new Set([...prev, node.type]));
+      setMobileFilters(false);
+    }
+  }, []);
+  if (!loaded.ok)
+    return (
+      <main className="data-error">
+        <h1>De dataset is ongeldig</h1>
+        <p>
+          Corrigeer de volgende fouten in graph.json of tours.json en laad
+          opnieuw.
+        </p>
+        <pre>{loaded.error}</pre>
+      </main>
+    );
+  const { data, tours } = loaded;
+  const dataVersion =
+    typeof data.meta?.version === "string" ? data.meta.version : "onbekend";
+  const tour = tours.find((t) => t.id === routeId) ?? tours[0];
+  const recommendedTour =
+    tours.find((item) => item.id === entryExperience?.recommendedTourId) ??
+    tour;
+  const node = data.nodes.find((n) => n.id === selected);
+  const visible = data.nodes.filter((n) => enabled.has(n.type)).length;
+  const step = (index: number) => {
+    if (tour) {
+      setMobileTourDetail(false);
+      setTourIndex(index);
+      select(tour.steps[index].nodeId);
+    }
+  };
+  const startTour = (route = tour) => {
+    if (route) {
+      setRouteId(route.id);
+      setIntro(false);
+      setTourIndex(0);
+      setMobileTourDetail(false);
+      select(route.steps[0].nodeId);
+      setTourChooser(false);
+    }
+  };
+  const requestTour = () => {
+    if (tours.length > 1) setTourChooser(true);
+    else startTour();
+  };
+  const freeSelect = (id: string | null) => {
+    setTourIndex(null);
+    setMobileTourDetail(false);
+    select(id);
+  };
+  const filter = (next: Set<NodeType>) => {
+    setEnabled(next);
+    if (node && !next.has(node.type)) {
+      setSelected(null);
+      setTourIndex(null);
+    }
+  };
+  const startNextTour = () => {
+    const next = tour?.nextTourId
+      ? tours.find((candidate) => candidate.id === tour.nextTourId)
+      : undefined;
+    if (next) startTour(next);
+  };
+  const closeMobileTourDetail = () => {
+    setMobileTourDetail(false);
+    if (tour && tourIndex !== null) select(tour.steps[tourIndex].nodeId);
+  };
+  return (
+    <div className="app-shell">
+      <header className="header">
+        <button
+          className="brand"
+          aria-label="Terug naar introductie"
+          onClick={() => {
+            setIntro(true);
+            setTourIndex(null);
+          }}
+        >
+          <Network size={23} />
+          <span>
+            trend<span className="brand-light">brein</span>
+            <small>ATLAS VAN EEN DENKPROCES</small>
+          </span>
+        </button>
+        <div className="header-right">
+          {data.demo && (
+            <span className="demo-badge">
+              <i /> Demo-omgeving
+            </span>
+          )}
+          <button
+            className={`research-toggle ${researchMode ? "active" : ""}`}
+            type="button"
+            aria-pressed={researchMode}
+            title={
+              typeof data.meta?.presentation === "object"
+                ? "Toon onderzoeksmetadata zoals status, confidence en relatietypes"
+                : undefined
+            }
+            onClick={() => setResearchMode((active) => !active)}
+          >
+            <FlaskConical size={14} /> Onderzoeksmodus
+          </button>
+          {researchMode && <span className="version">v{dataVersion}</span>}
+        </div>
+      </header>
+      {intro ? (
+        <Intro
+          demo={data.demo}
+          hasTour={!!tour}
+          entry={entryExperience}
+          onExplore={() => setIntro(false)}
+          onTour={() => startTour(recommendedTour)}
+        />
+      ) : (
+        <>
+          <div className={`workspace ${tourIndex !== null ? "touring" : ""}`}>
+            <aside className={`sidebar ${mobileFilters ? "mobile-open" : ""}`}>
+              <div className="sidebar-title">
+                <span className="eyebrow">Jouw perspectief</span>
+                <button
+                  className="mobile-only icon-button"
+                  onClick={() => setMobileFilters(false)}
+                  aria-label="Filters sluiten"
+                >
+                  <X size={18} />
+                </button>
+              </div>
+              <h1>
+                Alles begint met
+                <br />
+                een verbinding.
+              </h1>
+              <p className="sidebar-description">
+                Volg je nieuwsgierigheid.
+                <br />
+                Elke node opent een nieuwe gedachte.
+              </p>
+              <Search data={data} enabled={enabled} onSelect={freeSelect} />
+              <Filters data={data} enabled={enabled} onChange={filter} />
+              <div className="sidebar-footer">
+                <span className="eyebrow">Liever een route volgen?</span>
+                <button
+                  className="tour-start"
+                  disabled={!tour}
+                  onClick={requestTour}
+                >
+                  <Route size={17} /> Volg mijn reis <ArrowUpRight size={16} />
+                </button>
+                <small>
+                  {data.demo
+                    ? "Alle nodes en relaties zijn demo-data."
+                    : "Vrij verkennen of stap voor stap."}
+                </small>
+              </div>
+            </aside>
+            <main className="map-main">
+              <div className="map-title">
+                <span className="eyebrow">
+                  {tourIndex !== null ? "Guided tour" : "Explore mode"}
+                </span>
+                <h2>De neurale kaart</h2>
+                <span className="live-indicator">
+                  <i />
+                  {visible} gedachten zichtbaar
+                </span>
+              </div>
+              <button
+                className="mobile-filter-toggle"
+                onClick={() => setMobileFilters(true)}
+              >
+                <SlidersHorizontal size={16} /> Zoeken & lagen
+              </button>
+              <div className="map-preset" aria-label="Kaartweergave">
+                {(["core", "all"] as const).map((preset) => (
+                  <button
+                    key={preset}
+                    type="button"
+                    className={graphPreset === preset ? "active" : ""}
+                    aria-pressed={graphPreset === preset}
+                    title={graphPresentation?.presets?.[preset]?.description}
+                    onClick={() => setGraphPreset(preset)}
+                  >
+                    {graphPresentation?.presets?.[preset]?.label ??
+                      (preset === "core" ? "Kern" : "Alles")}
+                  </button>
+                ))}
+              </div>
+              <NeuralMap
+                data={data}
+                selected={selected}
+                enabled={enabled}
+                preset={graphPreset}
+                onSelect={freeSelect}
+                focusVersion={focusVersion}
+              />
+              {graphPreset === "core" &&
+                tourIndex === null &&
+                !node &&
+                enabled.has("opportunity") && (
+                  <nav
+                    className="mobile-shortlist"
+                    aria-label="Voorlopige kansrichtingen"
+                  >
+                    {data.nodes
+                      .filter((item) => item.status === "shortlisted_direction")
+                      .map((item) => (
+                        <button
+                          key={item.id}
+                          onClick={() => freeSelect(item.id)}
+                        >
+                          {item.title}
+                          <ArrowUpRight size={14} />
+                        </button>
+                      ))}
+                  </nav>
+                )}
+              {!visible && (
+                <div className="empty-map">
+                  <h3>
+                    {data.nodes.length
+                      ? "Even geen gedachten in beeld."
+                      : "Deze kaart is nog leeg."}
+                  </h3>
+                  {data.nodes.length > 0 && (
+                    <button onClick={() => setEnabled(new Set(nodeTypes))}>
+                      Alle lagen tonen
+                    </button>
+                  )}
+                </div>
+              )}
+              {tourIndex !== null && tour && (
+                <GuidedTour
+                  tour={tour}
+                  index={tourIndex}
+                  onStep={step}
+                  onExit={() => freeSelect(null)}
+                  onOpenDetail={() => setMobileTourDetail(true)}
+                  onNextTour={
+                    tour.nextTourId &&
+                    tours.some((item) => item.id === tour.nextTourId)
+                      ? startNextTour
+                      : undefined
+                  }
+                />
+              )}
+            </main>
+            {node && (
+              <NodeDetail
+                node={node}
+                data={data}
+                researchMode={researchMode}
+                tourActive={tourIndex !== null}
+                onSelect={freeSelect}
+                onClose={() => freeSelect(null)}
+              />
+            )}
+            {node && mobileTourDetail && tourIndex !== null && (
+              <TourDetailDialog onClose={closeMobileTourDetail}>
+                <NodeDetail
+                  node={node}
+                  data={data}
+                  researchMode={researchMode}
+                  tourActive
+                  onSelect={select}
+                  onClose={closeMobileTourDetail}
+                />
+              </TourDetailDialog>
+            )}
+          </div>
+          <footer className="statusbar">
+            <span>
+              <i /> {data.demo ? "DEMO-DATA" : "NEURALE KAART"}{" "}
+              <span className="footer-note">
+                {data.demo
+                  ? "Geen onderzoeksresultaten of trendconclusies"
+                  : "Een verbonden denkproces"}
+              </span>
+            </span>
+            <span>
+              {data.nodes.length} nodes <b>·</b> {data.edges.length}{" "}
+              verbindingen
+            </span>
+          </footer>
+        </>
+      )}
+      {tourChooser && (
+        <TourChooser
+          tours={tours}
+          onSelect={startTour}
+          onClose={() => setTourChooser(false)}
+        />
+      )}
+    </div>
+  );
+}
