@@ -5,6 +5,7 @@ export function GuidedTour({
   index,
   onStep,
   onExit,
+  onComplete,
   onOpenDetail,
   onNextTour,
   showIntro,
@@ -14,6 +15,7 @@ export function GuidedTour({
   index: number;
   onStep: (index: number) => void;
   onExit: () => void;
+  onComplete: () => void;
   onOpenDetail: () => void;
   onNextTour?: () => void;
   showIntro: boolean;
@@ -63,7 +65,7 @@ export function GuidedTour({
               {index + 1} <span className="muted">/ {tour.steps.length}</span>
             </span>
             {index === tour.steps.length - 1 ? (
-              <button onClick={onExit}>
+              <button onClick={onComplete}>
                 Afronden <ArrowRight size={15} />
               </button>
             ) : (

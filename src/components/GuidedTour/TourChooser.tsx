@@ -1,13 +1,16 @@
 import { useEffect } from "react";
-import { ArrowRight, Route, X } from "lucide-react";
+import { ArrowRight, Check, Route, X } from "lucide-react";
 import type { Tour } from "../../types/graph";
+import { tourActionLabel, type TourProgress } from "../../tours/tourProgress";
 
 export function TourChooser({
   tours,
+  progress,
   onSelect,
   onClose,
 }: {
   tours: Tour[];
+  progress: TourProgress;
   onSelect: (tour: Tour) => void;
   onClose: () => void;
 }) {
@@ -50,25 +53,40 @@ export function TourChooser({
           Volg een route om mijn proces stap voor stap te bekijken.
         </p>
         <div className="tour-options">
-          {tours.map((tour, index) => (
-            <button
-              key={tour.id}
-              autoFocus={index === 0}
-              onClick={() => onSelect(tour)}
-            >
-              <span className="tour-option-number">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="tour-option-copy">
-                <strong>{tour.title}</strong>
-                {tour.description && <small>{tour.description}</small>}
-                <span>
-                  <Route size={13} /> {tour.steps.length} stappen
+          {tours.map((tour, index) => {
+            const status = progress[tour.id];
+            return (
+              <button
+                key={tour.id}
+                autoFocus={index === 0}
+                onClick={() => onSelect(tour)}
+              >
+                <span className="tour-option-number">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
-              </span>
-              <ArrowRight size={17} />
-            </button>
-          ))}
+                <span className="tour-option-copy">
+                  <strong>{tour.title}</strong>
+                  {tour.description && <small>{tour.description}</small>}
+                  <span className="tour-option-meta">
+                    <Route size={13} /> {tour.steps.length} stappen
+                  </span>
+                  <span className="tour-option-status">
+                    {status?.completed ? (
+                      <>
+                        <Check size={13} /> Voltooid
+                      </>
+                    ) : status?.started ? (
+                      `Bezig · ${status.currentStep + 1}/${tour.steps.length}`
+                    ) : (
+                      "Nog niet gestart"
+                    )}
+                    <em>{tourActionLabel(status)}</em>
+                  </span>
+                </span>
+                <ArrowRight size={17} />
+              </button>
+            );
+          })}
         </div>
       </section>
     </div>

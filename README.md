@@ -1,6 +1,6 @@
-# Trendbrein · versie 0.8.0
+# Trendbrein · appversie 0.8.1
 
-Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De v0.8.0-dataset bevat **152 nodes, 346 verbindingen en zes tours met samen 61 stappen**. De inhoud van `graph.json` en `tours.json` is ongewijzigd overgenomen uit de v0.8.0-bundle; de app ondersteunt de bijbehorende bronmetadata, selectieargumentatie en tourhandoff. De versie in Onderzoeksmodus komt rechtstreeks uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`, `CHANGELOG_v0.8.0.md` en de historische audit `EVIDENCE_AUDIT_v0.6.0.md`.
+Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De ongewijzigde v0.8.0-dataset bevat **152 nodes, 346 verbindingen en zes tours met samen 61 stappen**. De app ondersteunt de bijbehorende bronmetadata, selectieargumentatie, tourhandoff en lokaal opgeslagen tourvoortgang. De versie in Onderzoeksmodus komt rechtstreeks uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`, `CHANGELOG_v0.8.1.md`, `CHANGELOG_v0.8.0.md` en de historische audit `EVIDENCE_AUDIT_v0.6.0.md`.
 
 ## Installatie en starten
 
@@ -14,7 +14,7 @@ npm run dev
 Open de lokale URL die Vite toont, standaard http://127.0.0.1:5173. De ontwikkelserver luistert alleen op localhost.
 
 ```sh
-npm test          # veertien controles op validatie, zoeken en graph-opbouw
+npm test          # negentien controles op data, graph-opbouw en tourvoortgang
 npm run build    # TypeScript strict-controle en statische productiebuild
 npm run preview  # productiebuild lokaal bekijken
 ```
@@ -117,7 +117,7 @@ Voeg in `src/data/tours.json` een object toe aan de `tours`-array binnen `{ "met
 }
 ```
 
-Elke tour heeft minimaal één stap. Bij meerdere tours opent `Volg mijn reis` eerst een routekeuze met titel, description en aantal stappen. De aanbevolen ingang start rechtstreeks `main-story`. Een optionele `intro` verschijnt vóór de eerste stap, zonder nodefocus; `phase` groepeert stappen subtiel in het routepaneel. Vorige/volgende selecteert de bijbehorende node en centreert de camera. De persoonlijke `step.text` staat in het routepaneel, terwijl het detailpaneel de analyse en bronnen toont. Op mobiel opent `Bekijk verdieping` dezelfde inhoud in een dialoog en keert sluiten terug naar dezelfde tourstap. De laatste stap kan een primaire vervolgknop tonen; in v0.8.0 leidt `main-story` daarmee rechtstreeks naar `from-trends-to-options`. Afronden en de sluitknop blijven beschikbaar. Zelf een node kiezen of de huidige node wegfilteren verlaat de tour. Pan en zoom blijven beschikbaar.
+Elke tour heeft minimaal één stap. Bij meerdere tours opent `Volg mijn reis` eerst een routekeuze met titel, description, aantal stappen en voortgang. De aanbevolen ingang start rechtstreeks `main-story`. Een optionele `intro` verschijnt vóór de eerste stap, zonder nodefocus; `phase` groepeert stappen subtiel in het routepaneel. Vorige/volgende selecteert de bijbehorende node en centreert de camera. De persoonlijke `step.text` staat in het routepaneel, terwijl het detailpaneel de analyse en bronnen toont. Vanuit een tour mag je andere nodes openen: de actieve route en stap blijven bestaan, met `Terug naar tour` als directe terugkeeractie. Op mobiel opent `Bekijk verdieping` dezelfde inhoud in een dialoog en keert sluiten terug naar dezelfde tourstap. De laatste stap kan een primaire vervolgknop tonen; in v0.8.0 leidt `main-story` daarmee rechtstreeks naar `from-trends-to-options`. Afronden markeert de route als voltooid. Voortgang wordt per tour opgeslagen in `localStorage` onder `trendbreinTourProgress:v1`; onvoltooide routes tonen `Hervat tour` na herladen. De sluitknop verlaat alleen de actieve route, zonder opgeslagen voortgang te verwijderen. Pan en zoom blijven beschikbaar.
 
 ### Validatie en uitbreiden
 
@@ -151,7 +151,7 @@ Voeg nieuwe node-/edge-types toe in `src/types/graph.ts`. Voeg daarbij een categ
 - Node-onderscheid gebruikt kleur plus grootte en tekst, zonder custom WebGL-vormprogramma's. Dit houdt de basis eenvoudig uitbreidbaar.
 - De ingebouwde Node-testrunner met `tsx` test de data en layout zonder extra browser- of UI-testserver.
 - Een lege dataset is toegestaan. Ontbrekende WebGL geeft een zichtbare melding; de nodelijst en details blijven beschikbaar.
-- Toestand wordt niet opgeslagen bij herladen. Er is nog geen inhoudseditor, importfunctie of permanente link naar een geselecteerde node.
+- Alleen tourvoortgang wordt lokaal opgeslagen bij herladen; selectie, filters en kaartweergave worden niet opgeslagen. Er is nog geen inhoudseditor, importfunctie of permanente link naar een geselecteerde node.
 
 ## Statisch publiceren, bijvoorbeeld GitHub Pages
 

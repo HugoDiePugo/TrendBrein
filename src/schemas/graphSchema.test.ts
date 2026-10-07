@@ -6,6 +6,14 @@ import { validateData } from "./graphSchema";
 import { buildGraph, displayNodeSize } from "../graph/buildGraph";
 import { nodeTypes, edgeTypes } from "../types/graph";
 import { matchesNodeQuery } from "../components/Search/Search";
+import {
+  TOUR_PROGRESS_STORAGE_KEY,
+  completeTour,
+  progressAtStep,
+  readTourProgress,
+  tourActionLabel,
+  writeTourProgress,
+} from "../tours/tourProgress";
 
 describe("dataset integrity", () => {
   it("loads all v0.8 nodes, edges and tours without changing supplied fields", () => {
@@ -287,5 +295,82 @@ describe("dataset integrity", () => {
         .order,
       1,
     );
+  });
+});
+
+describe("guided tour progress", () => {
+  const tours = validateData(graph, tourDocument).tours;
+  const mainStory = tours.find((tour) => tour.id === "main-story")!;
+  const opportunities = tours.find(
+    (tour) => tour.id === "from-trends-to-options",
+  )!;
+
+  it("keeps the current step when a visitor temporarily opens another node", () => {
+    const atStepSeven = progressAtStep({}, mainStory, 6);
+    const temporaryNodeSelection = mainStory.steps[2].nodeId;
+
+    assert.ok(temporaryNodeSelection);
+    assert.equal(atStepSeven[mainStory.id].currentStep, 6);
+    assert.equal(atStepSeven[mainStory.id].completed, false);
+  });
+
+  it("restores a started tour from local storage", () => {
+    const values = new Map<string, string>();
+    const storage = {
+      getItem: (key: string) => values.get(key) ?? null,
+      setItem: (key: string, value: string) => values.set(key, value),
+    };
+    const progress = progressAtStep({}, mainStory, 6);
+
+    writeTourProgress(progress, storage);
+    assert.deepEqual(readTourProgress(tours, storage), progress);
+    assert.equal(
+      tourActionLabel(readTourProgress(tours, storage)[mainStory.id]),
+      "Hervat tour",
+    );
+  });
+
+  it("marks only an explicitly finished tour as completed", () => {
+    const inProgress = progressAtStep(
+      {},
+      mainStory,
+      mainStory.steps.length - 1,
+    );
+    assert.equal(inProgress[mainStory.id].completed, false);
+
+    const completed = completeTour(inProgress, mainStory);
+    assert.equal(completed[mainStory.id].completed, true);
+    assert.equal(
+      completed[mainStory.id].currentStep,
+      mainStory.steps.length - 1,
+    );
+    assert.equal(tourActionLabel(completed[mainStory.id]), "Bekijk opnieuw");
+  });
+
+  it("completes the current route before a nextTour route starts", () => {
+    const beforeHandoff = progressAtStep(
+      {},
+      mainStory,
+      mainStory.steps.length - 1,
+    );
+    const afterHandoff = progressAtStep(
+      completeTour(beforeHandoff, mainStory),
+      opportunities,
+      0,
+    );
+
+    assert.equal(afterHandoff[mainStory.id].completed, true);
+    assert.equal(afterHandoff[opportunities.id].completed, false);
+    assert.equal(afterHandoff[opportunities.id].currentStep, 0);
+  });
+
+  it("ignores corrupt local storage progress", () => {
+    const storage = {
+      getItem: (key: string) =>
+        key === TOUR_PROGRESS_STORAGE_KEY ? "{not valid json" : null,
+      setItem: () => undefined,
+    };
+
+    assert.deepEqual(readTourProgress(tours, storage), {});
   });
 });

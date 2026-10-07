@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   ArrowUpRight,
   FlaskConical,
@@ -19,6 +19,13 @@ import { TourDetailDialog } from "./components/NodeDetail/TourDetailDialog";
 import { GuidedTour } from "./components/GuidedTour/GuidedTour";
 import { TourChooser } from "./components/GuidedTour/TourChooser";
 import { Intro } from "./components/Intro/Intro";
+import {
+  completeTour,
+  progressAtStep,
+  readTourProgress,
+  writeTourProgress,
+  type TourProgress,
+} from "./tours/tourProgress";
 
 function load() {
   try {
@@ -57,6 +64,7 @@ export default function App() {
   const [selected, setSelected] = useState<string | null>(null);
   const [enabled, setEnabled] = useState(new Set<NodeType>(nodeTypes));
   const [focusVersion, setFocusVersion] = useState(0);
+  const [activeTourId, setActiveTourId] = useState<string | null>(null);
   const [tourIndex, setTourIndex] = useState<number | null>(null);
   const [tourIntro, setTourIntro] = useState(false);
   const [tourChooser, setTourChooser] = useState(false);
@@ -71,6 +79,12 @@ export default function App() {
   );
   const [mobileFilters, setMobileFilters] = useState(false);
   const [researchMode, setResearchMode] = useState(false);
+  const [tourProgress, setTourProgress] = useState<TourProgress>(() =>
+    loaded.ok ? readTourProgress(loaded.tours) : {},
+  );
+  useEffect(() => {
+    writeTourProgress(tourProgress);
+  }, [tourProgress]);
   const select = useCallback((id: string | null) => {
     setSelected(id);
     setFocusVersion((v) => v + 1);
@@ -95,27 +109,38 @@ export default function App() {
   const dataVersion =
     typeof data.meta?.version === "string" ? data.meta.version : "onbekend";
   const tour = tours.find((t) => t.id === routeId) ?? tours[0];
+  const activeTour = activeTourId
+    ? tours.find((candidate) => candidate.id === activeTourId)
+    : undefined;
   const recommendedTour =
     tours.find((item) => item.id === entryExperience?.recommendedTourId) ??
     tour;
   const node = data.nodes.find((n) => n.id === selected);
   const visible = data.nodes.filter((n) => enabled.has(n.type)).length;
   const step = (index: number) => {
-    if (tour) {
+    if (activeTour && index >= 0 && index < activeTour.steps.length) {
       setTourIntro(false);
       setMobileTourDetail(false);
       setTourIndex(index);
-      select(tour.steps[index].nodeId);
+      setTourProgress((progress) =>
+        progressAtStep(progress, activeTour, index),
+      );
+      select(activeTour.steps[index].nodeId);
     }
   };
   const startTour = (route = tour) => {
     if (route) {
+      const saved = tourProgress[route.id];
+      const resume = !!(saved?.started && !saved.completed);
+      const nextIndex = resume ? saved.currentStep : 0;
       setRouteId(route.id);
+      setActiveTourId(route.id);
       setIntro(false);
-      setTourIntro(!!route.intro);
-      setTourIndex(route.intro ? null : 0);
+      setTourIntro(!resume && !!route.intro);
+      setTourIndex(!resume && route.intro ? null : nextIndex);
       setMobileTourDetail(false);
-      select(route.intro ? null : route.steps[0].nodeId);
+      setTourProgress((progress) => progressAtStep(progress, route, nextIndex));
+      select(!resume && route.intro ? null : route.steps[nextIndex].nodeId);
       setTourChooser(false);
     }
   };
@@ -124,8 +149,6 @@ export default function App() {
     else startTour();
   };
   const freeSelect = (id: string | null) => {
-    setTourIndex(null);
-    setTourIntro(false);
     setMobileTourDetail(false);
     select(id);
   };
@@ -133,20 +156,55 @@ export default function App() {
     setEnabled(next);
     if (node && !next.has(node.type)) {
       setSelected(null);
-      setTourIndex(null);
-      setTourIntro(false);
     }
   };
+  const returnToTour = () => {
+    if (activeTour && tourIndex !== null) step(tourIndex);
+  };
+  const finishTour = () => {
+    if (!activeTour) return;
+    setTourProgress((progress) => completeTour(progress, activeTour));
+    setActiveTourId(null);
+    setTourIndex(null);
+    setTourIntro(false);
+    setMobileTourDetail(false);
+    select(null);
+  };
+  const exitTour = () => {
+    setActiveTourId(null);
+    setTourIndex(null);
+    setTourIntro(false);
+    setMobileTourDetail(false);
+    select(null);
+  };
   const startNextTour = () => {
-    const next = tour?.nextTourId
-      ? tours.find((candidate) => candidate.id === tour.nextTourId)
+    const next = activeTour?.nextTourId
+      ? tours.find((candidate) => candidate.id === activeTour.nextTourId)
       : undefined;
+    if (activeTour) {
+      setTourProgress((progress) => completeTour(progress, activeTour));
+    }
     if (next) startTour(next);
   };
   const closeMobileTourDetail = () => {
     setMobileTourDetail(false);
-    if (tour && tourIndex !== null) select(tour.steps[tourIndex].nodeId);
+    returnToTour();
   };
+  const isExploringOutsideTour = !!(
+    activeTour &&
+    tourIndex !== null &&
+    selected !== activeTour.steps[tourIndex]?.nodeId
+  );
+  const tourContext =
+    activeTour && tourIndex !== null
+      ? {
+          title: activeTour.title,
+          currentStep: tourIndex,
+          totalSteps: activeTour.steps.length,
+          isExploring: isExploringOutsideTour,
+          onReturn: returnToTour,
+        }
+      : undefined;
   return (
     <div className="app-shell">
       <header className="header">
@@ -155,8 +213,7 @@ export default function App() {
           aria-label="Terug naar introductie"
           onClick={() => {
             setIntro(true);
-            setTourIndex(null);
-            setTourIntro(false);
+            exitTour();
           }}
         >
           <Network size={23} />
@@ -197,30 +254,31 @@ export default function App() {
         />
       ) : (
         <>
-          <div
-            className={`workspace ${tourIndex !== null || tourIntro ? "touring" : ""}`}
-          >
+          <div className={`workspace ${activeTourId ? "touring" : ""}`}>
             <aside className={`sidebar ${mobileFilters ? "mobile-open" : ""}`}>
-              <div className="sidebar-title">
-                <span className="eyebrow">Mijn Trendbrein</span>
-                <button
-                  className="mobile-only icon-button"
-                  onClick={() => setMobileFilters(false)}
-                  aria-label="Filters sluiten"
-                >
-                  <X size={18} />
-                </button>
+              <div className="sidebar-content">
+                <div className="sidebar-title">
+                  <span className="eyebrow">Mijn Trendbrein</span>
+                  <button
+                    className="mobile-only icon-button"
+                    onClick={() => setMobileFilters(false)}
+                    aria-label="Filters sluiten"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+                <h1>
+                  Verken mijn
+                  <br />
+                  Trendbrein.
+                </h1>
+                <p className="sidebar-description">
+                  Kies een node om mijn signalen, trends en verbanden te
+                  bekijken.
+                </p>
+                <Search data={data} enabled={enabled} onSelect={freeSelect} />
+                <Filters data={data} enabled={enabled} onChange={filter} />
               </div>
-              <h1>
-                Verken mijn
-                <br />
-                Trendbrein.
-              </h1>
-              <p className="sidebar-description">
-                Kies een node om mijn signalen, trends en verbanden te bekijken.
-              </p>
-              <Search data={data} enabled={enabled} onSelect={freeSelect} />
-              <Filters data={data} enabled={enabled} onChange={filter} />
               <div className="sidebar-footer">
                 <span className="eyebrow">Liever een route volgen?</span>
                 <button
@@ -314,22 +372,39 @@ export default function App() {
                   )}
                 </div>
               )}
-              {(tourIndex !== null || tourIntro) && tour && (
-                <GuidedTour
-                  tour={tour}
-                  index={tourIndex ?? 0}
-                  onStep={step}
-                  onExit={() => freeSelect(null)}
-                  onOpenDetail={() => setMobileTourDetail(true)}
-                  showIntro={tourIntro}
-                  onStart={() => step(0)}
-                  onNextTour={
-                    tour.nextTourId &&
-                    tours.some((item) => item.id === tour.nextTourId)
-                      ? startNextTour
-                      : undefined
-                  }
-                />
+              {activeTour &&
+                !isExploringOutsideTour &&
+                (tourIndex !== null || tourIntro) && (
+                  <GuidedTour
+                    tour={activeTour}
+                    index={tourIndex ?? 0}
+                    onStep={step}
+                    onExit={exitTour}
+                    onComplete={finishTour}
+                    onOpenDetail={() => setMobileTourDetail(true)}
+                    showIntro={tourIntro}
+                    onStart={() => step(0)}
+                    onNextTour={
+                      activeTour.nextTourId &&
+                      tours.some((item) => item.id === activeTour.nextTourId)
+                        ? startNextTour
+                        : undefined
+                    }
+                  />
+                )}
+              {tourContext?.isExploring && (
+                <section className="tour-context" aria-label="Actieve tour">
+                  <div>
+                    <strong>{tourContext.title}</strong>
+                    <span>
+                      Stap {tourContext.currentStep + 1} van{" "}
+                      {tourContext.totalSteps}
+                    </span>
+                  </div>
+                  <button onClick={tourContext.onReturn}>
+                    Terug naar tour
+                  </button>
+                </section>
               )}
             </main>
             {node && (
@@ -337,18 +412,20 @@ export default function App() {
                 node={node}
                 data={data}
                 researchMode={researchMode}
-                tourActive={tourIndex !== null || tourIntro}
+                tourActive={!!activeTourId}
+                tourContext={tourContext}
                 onSelect={freeSelect}
                 onClose={() => freeSelect(null)}
               />
             )}
-            {node && mobileTourDetail && tourIndex !== null && (
+            {node && mobileTourDetail && activeTour && tourIndex !== null && (
               <TourDetailDialog onClose={closeMobileTourDetail}>
                 <NodeDetail
                   node={node}
                   data={data}
                   researchMode={researchMode}
                   tourActive
+                  tourContext={tourContext}
                   onSelect={select}
                   onClose={closeMobileTourDetail}
                 />
@@ -374,6 +451,7 @@ export default function App() {
       {tourChooser && (
         <TourChooser
           tours={tours}
+          progress={tourProgress}
           onSelect={startTour}
           onClose={() => setTourChooser(false)}
         />

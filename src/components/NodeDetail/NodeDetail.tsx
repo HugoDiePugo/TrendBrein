@@ -140,6 +140,7 @@ export function NodeDetail({
   data,
   researchMode,
   tourActive,
+  tourContext,
   onSelect,
   onClose,
 }: {
@@ -147,6 +148,13 @@ export function NodeDetail({
   data: GraphData;
   researchMode: boolean;
   tourActive: boolean;
+  tourContext?: {
+    title: string;
+    currentStep: number;
+    totalSteps: number;
+    isExploring: boolean;
+    onReturn: () => void;
+  };
   onSelect: (id: string) => void;
   onClose: () => void;
 }) {
@@ -206,6 +214,17 @@ export function NodeDetail({
           <X size={18} />
         </button>
       </div>
+      {tourContext?.isExploring && (
+        <section className="detail-tour-context">
+          <div>
+            <strong>{tourContext.title}</strong>
+            <span>
+              Stap {tourContext.currentStep + 1} van {tourContext.totalSteps}
+            </span>
+          </div>
+          <button onClick={tourContext.onReturn}>Terug naar tour</button>
+        </section>
+      )}
       <span
         className="node-type"
         style={{ color: categories[node.type].color }}
