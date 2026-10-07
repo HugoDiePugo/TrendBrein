@@ -8,17 +8,17 @@ import { nodeTypes, edgeTypes } from "../types/graph";
 import { matchesNodeQuery } from "../components/Search/Search";
 
 describe("dataset integrity", () => {
-  it("loads all v0.7 nodes, edges and tours without changing supplied fields", () => {
+  it("loads all v0.8 nodes, edges and tours without changing supplied fields", () => {
     const result = validateData(graph, tourDocument);
     assert.equal(result.data.demo, false);
-    assert.equal(result.data.meta?.version, "0.7.0");
-    assert.equal(result.tourMeta?.version, "0.7.0");
+    assert.equal(result.data.meta?.version, "0.8.0");
+    assert.equal(result.tourMeta?.version, "0.8.0");
     assert.equal(result.data.nodes.length, 152);
     assert.equal(result.data.edges.length, 346);
     assert.equal(result.tours.length, 6);
     assert.equal(
       result.tours.reduce((total, tour) => total + tour.steps.length, 0),
-      59,
+      61,
     );
     assert.deepEqual(
       result.tours.map((tour) => tour.title),

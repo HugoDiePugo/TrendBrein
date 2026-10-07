@@ -1163,6 +1163,20 @@ input {
   color: var(--muted);
   white-space: pre-wrap;
 }
+.tour-phase {
+  display: block;
+  margin-top: 12px;
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.tour-intro-start {
+  width: 100%;
+  justify-content: center;
+  margin: 16px 0 4px;
+}
 .tour-story {
   max-height: 220px;
   overflow-y: auto;

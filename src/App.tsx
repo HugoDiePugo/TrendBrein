@@ -58,6 +58,7 @@ export default function App() {
   const [enabled, setEnabled] = useState(new Set<NodeType>(nodeTypes));
   const [focusVersion, setFocusVersion] = useState(0);
   const [tourIndex, setTourIndex] = useState<number | null>(null);
+  const [tourIntro, setTourIntro] = useState(false);
   const [tourChooser, setTourChooser] = useState(false);
   const [mobileTourDetail, setMobileTourDetail] = useState(false);
   const [routeId, setRouteId] = useState(
@@ -101,6 +102,7 @@ export default function App() {
   const visible = data.nodes.filter((n) => enabled.has(n.type)).length;
   const step = (index: number) => {
     if (tour) {
+      setTourIntro(false);
       setMobileTourDetail(false);
       setTourIndex(index);
       select(tour.steps[index].nodeId);
@@ -110,9 +112,10 @@ export default function App() {
     if (route) {
       setRouteId(route.id);
       setIntro(false);
-      setTourIndex(0);
+      setTourIntro(!!route.intro);
+      setTourIndex(route.intro ? null : 0);
       setMobileTourDetail(false);
-      select(route.steps[0].nodeId);
+      select(route.intro ? null : route.steps[0].nodeId);
       setTourChooser(false);
     }
   };
@@ -122,6 +125,7 @@ export default function App() {
   };
   const freeSelect = (id: string | null) => {
     setTourIndex(null);
+    setTourIntro(false);
     setMobileTourDetail(false);
     select(id);
   };
@@ -130,6 +134,7 @@ export default function App() {
     if (node && !next.has(node.type)) {
       setSelected(null);
       setTourIndex(null);
+      setTourIntro(false);
     }
   };
   const startNextTour = () => {
@@ -151,6 +156,7 @@ export default function App() {
           onClick={() => {
             setIntro(true);
             setTourIndex(null);
+            setTourIntro(false);
           }}
         >
           <Network size={23} />
@@ -191,7 +197,9 @@ export default function App() {
         />
       ) : (
         <>
-          <div className={`workspace ${tourIndex !== null ? "touring" : ""}`}>
+          <div
+            className={`workspace ${tourIndex !== null || tourIntro ? "touring" : ""}`}
+          >
             <aside className={`sidebar ${mobileFilters ? "mobile-open" : ""}`}>
               <div className="sidebar-title">
                 <span className="eyebrow">Jouw perspectief</span>
@@ -234,7 +242,9 @@ export default function App() {
             <main className="map-main">
               <div className="map-title">
                 <span className="eyebrow">
-                  {tourIndex !== null ? "Guided tour" : "Explore mode"}
+                  {tourIndex !== null || tourIntro
+                    ? "Guided tour"
+                    : "Explore mode"}
                 </span>
                 <h2>De neurale kaart</h2>
                 <span className="live-indicator">
@@ -306,13 +316,15 @@ export default function App() {
                   )}
                 </div>
               )}
-              {tourIndex !== null && tour && (
+              {(tourIndex !== null || tourIntro) && tour && (
                 <GuidedTour
                   tour={tour}
-                  index={tourIndex}
+                  index={tourIndex ?? 0}
                   onStep={step}
                   onExit={() => freeSelect(null)}
                   onOpenDetail={() => setMobileTourDetail(true)}
+                  showIntro={tourIntro}
+                  onStart={() => step(0)}
                   onNextTour={
                     tour.nextTourId &&
                     tours.some((item) => item.id === tour.nextTourId)
@@ -327,7 +339,7 @@ export default function App() {
                 node={node}
                 data={data}
                 researchMode={researchMode}
-                tourActive={tourIndex !== null}
+                tourActive={tourIndex !== null || tourIntro}
                 onSelect={freeSelect}
                 onClose={() => freeSelect(null)}
               />

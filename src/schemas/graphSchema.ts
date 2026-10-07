@@ -181,10 +181,25 @@ export const tourSchema = z.object({
   id,
   title: id,
   description: z.string().optional(),
+  intro: z
+    .object({
+      title: id,
+      text: z.string(),
+    })
+    .optional(),
   nextTourId: id.optional(),
   nextTourLabel: z.string().optional(),
   nextTourDescription: z.string().optional(),
-  steps: z.array(z.object({ nodeId: id, title: id, text: z.string() })).min(1),
+  steps: z
+    .array(
+      z.object({
+        nodeId: id,
+        title: id,
+        text: z.string(),
+        phase: z.string().optional(),
+      }),
+    )
+    .min(1),
 });
 export function validateData(graph: unknown, tours: unknown) {
   const data = graphSchema.parse(graph);

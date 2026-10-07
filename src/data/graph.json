@@ -1,9 +1,9 @@
 {
   "meta": {
     "project": "Trendbrein",
-    "version": "0.7.0",
-    "updated": "2026-10-05",
-    "description": "Final-fix version: tighter source-to-claim precision, corrected dates, explicit handoff to opportunities, selection rationale, subcluster evidence rendering guidance and targeted tour de-duplication.",
+    "version": "0.8.0",
+    "updated": "2026-10-07",
+    "description": "Tour clarity release: stronger onboarding, chronological main story and self-contained opportunity route.",
     "important": "Een edge betekent een inhoudelijke relatie, niet automatisch causaliteit.",
     "writing_style": "Ik-vorm, direct, technisch maar persoonlijk. Geen em-dashes in zichtbare tekst.",
     "presentation": {
@@ -112,7 +112,11 @@
     "tourPresentation": {
       "tourTextRole": "persoonlijk proces en overgang naar de volgende stap",
       "detailPanelRole": "analyse, bewijs, bron en verdieping",
-      "avoidDuplicateSummaryDuringTour": true
+      "avoidDuplicateSummaryDuringTour": true,
+      "showIntroBeforeFirstStep": true,
+      "showPhaseLabel": true,
+      "readerAssumption": "Assume the visitor does not know the assignment or previous tours.",
+      "noForwardReferences": true
     },
     "reviewFixes": {
       "mustFix": [
