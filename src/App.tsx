@@ -146,7 +146,9 @@ export default function App() {
       setLegendCollapsed(true);
       setSidebarCollapsed(true);
       setTourProgress((progress) => progressAtStep(progress, route, nextIndex));
-      select(!resume && route.intro ? null : route.steps[nextIndex].nodeId);
+      // Keep the first route node in view during the introduction as well.
+      // Otherwise the full graph briefly reads as one dense cluster.
+      select(route.steps[nextIndex].nodeId);
       setTourChooser(false);
     }
   };
@@ -382,6 +384,7 @@ export default function App() {
                 selected={selected}
                 enabled={enabled}
                 preset={graphPreset}
+                tourActive={!!activeTourId}
                 onSelect={freeSelect}
                 focusVersion={focusVersion}
               />

@@ -10,6 +10,7 @@ type Props = {
   selected: string | null;
   enabled: Set<NodeType>;
   preset: GraphPreset;
+  tourActive: boolean;
   onSelect: (id: string | null) => void;
   focusVersion: number;
 };
@@ -18,6 +19,7 @@ export function NeuralMap({
   selected,
   enabled,
   preset,
+  tourActive,
   onSelect,
   focusVersion,
 }: Props) {
@@ -178,18 +180,26 @@ export function NeuralMap({
   useEffect(() => {
     const sigma = renderer.current;
     if (!sigma || !selected || !sigma.getGraph().hasNode(selected)) return;
-    // Reducer settings schedule processing. Finish it before reading normalized
-    // display coordinates, otherwise the camera can receive raw layout positions.
-    sigma.refresh();
-    const point = sigma.getNodeDisplayData(selected);
-    if (point)
-      void sigma
-        .getCamera()
-        .animate(
-          { x: point.x, y: point.y, ratio: 0.65 },
+    const focusSelectedNode = () => {
+      // Reducer settings schedule processing. Finish it before reading normalized
+      // display coordinates, otherwise the camera can receive raw layout positions.
+      sigma.refresh();
+      const point = sigma.getNodeDisplayData(selected);
+      if (point)
+        void sigma.getCamera().animate(
+          {
+            x: point.x,
+            y: point.y,
+            ratio: tourActive ? (compact ? 0.28 : 0.36) : 0.65,
+          },
           { duration: duration() },
         );
-  }, [selected, focusVersion, data]);
+    };
+    // Wait for the sidebar-collapse transition before centering the tour view.
+    // This keeps a route node and its direct relationships readable on small screens.
+    const timeout = window.setTimeout(focusSelectedNode, tourActive ? 230 : 0);
+    return () => window.clearTimeout(timeout);
+  }, [selected, focusVersion, data, compact, tourActive]);
   return (
     <div className="map-wrap">
       <div
