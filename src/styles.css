@@ -437,19 +437,20 @@ input {
 }
 .tour-sidebar-toggle {
   position: absolute;
-  left: 14px;
-  top: 50%;
+  left: 30px;
+  top: 136px;
   z-index: 4;
-  display: grid;
-  width: 33px;
-  height: 42px;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 10px;
   border: 1px solid #3b4a46;
   border-radius: 5px;
   background: #111c24ed;
   color: var(--muted);
   box-shadow: 0 8px 22px #0004;
-  transform: translateY(-50%);
+  font-size: 10px;
 }
 .tour-sidebar-toggle:hover {
   border-color: #71866e;

@@ -343,6 +343,9 @@ export default function App() {
                 ) : (
                   <PanelLeftClose size={17} />
                 )}
+                <span>
+                  {sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"}
+                </span>
               </button>
               <div className="map-title">
                 <span className="eyebrow">
