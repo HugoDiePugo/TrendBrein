@@ -110,6 +110,7 @@ export function NeuralMap({
     )?.labelRules;
     const hiddenTypes = new Set(rules?.defaultHideLabelsForTypes ?? []);
     const hiddenStatuses = new Set(rules?.defaultHideLabelsForStatuses ?? []);
+    const showTourContextOnly = tourActive && !!active;
     sigma.setSetting("nodeReducer", (id, attrs) => {
       const relevant = !active || id === active || neighbors.has(id);
       const coreEmphasized =
@@ -142,9 +143,11 @@ export function NeuralMap({
       return {
         ...attrs,
         size:
-          displayNodeSize(Number(attrs.baseSize), id === active) * 0.72 *
+          displayNodeSize(Number(attrs.baseSize), id === active) *
+          (tourActive ? 0.6 : 0.72) *
           (coreEmphasized ? 1 : 0.72),
-        hidden: !enabled.has(attrs.category),
+        hidden:
+          !enabled.has(attrs.category) || (showTourContextOnly && !relevant),
         color: relevant && coreEmphasized ? attrs.color : palette.muted,
         label: relevant && (active || detailed || overviewLabel) ? label : "",
         highlighted: id === active,
@@ -162,7 +165,8 @@ export function NeuralMap({
         ...attrs,
         hidden:
           !enabled.has(graph.getNodeAttribute(source, "category")) ||
-          !enabled.has(graph.getNodeAttribute(target, "category")),
+          !enabled.has(graph.getNodeAttribute(target, "category")) ||
+          (showTourContextOnly && !relevant),
         color: relevant
           ? palette.active
           : active
@@ -176,7 +180,7 @@ export function NeuralMap({
         zIndex: relevant ? 1 : 0,
       };
     });
-  }, [hovered, selected, enabled, data, detailed, compact, preset]);
+  }, [hovered, selected, enabled, data, detailed, compact, preset, tourActive]);
   useEffect(() => {
     const sigma = renderer.current;
     if (!sigma || !selected || !sigma.getGraph().hasNode(selected)) return;
