@@ -17,18 +17,27 @@ export function Filters({
 }: Props) {
   return (
     <section className={`filters ${collapsed ? "is-collapsed" : ""}`}>
-      <div className="section-heading">
-        <h2>Legenda en lagen</h2>
-        {onToggle ? (
+      {collapsed && onToggle ? (
+        <button
+          className="legend-collapsed-toggle"
+          aria-expanded="false"
+          onClick={onToggle}
+        >
+          <ChevronRight size={14} /> Legenda en lagen tonen
+        </button>
+      ) : (
+        <>
+          <div className="section-heading">
+            <h2>Legenda en lagen</h2>
+            {onToggle ? (
           <button
             className="legend-toggle"
-            aria-expanded={!collapsed}
+            aria-expanded="true"
             onClick={onToggle}
           >
-            {collapsed ? <ChevronRight size={13} /> : <ChevronDown size={13} />}
-            {collapsed ? "Legenda tonen" : "Legenda verbergen"}
+            <ChevronDown size={13} /> Legenda inklappen
           </button>
-        ) : (
+            ) : (
           <button
             onClick={() =>
               onChange(
@@ -38,31 +47,31 @@ export function Filters({
           >
             {enabled.size === nodeTypes.length ? "Alles uit" : "Alles aan"}
           </button>
-        )}
-      </div>
-      {!collapsed && (
-        <div className="filter-list">
-          {nodeTypes.map((type) => (
-            <label key={type} className={!enabled.has(type) ? "disabled" : ""}>
-              <input
-                type="checkbox"
-                checked={enabled.has(type)}
-                onChange={() => {
-                  const next = new Set(enabled);
-                  if (next.has(type)) next.delete(type);
-                  else next.add(type);
-                  onChange(next);
-                }}
-              />
-              <span
-                className="type-dot"
-                style={{ background: categories[type].color }}
-              />
-              <span>{categories[type].label}</span>
-              <small>{data.nodes.filter((n) => n.type === type).length}</small>
-            </label>
-          ))}
-        </div>
+            )}
+          </div>
+          <div className="filter-list">
+            {nodeTypes.map((type) => (
+              <label key={type} className={!enabled.has(type) ? "disabled" : ""}>
+                <input
+                  type="checkbox"
+                  checked={enabled.has(type)}
+                  onChange={() => {
+                    const next = new Set(enabled);
+                    if (next.has(type)) next.delete(type);
+                    else next.add(type);
+                    onChange(next);
+                  }}
+                />
+                <span
+                  className="type-dot"
+                  style={{ background: categories[type].color }}
+                />
+                <span>{categories[type].label}</span>
+                <small>{data.nodes.filter((n) => n.type === type).length}</small>
+              </label>
+            ))}
+          </div>
+        </>
       )}
     </section>
   );

@@ -140,7 +140,7 @@ export function NeuralMap({
       return {
         ...attrs,
         size:
-          displayNodeSize(Number(attrs.baseSize), id === active) *
+          displayNodeSize(Number(attrs.baseSize), id === active) * 0.72 *
           (coreEmphasized ? 1 : 0.72),
         hidden: !enabled.has(attrs.category),
         color: relevant && coreEmphasized ? attrs.color : palette.muted,
@@ -168,7 +168,7 @@ export function NeuralMap({
             : preset === "core" && !coreEdge
               ? palette.dimmedEdge
               : palette.edge,
-        size: relevant ? 1.5 : preset === "core" && !coreEdge ? 0.4 : 0.65,
+        size: relevant ? 1.65 : preset === "core" && !coreEdge ? 0.55 : 0.9,
         label: relevant && (neighbors.size <= 6 || detailed) ? attrs.label : "",
         forceLabel: false,
         zIndex: relevant ? 1 : 0,

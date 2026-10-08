@@ -2,8 +2,8 @@ import type { NodeType } from "../types/graph";
 // Alle graphkleuren en categoriebehandelingen zijn hier configureerbaar.
 export const palette = {
   background: "#080d12",
-  edge: "#35434e",
-  dimmedEdge: "#19232c",
+  edge: "#506572",
+  dimmedEdge: "#263640",
   muted: "#25313a",
   active: "#d4e7db",
   text: "#a8bac7",

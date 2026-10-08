@@ -58,18 +58,22 @@ export function GuidedTour({
             </div>
           )}
           <div className="tour-navigation">
-            <button disabled={index === 0} onClick={() => onStep(index - 1)}>
+            <button
+              className="tour-previous"
+              disabled={index === 0}
+              onClick={() => onStep(index - 1)}
+            >
               <ArrowLeft size={15} /> Vorige
             </button>
             <span>
               {index + 1} <span className="muted">/ {tour.steps.length}</span>
             </span>
             {index === tour.steps.length - 1 ? (
-              <button onClick={onComplete}>
+              <button className="tour-next" onClick={onComplete}>
                 Afronden <ArrowRight size={15} />
               </button>
             ) : (
-              <button onClick={() => onStep(index + 1)}>
+              <button className="tour-next" onClick={() => onStep(index + 1)}>
                 Volgende <ArrowRight size={15} />
               </button>
             )}
