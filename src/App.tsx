@@ -3,6 +3,8 @@ import {
   ArrowUpRight,
   FlaskConical,
   Network,
+  PanelLeftClose,
+  PanelLeftOpen,
   Route,
   SlidersHorizontal,
   X,
@@ -80,6 +82,7 @@ export default function App() {
   const [mobileFilters, setMobileFilters] = useState(false);
   const [researchMode, setResearchMode] = useState(false);
   const [legendCollapsed, setLegendCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [tourProgress, setTourProgress] = useState<TourProgress>(() =>
     loaded.ok ? readTourProgress(loaded.tours) : {},
   );
@@ -141,6 +144,7 @@ export default function App() {
       setTourIndex(!resume && route.intro ? null : nextIndex);
       setMobileTourDetail(false);
       setLegendCollapsed(true);
+      setSidebarCollapsed(true);
       setTourProgress((progress) => progressAtStep(progress, route, nextIndex));
       select(!resume && route.intro ? null : route.steps[nextIndex].nodeId);
       setTourChooser(false);
@@ -171,6 +175,7 @@ export default function App() {
     setTourIntro(false);
     setMobileTourDetail(false);
     setLegendCollapsed(false);
+    setSidebarCollapsed(false);
     select(null);
   };
   const exitTour = () => {
@@ -179,6 +184,7 @@ export default function App() {
     setTourIntro(false);
     setMobileTourDetail(false);
     setLegendCollapsed(false);
+    setSidebarCollapsed(false);
     select(null);
   };
   const startNextTour = () => {
@@ -259,7 +265,14 @@ export default function App() {
       ) : (
         <>
           <div className={`workspace ${activeTourId ? "touring" : ""}`}>
-            <aside className={`sidebar ${mobileFilters ? "mobile-open" : ""}`}>
+            <aside
+              className={`sidebar ${mobileFilters ? "mobile-open" : ""} ${
+                sidebarCollapsed ? "is-collapsed" : ""
+              }`}
+              aria-hidden={sidebarCollapsed}
+            >
+              {!sidebarCollapsed && (
+                <>
               <div className="sidebar-content">
                 <div className="sidebar-title">
                   <span className="eyebrow">Mijn Trendbrein</span>
@@ -308,8 +321,29 @@ export default function App() {
                     : "Verken vrij of volg mijn route stap voor stap."}
                 </small>
               </div>
+                </>
+              )}
             </aside>
             <main className="map-main">
+              {activeTourId && (
+                <button
+                  className="tour-sidebar-toggle"
+                  aria-label={
+                    sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"
+                  }
+                  aria-expanded={!sidebarCollapsed}
+                  title={
+                    sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"
+                  }
+                  onClick={() => setSidebarCollapsed((collapsed) => !collapsed)}
+                >
+                  {sidebarCollapsed ? (
+                    <PanelLeftOpen size={17} />
+                  ) : (
+                    <PanelLeftClose size={17} />
+                  )}
+                </button>
+              )}
               <div className="map-title">
                 <span className="eyebrow">
                   {tourIndex !== null || tourIntro

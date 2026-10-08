@@ -181,6 +181,11 @@ input {
   display: flex;
   flex-direction: column;
   z-index: 3;
+  transition: width 0.2s ease, border-color 0.2s ease;
+}
+.sidebar.is-collapsed {
+  width: 0;
+  border-right-color: transparent;
 }
 .sidebar-content {
   min-height: 0;
@@ -429,6 +434,27 @@ input {
     11px 20px,
     43px 71px;
   pointer-events: none;
+}
+.tour-sidebar-toggle {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  z-index: 4;
+  display: grid;
+  width: 33px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid #3b4a46;
+  border-radius: 5px;
+  background: #111c24ed;
+  color: var(--muted);
+  box-shadow: 0 8px 22px #0004;
+  transform: translateY(-50%);
+}
+.tour-sidebar-toggle:hover {
+  border-color: #71866e;
+  background: #19272b;
+  color: var(--accent);
 }
 .map-title {
   position: absolute;
