@@ -149,7 +149,12 @@ export function NeuralMap({
         hidden:
           !enabled.has(attrs.category) || (showTourContextOnly && !relevant),
         color: relevant && coreEmphasized ? attrs.color : palette.muted,
-        label: relevant && (active || detailed || overviewLabel) ? label : "",
+        // During a guided route, the tour panel and detail panel already name
+        // the active node. Canvas labels would overlap the local relationships.
+        label:
+          !tourActive && relevant && (active || detailed || overviewLabel)
+            ? label
+            : "",
         highlighted: id === active,
         zIndex: id === active ? 2 : 0,
         forceLabel: id === active || (!active && mobileShortlist),
@@ -175,7 +180,10 @@ export function NeuralMap({
               ? palette.dimmedEdge
               : palette.edge,
         size: relevant ? 1.65 : preset === "core" && !coreEdge ? 0.55 : 0.9,
-        label: relevant && (neighbors.size <= 6 || detailed) ? attrs.label : "",
+        label:
+          !tourActive && relevant && (neighbors.size <= 6 || detailed)
+            ? attrs.label
+            : "",
         forceLabel: false,
         zIndex: relevant ? 1 : 0,
       };
