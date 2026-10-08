@@ -327,25 +327,23 @@ export default function App() {
               )}
             </aside>
             <main className="map-main">
-              {activeTourId && (
-                <button
-                  className="tour-sidebar-toggle"
-                  aria-label={
-                    sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"
-                  }
-                  aria-expanded={!sidebarCollapsed}
-                  title={
-                    sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"
-                  }
-                  onClick={() => setSidebarCollapsed((collapsed) => !collapsed)}
-                >
-                  {sidebarCollapsed ? (
-                    <PanelLeftOpen size={17} />
-                  ) : (
-                    <PanelLeftClose size={17} />
-                  )}
-                </button>
-              )}
+              <button
+                className="tour-sidebar-toggle"
+                aria-label={
+                  sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"
+                }
+                aria-expanded={!sidebarCollapsed}
+                title={
+                  sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"
+                }
+                onClick={() => setSidebarCollapsed((collapsed) => !collapsed)}
+              >
+                {sidebarCollapsed ? (
+                  <PanelLeftOpen size={17} />
+                ) : (
+                  <PanelLeftClose size={17} />
+                )}
+              </button>
               <div className="map-title">
                 <span className="eyebrow">
                   {tourIndex !== null || tourIntro

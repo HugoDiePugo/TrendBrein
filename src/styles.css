@@ -1745,6 +1745,9 @@ input {
   }
 }
 @media (max-width: 800px) {
+  .tour-sidebar-toggle {
+    display: none;
+  }
   .header {
     height: 69px;
     padding: 0 18px;
