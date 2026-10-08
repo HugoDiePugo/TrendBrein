@@ -298,6 +298,15 @@ input {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.section-heading .legend-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+}
+.filters.is-collapsed {
+  padding-bottom: 4px;
+}
 .filter-list {
   display: grid;
   gap: 2px;
