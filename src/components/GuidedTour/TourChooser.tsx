@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowRight, Check, Route, X } from "lucide-react";
+import { ArrowRight, Check, RotateCcw, Route, X } from "lucide-react";
 import type { Tour } from "../../types/graph";
 import { tourActionLabel, type TourProgress } from "../../tours/tourProgress";
 
@@ -8,11 +8,13 @@ export function TourChooser({
   progress,
   onSelect,
   onClose,
+  onResetProgress,
 }: {
   tours: Tour[];
   progress: TourProgress;
   onSelect: (tour: Tour) => void;
   onClose: () => void;
+  onResetProgress: () => void;
 }) {
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
@@ -88,6 +90,11 @@ export function TourChooser({
             );
           })}
         </div>
+        {Object.keys(progress).length > 0 && (
+          <button className="tour-progress-reset" onClick={onResetProgress}>
+            <RotateCcw size={14} /> Reset tourvoortgang
+          </button>
+        )}
       </section>
     </div>
   );

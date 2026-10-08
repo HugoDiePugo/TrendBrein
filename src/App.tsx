@@ -505,6 +505,7 @@ export default function App() {
           progress={tourProgress}
           onSelect={startTour}
           onClose={() => setTourChooser(false)}
+          onResetProgress={() => setTourProgress({})}
         />
       )}
     </div>

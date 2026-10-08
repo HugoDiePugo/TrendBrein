@@ -1315,6 +1315,18 @@ input {
   gap: 9px;
   margin-top: 24px;
 }
+.tour-progress-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  padding: 8px 0;
+  color: var(--muted);
+  font-size: 10px;
+}
+.tour-progress-reset:hover {
+  color: var(--accent);
+}
 .tour-options > button {
   display: grid;
   grid-template-columns: 30px 1fr auto;
