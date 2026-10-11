@@ -19,6 +19,7 @@ import { Search } from "./components/Search/Search";
 import { NodeDetail } from "./components/NodeDetail/NodeDetail";
 import { TourDetailDialog } from "./components/NodeDetail/TourDetailDialog";
 import { GuidedTour } from "./components/GuidedTour/GuidedTour";
+import { TourCompletion } from "./components/GuidedTour/TourCompletion";
 import { TourChooser } from "./components/GuidedTour/TourChooser";
 import { Intro } from "./components/Intro/Intro";
 import {
@@ -66,6 +67,7 @@ export default function App() {
   const [selected, setSelected] = useState<string | null>(null);
   const [enabled, setEnabled] = useState(new Set<NodeType>(nodeTypes));
   const [focusVersion, setFocusVersion] = useState(0);
+  const [mapResetVersion, setMapResetVersion] = useState(0);
   const [activeTourId, setActiveTourId] = useState<string | null>(null);
   const [tourIndex, setTourIndex] = useState<number | null>(null);
   const [tourIntro, setTourIntro] = useState(false);
@@ -83,6 +85,7 @@ export default function App() {
   const [researchMode, setResearchMode] = useState(false);
   const [legendCollapsed, setLegendCollapsed] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [tourCompletionOpen, setTourCompletionOpen] = useState(false);
   const [tourProgress, setTourProgress] = useState<TourProgress>(() =>
     loaded.ok ? readTourProgress(loaded.tours) : {},
   );
@@ -138,6 +141,7 @@ export default function App() {
       const resume = !!(saved?.started && !saved.completed);
       const nextIndex = resume ? saved.currentStep : 0;
       setRouteId(route.id);
+      setTourCompletionOpen(false);
       setActiveTourId(route.id);
       setIntro(false);
       setTourIntro(!resume && !!route.intro);
@@ -171,13 +175,15 @@ export default function App() {
   };
   const finishTour = () => {
     if (!activeTour) return;
+    const showCompletion = activeTour.id === "from-trends-to-options";
     setTourProgress((progress) => completeTour(progress, activeTour));
     setActiveTourId(null);
     setTourIndex(null);
     setTourIntro(false);
     setMobileTourDetail(false);
     setLegendCollapsed(false);
-    setSidebarCollapsed(false);
+    setSidebarCollapsed(showCompletion);
+    setTourCompletionOpen(showCompletion);
     select(null);
   };
   const exitTour = () => {
@@ -187,7 +193,18 @@ export default function App() {
     setMobileTourDetail(false);
     setLegendCollapsed(false);
     setSidebarCollapsed(false);
+    setTourCompletionOpen(false);
     select(null);
+  };
+  const exploreAfterCompletion = () => {
+    setTourCompletionOpen(false);
+    setSidebarCollapsed(false);
+    select(null);
+    setMapResetVersion((version) => version + 1);
+  };
+  const viewOptionsAfterCompletion = () => {
+    setGraphPreset("core");
+    exploreAfterCompletion();
   };
   const startNextTour = () => {
     const next = activeTour?.nextTourId
@@ -388,6 +405,7 @@ export default function App() {
                 tourActive={!!activeTourId}
                 onSelect={freeSelect}
                 focusVersion={focusVersion}
+                resetVersion={mapResetVersion}
               />
               {graphPreset === "core" &&
                 tourIndex === null &&
@@ -457,6 +475,12 @@ export default function App() {
                     Terug naar tour
                   </button>
                 </section>
+              )}
+              {tourCompletionOpen && (
+                <TourCompletion
+                  onViewOptions={viewOptionsAfterCompletion}
+                  onExplore={exploreAfterCompletion}
+                />
               )}
             </main>
             {node && (

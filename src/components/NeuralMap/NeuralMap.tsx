@@ -13,6 +13,7 @@ type Props = {
   tourActive: boolean;
   onSelect: (id: string | null) => void;
   focusVersion: number;
+  resetVersion: number;
 };
 export function NeuralMap({
   data,
@@ -22,6 +23,7 @@ export function NeuralMap({
   tourActive,
   onSelect,
   focusVersion,
+  resetVersion,
 }: Props) {
   const container = useRef<HTMLDivElement>(null);
   const renderer = useRef<Sigma | null>(null);
@@ -212,6 +214,12 @@ export function NeuralMap({
     const timeout = window.setTimeout(focusSelectedNode, tourActive ? 230 : 0);
     return () => window.clearTimeout(timeout);
   }, [selected, focusVersion, data, compact, tourActive]);
+  useEffect(() => {
+    if (!resetVersion) return;
+    void renderer.current
+      ?.getCamera()
+      .animatedReset({ duration: duration() });
+  }, [resetVersion]);
   return (
     <div className="map-wrap">
       <div

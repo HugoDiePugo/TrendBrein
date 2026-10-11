@@ -52,9 +52,10 @@ export function Intro({
               <strong>
                 {entry?.secondaryAction?.label ?? "Vrij verkennen"}
               </strong>
-              {entry?.secondaryAction?.description && (
-                <small>{entry.secondaryAction.description}</small>
-              )}
+              <small>
+                Bekijk de kaart als overzicht van mijn verbanden. Klik op een
+                node voor uitleg, bronnen en verdieping.
+              </small>
             </span>
             <ArrowRight size={16} />
           </button>

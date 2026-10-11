@@ -79,7 +79,7 @@ export function GuidedTour({
             )}
           </div>
           <button className="tour-detail-button" onClick={onOpenDetail}>
-            <BookOpen size={14} /> Bekijk verdieping
+            <BookOpen size={15} /> Bekijk analyse en bronnen
           </button>
           <div
             className="tour-progress"
