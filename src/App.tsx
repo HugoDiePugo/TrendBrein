@@ -206,6 +206,11 @@ export default function App() {
     setGraphPreset("core");
     exploreAfterCompletion();
   };
+  const chooseNextRouteAfterCompletion = () => {
+    setTourCompletionOpen(false);
+    setSidebarCollapsed(false);
+    setTourChooser(true);
+  };
   const startNextTour = () => {
     const next = activeTour?.nextTourId
       ? tours.find((candidate) => candidate.id === activeTour.nextTourId)
@@ -292,54 +297,59 @@ export default function App() {
             >
               {!sidebarCollapsed && (
                 <>
-              <div className="sidebar-content">
-                <div className="sidebar-title">
-                  <span className="eyebrow">Mijn Trendbrein</span>
-                  <button
-                    className="mobile-only icon-button"
-                    onClick={() => setMobileFilters(false)}
-                    aria-label="Filters sluiten"
-                  >
-                    <X size={18} />
-                  </button>
-                </div>
-                <h1>
-                  Verken mijn
-                  <br />
-                  Trendbrein.
-                </h1>
-                <p className="sidebar-description">
-                  Kies een node om mijn signalen, trends en verbanden te
-                  bekijken.
-                </p>
-                <Search data={data} enabled={enabled} onSelect={freeSelect} />
-                <Filters
-                  data={data}
-                  enabled={enabled}
-                  onChange={filter}
-                  collapsed={!!activeTourId && legendCollapsed}
-                  onToggle={
-                    activeTourId
-                      ? () => setLegendCollapsed((collapsed) => !collapsed)
-                      : undefined
-                  }
-                />
-              </div>
-              <div className="sidebar-footer">
-                <span className="eyebrow">Liever een route volgen?</span>
-                <button
-                  className="tour-start"
-                  disabled={!tour}
-                  onClick={requestTour}
-                >
-                  <Route size={17} /> Volg mijn reis <ArrowUpRight size={16} />
-                </button>
-                <small>
-                  {data.demo
-                    ? "Alle nodes en relaties zijn demo-data."
-                    : "Verken vrij of volg mijn route stap voor stap."}
-                </small>
-              </div>
+                  <div className="sidebar-content">
+                    <div className="sidebar-title">
+                      <span className="eyebrow">Mijn Trendbrein</span>
+                      <button
+                        className="mobile-only icon-button"
+                        onClick={() => setMobileFilters(false)}
+                        aria-label="Filters sluiten"
+                      >
+                        <X size={18} />
+                      </button>
+                    </div>
+                    <h1>
+                      Verken mijn
+                      <br />
+                      Trendbrein.
+                    </h1>
+                    <p className="sidebar-description">
+                      Kies een node om mijn signalen, trends en verbanden te
+                      bekijken.
+                    </p>
+                    <Search
+                      data={data}
+                      enabled={enabled}
+                      onSelect={freeSelect}
+                    />
+                    <Filters
+                      data={data}
+                      enabled={enabled}
+                      onChange={filter}
+                      collapsed={!!activeTourId && legendCollapsed}
+                      onToggle={
+                        activeTourId
+                          ? () => setLegendCollapsed((collapsed) => !collapsed)
+                          : undefined
+                      }
+                    />
+                  </div>
+                  <div className="sidebar-footer">
+                    <span className="eyebrow">Liever een route volgen?</span>
+                    <button
+                      className="tour-start"
+                      disabled={!tour}
+                      onClick={requestTour}
+                    >
+                      <Route size={17} /> Volg mijn reis{" "}
+                      <ArrowUpRight size={16} />
+                    </button>
+                    <small>
+                      {data.demo
+                        ? "Alle nodes en relaties zijn demo-data."
+                        : "Verken vrij of volg mijn route stap voor stap."}
+                    </small>
+                  </div>
                 </>
               )}
             </aside>
@@ -350,9 +360,7 @@ export default function App() {
                   sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"
                 }
                 aria-expanded={!sidebarCollapsed}
-                title={
-                  sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"
-                }
+                title={sidebarCollapsed ? "Zijbalk tonen" : "Zijbalk inklappen"}
                 onClick={() => setSidebarCollapsed((collapsed) => !collapsed)}
               >
                 {sidebarCollapsed ? (
@@ -478,8 +486,8 @@ export default function App() {
               )}
               {tourCompletionOpen && (
                 <TourCompletion
+                  onChooseRoute={chooseNextRouteAfterCompletion}
                   onViewOptions={viewOptionsAfterCompletion}
-                  onExplore={exploreAfterCompletion}
                 />
               )}
             </main>

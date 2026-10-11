@@ -1,14 +1,17 @@
-import { ArrowRight, Network } from "lucide-react";
+import { Map, Route } from "lucide-react";
 
 export function TourCompletion({
+  onChooseRoute,
   onViewOptions,
-  onExplore,
 }: {
+  onChooseRoute: () => void;
   onViewOptions: () => void;
-  onExplore: () => void;
 }) {
   return (
-    <section className="tour-completion" aria-labelledby="tour-completion-title">
+    <section
+      className="tour-completion"
+      aria-labelledby="tour-completion-title"
+    >
       <span className="eyebrow">Mijn afronding</span>
       <h2 id="tour-completion-title">Wat ik uit deze opdracht meeneem</h2>
       <p>
@@ -30,12 +33,16 @@ export function TourCompletion({
         Mijn belangrijkste inzicht is dat techniek voor mij nog steeds de ingang
         is, maar niet meer het eindpunt.
       </p>
+      <p>
+        Deze hoofdroute is nu afgerond. Je kunt verder met een van de vier
+        verdiepende routes, of de drie kansrichtingen op de kaart bekijken.
+      </p>
       <div className="tour-completion-actions">
-        <button className="primary-button" onClick={onViewOptions}>
-          Bekijk mijn drie kansrichtingen <ArrowRight size={15} />
+        <button className="primary-button" onClick={onChooseRoute}>
+          Kies een verdiepende route <Route size={15} />
         </button>
-        <button className="secondary-button" onClick={onExplore}>
-          Vrij verkennen <Network size={15} />
+        <button className="secondary-button" onClick={onViewOptions}>
+          Bekijk mijn drie kansrichtingen op de kaart <Map size={15} />
         </button>
       </div>
     </section>

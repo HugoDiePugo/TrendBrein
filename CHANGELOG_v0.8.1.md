@@ -18,3 +18,4 @@ Latere UX-polish binnen dezelfde appversie:
 - Mobiel gebruikt een duidelijkere knop `Bekijk analyse en bronnen`.
 - Na de aanbevolen hoofdroute verschijnt een afsluitend persoonlijk overzicht met de drie kansrichtingen.
 - Vrij verkennen legt kort uit dat de kaart een overzicht van verbanden is en dat details via nodes beschikbaar zijn.
+- Het eindpaneel maakt het verschil duidelijk tussen een verdiepende route kiezen en de drie kansrichtingen op de kaart bekijken.
