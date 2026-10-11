@@ -1,5 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import graph from "../data/graph.json";
 import tourDocument from "../data/tours.json";
 import { validateData } from "./graphSchema";
@@ -14,6 +15,30 @@ import {
   tourActionLabel,
   writeTourProgress,
 } from "../tours/tourProgress";
+
+describe("documentation version", () => {
+  it("keeps the visible README version aligned with package.json", () => {
+    const packageVersion = JSON.parse(
+      readFileSync(new URL("../../package.json", import.meta.url), "utf8"),
+    ).version as string;
+    const readme = readFileSync(
+      new URL("../../README.md", import.meta.url),
+      "utf8",
+    );
+
+    assert.match(
+      readme,
+      new RegExp(`^# Trendbrein . appversie ${packageVersion}$`, "m"),
+    );
+    assert.match(
+      readme,
+      new RegExp(
+        `^## Technische keuzes en grenzen van v${packageVersion}$`,
+        "m",
+      ),
+    );
+  });
+});
 
 describe("dataset integrity", () => {
   it("loads all v0.8 nodes, edges and tours without changing supplied fields", () => {
