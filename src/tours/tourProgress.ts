@@ -6,6 +6,7 @@ export type TourProgressItem = {
   currentStep: number;
   started: boolean;
   completed: boolean;
+  revision?: string;
 };
 
 export type TourProgress = Record<string, TourProgressItem>;
@@ -37,9 +38,11 @@ export function readTourProgress(
     return tours.reduce<TourProgress>((progress, tour) => {
       const entry = parsed[tour.id];
       if (!isRecord(entry)) return progress;
+      if (tour.revision && entry.revision !== tour.revision) return progress;
       const started = entry.started === true || entry.completed === true;
       if (!started) return progress;
       progress[tour.id] = {
+        ...(tour.revision && { revision: tour.revision }),
         currentStep: clampStep(entry.currentStep, tour.steps.length),
         started,
         completed: entry.completed === true,
@@ -73,6 +76,7 @@ export function progressAtStep(
   return {
     ...progress,
     [tour.id]: {
+      ...(tour.revision && { revision: tour.revision }),
       currentStep: clampStep(step, tour.steps.length),
       started: true,
       completed: false,
@@ -84,6 +88,7 @@ export function completeTour(progress: TourProgress, tour: Tour): TourProgress {
   return {
     ...progress,
     [tour.id]: {
+      ...(tour.revision && { revision: tour.revision }),
       currentStep: Math.max(tour.steps.length - 1, 0),
       started: true,
       completed: true,

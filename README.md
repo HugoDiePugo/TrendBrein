@@ -1,6 +1,6 @@
-# Trendbrein · appversie 0.8.1
+# Trendbrein · appversie 0.9.0
 
-Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De werkdataset bevat **152 nodes, 346 verbindingen en zes tours met samen 61 stappen**. De app ondersteunt de bijbehorende bronmetadata, selectieargumentatie, tourhandoff, een afsluitende persoonlijke reflectie na de aanbevolen hoofdroute en lokaal opgeslagen tourvoortgang. De versie in Onderzoeksmodus komt rechtstreeks uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`, `CHANGELOG_v0.8.1.md` en de historische audit `EVIDENCE_AUDIT_v0.6.0.md`.
+Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De werkdataset bevat **152 nodes, 346 verbindingen en zes tours met samen 62 stappen**. De knop **Hoe ik bij Embedded Expressie kwam** opent vanaf de start de acht stappen van *Van één signaal naar een kans*. De signaalvergelijking, trendpiramide, DESTEP en het Consumer Trend Canvas zijn ook rechtstreeks bereikbaar, bijvoorbeeld via `?route=signal-to-opportunity&stap=6`. De versie in de kop komt uit `graph.meta.version`. Zie ook `src/data/DATASET_NOTES.md`.
 
 Voor de inlevering staat een korte ingang voor beoordelaars in [docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx](docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx).
 
@@ -144,7 +144,7 @@ Voeg nieuwe node-/edge-types toe in `src/types/graph.ts`. Voeg daarbij een categ
 - Op een smal scherm zitten zoeken en lagen achter een knop. Tijdens tours opent de verdieping als dialoog via `Bekijk analyse en bronnen`. In `Kern` blijven de drie shortlist-richtingen via een compacte, aanklikbare lijst herkenbaar. Voor de prettigste volledige ervaring is een laptop of groter scherm aanbevolen.
 - Lettertypen worden via Google Fonts geladen met lokale systeemfonts als fallback. Voor volledig offline gebruik kun je de import bovenaan `styles.css` verwijderen of de fonts zelf hosten.
 
-## Technische keuzes en grenzen van v0.8.1
+## Technische keuzes en grenzen van v0.9.0
 
 - `MultiDirectedGraph` bewaart richting en meerdere betekenissen tussen hetzelfde paar nodes.
 - Een deterministische spiraal geeft alle nodes een geldige startpositie. ForceAtlas2 rekent eenmalig 260 iteraties uit met overlappreventie; de kaart blijft daarna rustig. Dit is gecontroleerd met de huidige 152 nodes en 346 edges. Bij honderden/duizenden nodes moet deze berekening naar een worker en zijn aparte performancetests nodig.
@@ -163,7 +163,7 @@ Vite gebruikt `base: './'`, zodat assets ook vanuit een GitHub Pages-repositorys
 
 ## Validatie van deze versie
 
-Productiebuild en integriteitstests controleren ongewijzigde datasetvelden, display-ID-zoeken, gestructureerde referenties, matrix- en Kanscheckdata, ontbrekende verwijzingen, ongeldige waarden/bronnen, ongeldige tours, permanente nodegroottes, eindige layoutposities/parallelle relaties en lege/losse nodes. Browsercontrole omvat de kaart, zoeken, filters, selectie, detailnavigatie, Onderzoeksmodus en alle 61 tourstappen.
+De tests controleren onder meer datasetvelden, zoekresultaten, bron- en modelverwijzingen, matrix- en Kanscheckdata, kaartlayout en ongeldige invoer. Voor de herkansing testen ze ook de koppeling tussen tourstap en model, rechtstreekse staplinks en het hervatten van opgeslagen voortgang.
 
 Technische referenties: [Sigma lifecycle](https://www.sigmajs.org/docs/advanced/lifecycle/), [Sigma camera](https://www.sigmajs.org/docs/typedoc/sigma/src/classes/Camera/), [Graphology ForceAtlas2](https://graphology.github.io/standard-library/layout-forceatlas2.html).
 

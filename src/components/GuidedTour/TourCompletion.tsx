@@ -3,9 +3,11 @@ import { Map, Route } from "lucide-react";
 export function TourCompletion({
   onChooseRoute,
   onViewOptions,
+  onOpenReview,
 }: {
   onChooseRoute: () => void;
   onViewOptions: () => void;
+  onOpenReview?: () => void;
 }) {
   return (
     <section
@@ -24,10 +26,10 @@ export function TourCompletion({
         kan, maar ook dat die begrijpelijk, eerlijk en beïnvloedbaar blijft.
       </p>
       <p>
-        Daaruit houd ik drie brede kansrichtingen over: expressieve embedded
-        accessoires, menselijke regie over AI-autonomie en beïnvloedbare
-        personalisatie. Dit zijn nog geen uitgewerkte producten, maar richtingen
-        die ik in een volgende fase verder kan onderzoeken.
+        Van mijn 15 ideeën selecteerde ik 3 richtingen. Per richting verkende ik
+        één voorbeeld. Uit die shortlist koos ik Embedded Expressie. Daar kan ik
+        zelf hardware en software combineren tot een accessoire dat iemand
+        draagt.
       </p>
       <p>
         Mijn belangrijkste inzicht is dat techniek voor mij nog steeds de ingang
@@ -38,6 +40,11 @@ export function TourCompletion({
         verdiepende routes, of de drie kansrichtingen op de kaart bekijken.
       </p>
       <div className="tour-completion-actions">
+        {onOpenReview && (
+          <button className="primary-button" onClick={onOpenReview}>
+            Hoe ik bij Embedded Expressie kwam <Route size={15} />
+          </button>
+        )}
         <button className="primary-button" onClick={onChooseRoute}>
           Kies een verdiepende route <Route size={15} />
         </button>

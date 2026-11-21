@@ -10,6 +10,7 @@ import type { GraphData, GraphNode } from "../../types/graph";
 import { categories, relationLabels } from "../../graph/graphStyles";
 import { ScenarioMatrix } from "./ScenarioMatrix";
 import { OpportunityAssessment } from "./OpportunityAssessment";
+import { AnalysisPanels } from "./AnalysisPanels";
 
 const opportunityStatuses: Record<string, string> = {
   candidate_needs_differentiation: "Nog onderscheid aanscherpen",
@@ -141,6 +142,8 @@ export function NodeDetail({
   researchMode,
   tourActive,
   tourContext,
+  analysisId,
+  onOpenReview,
   onSelect,
   onClose,
 }: {
@@ -148,6 +151,8 @@ export function NodeDetail({
   data: GraphData;
   researchMode: boolean;
   tourActive: boolean;
+  analysisId?: string;
+  onOpenReview?: () => void;
   tourContext?: {
     title: string;
     currentStep: number;
@@ -161,7 +166,7 @@ export function NodeDetail({
   const panel = useRef<HTMLElement>(null);
   useEffect(() => {
     panel.current?.scrollTo({ top: 0 });
-  }, [node.id]);
+  }, [node.id, analysisId]);
   const edges = data.edges.filter(
     (e) => e.source === node.id || e.target === node.id,
   );
@@ -234,6 +239,18 @@ export function NodeDetail({
       </span>
       {node.displayId && <span className="display-id">{node.displayId}</span>}
       <h2>{node.title}</h2>
+      {onOpenReview && (
+        <button className="review-link" onClick={onOpenReview}>
+          Hoe ik bij Embedded Expressie kwam <ArrowUpRight size={15} />
+        </button>
+      )}
+      <AnalysisPanels
+        key={node.id}
+        node={node}
+        data={data}
+        activeId={analysisId}
+        onSelect={onSelect}
+      />
       {node.visitorPresentation?.badge && (
         <p className="visitor-badge">{node.visitorPresentation.badge}</p>
       )}

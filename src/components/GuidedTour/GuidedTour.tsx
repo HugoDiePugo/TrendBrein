@@ -7,6 +7,8 @@ export function GuidedTour({
   onExit,
   onComplete,
   onOpenDetail,
+  analysisAction,
+  onOpenReview,
   onNextTour,
   showIntro,
   onStart,
@@ -17,6 +19,8 @@ export function GuidedTour({
   onExit: () => void;
   onComplete: () => void;
   onOpenDetail: () => void;
+  analysisAction?: string;
+  onOpenReview?: () => void;
   onNextTour?: () => void;
   showIntro: boolean;
   onStart: () => void;
@@ -44,11 +48,16 @@ export function GuidedTour({
         </div>
       ) : (
         <>
-          <div className="tour-story" aria-live="polite">
+          <div key={index} className="tour-story" aria-live="polite">
             {step.phase && <span className="tour-phase">{step.phase}</span>}
             <h2>{step.title}</h2>
             <p>{step.text}</p>
           </div>
+          {onOpenReview && (
+            <button className="review-link" onClick={onOpenReview}>
+              Hoe ik bij Embedded Expressie kwam <ArrowRight size={14} />
+            </button>
+          )}
           {index === tour.steps.length - 1 && onNextTour && (
             <div className="tour-handoff">
               {tour.nextTourDescription && <p>{tour.nextTourDescription}</p>}
@@ -78,8 +87,12 @@ export function GuidedTour({
               </button>
             )}
           </div>
-          <button className="tour-detail-button" onClick={onOpenDetail}>
-            <BookOpen size={15} /> Bekijk analyse en bronnen
+          <button
+            className={`tour-detail-button${analysisAction ? " method-action" : ""}`}
+            onClick={onOpenDetail}
+          >
+            <BookOpen size={15} />{" "}
+            {analysisAction ?? "Bekijk analyse en bronnen"}
           </button>
           <div
             className="tour-progress"

@@ -22,6 +22,7 @@ import { GuidedTour } from "./components/GuidedTour/GuidedTour";
 import { TourCompletion } from "./components/GuidedTour/TourCompletion";
 import { TourChooser } from "./components/GuidedTour/TourChooser";
 import { Intro } from "./components/Intro/Intro";
+import { readTourLink } from "./tours/tourLink";
 import {
   completeTour,
   progressAtStep,
@@ -41,6 +42,10 @@ function load() {
   }
 }
 const loaded = load();
+const entryLink =
+  loaded.ok && typeof window !== "undefined"
+    ? readTourLink(window.location.search, loaded.tours)
+    : undefined;
 export default function App() {
   const entryExperience = loaded.ok
     ? (loaded.data.meta?.entryExperience as
@@ -63,19 +68,28 @@ export default function App() {
           }
         | undefined)
     : undefined;
-  const [intro, setIntro] = useState(true);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [intro, setIntro] = useState(!entryLink);
+  const [selected, setSelected] = useState<string | null>(
+    entryLink?.tour.steps[entryLink.index ?? 0].nodeId ?? null,
+  );
   const [enabled, setEnabled] = useState(new Set<NodeType>(nodeTypes));
   const [focusVersion, setFocusVersion] = useState(0);
   const [mapResetVersion, setMapResetVersion] = useState(0);
-  const [activeTourId, setActiveTourId] = useState<string | null>(null);
-  const [tourIndex, setTourIndex] = useState<number | null>(null);
-  const [tourIntro, setTourIntro] = useState(false);
+  const [activeTourId, setActiveTourId] = useState<string | null>(
+    entryLink?.tour.id ?? null,
+  );
+  const [tourIndex, setTourIndex] = useState<number | null>(
+    entryLink?.index ?? null,
+  );
+  const [tourIntro, setTourIntro] = useState(entryLink?.index === null);
   const [tourChooser, setTourChooser] = useState(false);
   const [mobileTourDetail, setMobileTourDetail] = useState(false);
   const [routeId, setRouteId] = useState(
     loaded.ok
-      ? (entryExperience?.recommendedTourId ?? loaded.tours[0]?.id ?? "")
+      ? (entryLink?.tour.id ??
+          entryExperience?.recommendedTourId ??
+          loaded.tours[0]?.id ??
+          "")
       : "",
   );
   const [graphPreset, setGraphPreset] = useState<GraphPreset>(
@@ -83,8 +97,8 @@ export default function App() {
   );
   const [mobileFilters, setMobileFilters] = useState(false);
   const [researchMode, setResearchMode] = useState(false);
-  const [legendCollapsed, setLegendCollapsed] = useState(false);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [legendCollapsed, setLegendCollapsed] = useState(!!entryLink);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(!!entryLink);
   const [tourCompletionOpen, setTourCompletionOpen] = useState(false);
   const [tourProgress, setTourProgress] = useState<TourProgress>(() =>
     loaded.ok ? readTourProgress(loaded.tours) : {},
@@ -92,6 +106,17 @@ export default function App() {
   useEffect(() => {
     writeTourProgress(tourProgress);
   }, [tourProgress]);
+  useEffect(() => {
+    if (window.location.protocol === "file:") return;
+    const url = new URL(window.location.href);
+    if (activeTourId) url.searchParams.set("route", activeTourId);
+    else url.searchParams.delete("route");
+    if (activeTourId && tourIndex !== null)
+      url.searchParams.set("stap", String(tourIndex + 1));
+    else url.searchParams.delete("stap");
+    if (url.href !== window.location.href)
+      window.history.replaceState(null, "", url);
+  }, [activeTourId, tourIndex]);
   const select = useCallback((id: string | null) => {
     setSelected(id);
     setFocusVersion((v) => v + 1);
@@ -123,6 +148,12 @@ export default function App() {
     tours.find((item) => item.id === entryExperience?.recommendedTourId) ??
     tour;
   const node = data.nodes.find((n) => n.id === selected);
+  const reviewTour = tours.find((item) => item.id === "signal-to-opportunity");
+  const activeStep =
+    activeTour && tourIndex !== null ? activeTour.steps[tourIndex] : undefined;
+  const analysisId =
+    activeStep?.nodeId === selected ? activeStep?.analysisId : undefined;
+  const activeAnalysis = node?.analyses?.find((item) => item.id === analysisId);
   const visible = data.nodes.filter((n) => enabled.has(n.type)).length;
   const step = (index: number) => {
     if (activeTour && index >= 0 && index < activeTour.steps.length) {
@@ -135,10 +166,10 @@ export default function App() {
       select(activeTour.steps[index].nodeId);
     }
   };
-  const startTour = (route = tour) => {
+  const startTour = (route = tour, fromBeginning = false) => {
     if (route) {
       const saved = tourProgress[route.id];
-      const resume = !!(saved?.started && !saved.completed);
+      const resume = !fromBeginning && !!(saved?.started && !saved.completed);
       const nextIndex = resume ? saved.currentStep : 0;
       setRouteId(route.id);
       setTourCompletionOpen(false);
@@ -147,6 +178,7 @@ export default function App() {
       setTourIntro(!resume && !!route.intro);
       setTourIndex(!resume && route.intro ? null : nextIndex);
       setMobileTourDetail(false);
+      setMobileFilters(false);
       setLegendCollapsed(true);
       setSidebarCollapsed(true);
       setTourProgress((progress) => progressAtStep(progress, route, nextIndex));
@@ -156,6 +188,15 @@ export default function App() {
       setTourChooser(false);
     }
   };
+  const startReview = reviewTour
+    ? () => startTour(reviewTour, true)
+    : undefined;
+  const relatedReview =
+    activeTourId !== reviewTour?.id &&
+    node &&
+    ["SHORT_01", "T_EXPRESSIVE", "OPP_EXPRESSIVE_MODULAR"].includes(node.id)
+      ? startReview
+      : undefined;
   const requestTour = () => {
     if (tours.length > 1) setTourChooser(true);
     else startTour();
@@ -184,7 +225,11 @@ export default function App() {
     setLegendCollapsed(false);
     setSidebarCollapsed(showCompletion);
     setTourCompletionOpen(showCompletion);
-    select(null);
+    select(
+      activeTour.id === reviewTour?.id
+        ? (activeTour.steps.at(-1)?.nodeId ?? null)
+        : null,
+    );
   };
   const exitTour = () => {
     setActiveTourId(null);
@@ -275,7 +320,7 @@ export default function App() {
           >
             <FlaskConical size={14} /> Onderzoeksmodus
           </button>
-          {researchMode && <span className="version">v{dataVersion}</span>}
+          <span className="version">v{dataVersion}</span>
         </div>
       </header>
       {intro ? (
@@ -285,6 +330,7 @@ export default function App() {
           entry={entryExperience}
           onExplore={() => setIntro(false)}
           onTour={() => startTour(recommendedTour)}
+          onOpenReview={startReview}
         />
       ) : (
         <>
@@ -460,6 +506,8 @@ export default function App() {
                     onExit={exitTour}
                     onComplete={finishTour}
                     onOpenDetail={() => setMobileTourDetail(true)}
+                    analysisAction={activeAnalysis?.action}
+                    onOpenReview={relatedReview}
                     showIntro={tourIntro}
                     onStart={() => step(0)}
                     onNextTour={
@@ -488,6 +536,7 @@ export default function App() {
                 <TourCompletion
                   onChooseRoute={chooseNextRouteAfterCompletion}
                   onViewOptions={viewOptionsAfterCompletion}
+                  onOpenReview={startReview}
                 />
               )}
             </main>
@@ -498,6 +547,12 @@ export default function App() {
                 researchMode={researchMode}
                 tourActive={!!activeTourId}
                 tourContext={tourContext}
+                analysisId={analysisId}
+                onOpenReview={
+                  !activeTour || isExploringOutsideTour
+                    ? relatedReview
+                    : undefined
+                }
                 onSelect={freeSelect}
                 onClose={() => freeSelect(null)}
               />
@@ -510,6 +565,8 @@ export default function App() {
                   researchMode={researchMode}
                   tourActive
                   tourContext={tourContext}
+                  analysisId={analysisId}
+                  onOpenReview={relatedReview}
                   onSelect={select}
                   onClose={closeMobileTourDetail}
                 />

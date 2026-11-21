@@ -1,9 +1,10 @@
-# Trendbrein dataset v0.8.0
+# Trendbrein dataset v0.9.0
 
 - 152 nodes
 - 346 edges
 - 3 geselecteerde hoofdtrends, 15 ideation-richtingen, 3 verkende voorbeelden en 3 voorlopige kansrichtingen
-- 6 guided tours met samen 61 stappen
+- 6 guided tours met samen 62 stappen
+- 8 stappen van de haarclip tot de keuze voor Embedded Expressie, met de signaalvergelijking, trendpiramide, zes DESTEP-factoren en een ingevuld Consumer Trend Canvas
 - Doorzoekbare `displayId`- en aliasvelden en gestructureerde nodeverwijzingen
 - Eén configureerbare 2×2-scenariomatrix en 3 Kanschecks, standaard alleen zichtbaar in Onderzoeksmodus
 - Generieke evidence- en counterevidenceblokken, waaronder de twee algoritmetakken
