@@ -1,6 +1,6 @@
 # Trendbrein · appversie 0.9.1
 
-Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De werkdataset bevat **152 nodes, 346 verbindingen en zes tours met samen 61 stappen**. *Van één signaal naar een kans* volgt de oorspronkelijke zeven nodes. De vergelijking, trendpiramide, DESTEP en het ingevulde trendcanvas staan in de tekst van de betreffende node. De Handin-leeswijzer verwijst rechtstreeks naar bestaande stappen, bijvoorbeeld via `?route=signal-to-opportunity&node=VS_FUNCTION_EXPRESS`. De versie in Onderzoeksmodus komt uit `graph.meta.version`.
+Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De werkdataset bevat **152 nodes, 346 verbindingen en zes tours met samen 61 stappen**. *Van één signaal naar een kans* volgt de oorspronkelijke zeven nodes. De vergelijking, trendpiramide, DESTEP en het ingevulde trendcanvas staan in de tekst van de betreffende node. Een routestap is rechtstreeks te openen, bijvoorbeeld via `?route=signal-to-opportunity&node=VS_FUNCTION_EXPRESS`. De versie in Onderzoeksmodus komt uit `graph.meta.version`.
 
 Voor de inlevering staat een korte ingang voor beoordelaars in [docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx](docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx).
 
@@ -16,7 +16,7 @@ npm run dev
 Open de lokale URL die Vite toont, standaard http://127.0.0.1:5173. De ontwikkelserver luistert alleen op localhost.
 
 ```sh
-npm test          # negentien controles op data, graph-opbouw en tourvoortgang
+npm test          # controles op data, graph-opbouw en tourvoortgang
 npm run build    # TypeScript strict-controle en statische productiebuild
 npm run preview  # productiebuild lokaal bekijken
 ```

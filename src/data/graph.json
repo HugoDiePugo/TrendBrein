@@ -441,7 +441,7 @@
       "type": "signal",
       "title": "ESP32-C3-keychain met OLED krijgt verkoopreacties",
       "summary": "Onder de TikTok-video van een ESP32-sleutelhanger met gezichtje vroegen kijkers of hij te koop kwam.",
-      "body": "Op het TikTok-account @hack_updt zag ik een sleutelhanger met een ESP32, een batterij en een klein scherm met een gezichtje. In de reacties vroegen kijkers of hij te koop kwam. Dat zijn de mensen en de handeling waarop ik mijn conclusie baseer.\n\nHun vraag laat belangstelling voor dit voorwerp zien. Uit een verkoopvraag kan ik geen aankoop, dagelijks gebruik of reden om het te dragen afleiden. Juist daarom leg ik deze reacties naast de steun aan de campagne voor dott.",
+      "body": "Op TikTok zag ik bij @hack_updt een sleutelhanger met een batterij, een kleine chip en een schermpje waarop een gezichtje stond. Ik dacht meteen na over hoe ik die zelf zou kunnen bouwen. In de reacties vroegen kijkers of de sleutelhanger te koop kwam.\n\nZo zag ik voor het eerst ook de reactie van iemand die het voorwerp niet zelf had gemaakt. De vraag naar verkoop liet belangstelling zien. Of iemand de sleutelhanger kocht, waarvoor die hem zou gebruiken en waarom dat gezichtje aansprak, kon ik uit de reacties niet opmaken.",
       "tags": [
         "maker",
         "embedded",
@@ -478,7 +478,7 @@
       "type": "signal",
       "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire",
       "summary": "Op TikTok zag ik een klein scherm zichtbaar in het haar. Bij het tekstje of grappige plaatje besefte ik dat techniek ook iets persoonlijks kan laten zien.",
-      "body": "Op TikTok zag ik bij @codewithveronika een clip met een ESP32 en een klein OLED-scherm. Het schermpje zat zichtbaar in het haar. Wat mij bijbleef, was de lol van een tekstje of een grappig plaatje op die plek.\n\nIk begon meteen als embedded engineer te denken. Hoe krijg ik dit kleiner? Welke voeding past erin, hoelang zou die meegaan, welk scherm en welke programmeertaal zou ik kiezen? Tegelijk zag ik een andere waarde in datzelfde schermpje. Je kunt ermee laten zien wat je grappig of mooi vindt. Dat was voor mij het eurekamoment.\n\nDit is hoe ik mijn eerste waarneming op 19 november heb toegelicht. Wat een ander met zo’n clip zou willen vertellen, weet ik uit dit filmpje nog niet.",
+      "body": "Op TikTok zag ik bij @codewithveronika een haarclip met een klein OLED-scherm. Een ESP32, een programmeerbare chip, stuurt dat scherm aan. In de video zit het scherm zichtbaar in het haar. Er kan een tekstje of een grappig plaatje op staan.\n\nVanuit mijn technische opleiding dacht ik meteen aan de voeding, de schermgrootte en de programmeertaal. Hoe lang zou de batterij meegaan? Hoe zou ik de clip kleiner maken? Toen bedacht ik dat juist dat grappige plaatje een reden kan zijn om zoiets te maken. Met elektronica kun je ook laten zien waar je om moet lachen. Dat was voor mij het eurekamoment.\n\nIk wilde weten of ik die persoonlijke keuze ook bij andere makers kon terugzien. Uit het filmpje alleen kon ik nog weinig zeggen over wat een ander zou willen dragen.",
       "tags": [
         "wearable",
         "fashion",
@@ -568,7 +568,7 @@
       "type": "signal",
       "title": "Maker remixt digitale haarclip naar Magic 8 Ball",
       "summary": "Bij @mewtru zag ik een maker het haarclipidee herwerken tot een interactieve Magic 8 Ball. Voor mij bevestigde de gekozen grap de expressieve kant van techniek.",
-      "body": "In deze TikTok-video maakt iemand een eigen variant op het idee van een digitale haarclip, met een rond scherm en een Magic 8 Ball-functie. In de vergelijking met S12 valt mij het verschil in gebruik op. De eerste clip toont een tekstje of beeld. Hier wordt de grap een interactie.\n\nIn de keuze voor juist deze grap herkende ik iets van de humor van de maker. Dat bevestigde wat ik bij de eerste clip al dacht. Ik kan me voorstellen dat iemand ernaar vraagt en dat er een praatje ontstaat. Dat is mijn interpretatie. Het plezier kan ook in het bedenken en bouwen zelf zitten.\n\nBron van mijn terugblik op de remix: mijn toelichting van 21 november.",
+      "body": "Bij @mewtru zag ik op TikTok een haarclip met een rond scherm. De maker gaf die een Magic 8 Ball-functie, naar het speelgoed dat voor de grap antwoord geeft op een vraag. Ik vergeleek dat met de haarclip van @codewithveronika, waarop een tekstje of grappig plaatje te zien was (S12).\n\nIn die twee filmpjes krijgt hetzelfde soort voorwerp een andere grap. De keuze voor de Magic 8 Ball vertelde mij iets over de humor van deze maker. Ik kon me voorstellen dat iemand ernaar vraagt als je zo'n clip draagt. Wat ik zelf zag, was het ontwerp. Of het ook echt tot een gesprek leidde, weet ik niet.",
       "tags": [
         "maker",
         "remix",
@@ -596,7 +596,8 @@
       "references": [
         {
           "nodeId": "S12",
-          "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire"
+          "displayId": "S12",
+          "title": "TikTok van @codewithveronika · haarclip met een scherm"
         }
       ]
     },
@@ -1255,7 +1256,7 @@
       "type": "signal",
       "title": "Dott wearable-display trekt honderden backers",
       "summary": "Op Kickstarter steunden 649 mensen de campagne voor dott, een draagbaar display voor onder meer GIFs, video en QR-codes.",
-      "body": "Bij Kickstarter vond ik dott van Tyler McCourt. De projectpagina registreert 649 deelnemers die geld toezegden in de campagne van 10 september tot en met 8 oktober 2024. Dit is gedrag buiten de twee haarclipvideo’s.\n\nHet laat zien dat dit specifieke aanbod financiële steun kreeg. dott bood ook praktische functies, zoals een QR-code tonen. Ik weet niet welke functie voor de deelnemers de doorslag gaf of hoe vaak zij het display vervolgens droegen. Die grens is belangrijk bij mijn eigen kansrichting.",
+      "body": "Op Kickstarter vond ik dott, een draagbaar scherm van Tyler McCourt waarop je onder meer een GIF, video of QR-code kunt tonen. Tussen 10 september en 8 oktober 2024 zegden 649 mensen geld toe aan de campagne.\n\nZo kon ik naast reacties op makerfilmpjes ook een financiële beslissing bekijken. Er was steun voor dit specifieke voorstel. De campagne laat open welke functie mensen aansprak en of ze het scherm later ook droegen.",
       "tags": [
         "wearable",
         "display",
@@ -1897,8 +1898,8 @@
       "id": "S59",
       "type": "signal",
       "title": "Persoonlijke bubbel in publieke drukte",
-      "summary": "Veel mensen gebruiken oortjes of een koptelefoon om in een drukke openbare omgeving een eigen auditieve ruimte te creëren.",
-      "body": "Wat ik zag: in een drukke publieke omgeving creëren veel mensen met oortjes of koptelefoons een persoonlijke auditieve ruimte.\n\nDit werd later één van mijn favoriete verbindingen in de kaart. Dezelfde technologie die iemand 'meer digitaal' maakt, wordt gebruikt om juist minder van de omgeving binnen te laten.\n\nDaaronder zit geen gadgettrend maar een waarde: regie over prikkels.",
+      "summary": "In een drukke omgeving zag ik mensen met oortjes of een koptelefoon op. Voor mij riep dat een vraag op over zelf kiezen welke prikkels je binnenlaat.",
+      "body": "In een drukke publieke omgeving zag ik mensen met oortjes of een koptelefoon op. Ik kon zien wat ze droegen. Welke geluiden ze hoorden en waarom ze daarvoor kozen, weet ik niet.\n\nHet zette me aan het denken over mijn eigen kijk op techniek. Een koptelefoon kan je muziek laten horen en je tegelijk helpen om het geluid om je heen te begrenzen. Daarin herken ik de waarde van zelf kunnen kiezen welke prikkels je binnenlaat.",
       "tags": [
         "oortjes",
         "prikkels",
@@ -2033,7 +2034,7 @@
       "type": "cluster",
       "title": "Maker-tech & expressieve technologie",
       "summary": "Ik vergelijk wat makers ontwierpen met wat kijkers en deelnemers aan een crowdfundingcampagne deden.",
-      "body": "Vier signalen vergeleken\n\nWie deed wat, en welke belangstelling kan ik daaruit afleiden? Ik vergelijk het gedrag per bron. De twee clips zijn verwante uitwerkingen van één maakidee. Bij de sleutelhanger en dott kijk ik naar wat een ander publiek deed.\n\nHaarclip · zichtbaar dragen (S12)\nOp TikTok bij @codewithveronika zie ik een tekstje of afbeelding op een scherm in het haar. Een zichtbaar scherm kan onderdeel zijn van iemands uitstraling. Wat toekomstige dragers daarin waarderen, blijft open.\n\nRemix · ontwerpen (S15)\nBij @mewtru krijgt het haarclipidee een Magic 8 Ball-interactie. Een maker kan aan dezelfde vorm een eigen grap geven. De variatie is concreet. Deze twee filmpjes tellen als verwante voorbeelden.\n\nSleutelhanger · reageren (S11)\nOnder de video op @hack_updt vragen kijkers naar verkoop. Het gezichtje op een display trekt dus ook de aandacht van mensen die reageren. De reacties vermelden geen geverifieerde aankoop of gebruiksmotief.\n\ndott · geld toezeggen (S38)\nOp Kickstarter steunen 649 mensen een campagne voor een display voor GIFs, video en QR-codes. Voor dat aanbod namen mensen een financiële beslissing. Welke functie hen trok en of zij het display daarna droegen, blijft onbekend.\n\nWat ik uit de vergelijking haal\nBij de clips kan ik aanwijzen hoe een maker eigen humor aan het ontwerp geeft. Bij de andere twee voorbeelden zie ik belangstelling van kijkers en van mensen die geld toezeggen. Dat geeft mij reden een draagbaar accessoire te overwegen. Wat een drager met mijn eigen ontwerp zou willen laten zien, is nog open.",
+      "body": "Vier signalen vergeleken\n\nEen TikTok-video van een haarclip met een schermpje bracht mij op een vraag. Wat maakt zo’n elektronisch accessoire persoonlijk? Ik legde vier voorbeelden naast elkaar en keek per voorbeeld wie iets deed. Ik noem ze hieronder bij naam. De nummers tussen haakjes openen de bijbehorende signalen.\n\nHaarclip · zichtbaar dragen\nIn een TikTok-video van @codewithveronika zag ik een scherm in het haar voor een tekstje of grappig plaatje (S12). Juist doordat het beeld zichtbaar was, kon de clip iets van iemands smaak laten zien.\n\nRemix · een eigen grap ontwerpen\nIn een tweede video, van @mewtru, kreeg een haarclip de functie van een Magic 8 Ball. Dat is speelgoed dat voor de grap antwoord geeft op een vraag (S15). De keuze van die grap liet mij zien hoeveel de maker zelf aan het idee kon geven. Ik tel de twee filmpjes als varianten op hetzelfde maakidee.\n\nSleutelhanger · naar verkoop vragen\nBij @hack_updt zag ik op TikTok een sleutelhanger met een gezichtje op het scherm. Kijkers vroegen of hij te koop was (S11). Daar zag ik voor het eerst wat een toeschouwer deed. Uit de reacties bleek belangstelling voor de sleutelhanger. Of iemand er een kocht, bleef open.\n\ndott · geld toezeggen\nOp Kickstarter bood Tyler McCourt onder de naam dott een draagbaar scherm voor GIFs, video en QR-codes aan. Voor die campagne zegden 649 mensen geld toe (S38). Daar ging de belangstelling een stap verder dan een verkoopvraag. Ik weet niet welke functie voor de deelnemers de doorslag gaf.\n\nWat ik uit de vergelijking haal\nBij de haarclips kon ik zien hoe een maker een eigen grap aan het ontwerp gaf. Bij de sleutelhanger en dott zag ik ook belangstelling van anderen. Dat gaf mij reden om verder te kijken dan de techniek van één clip. Welke waarde een drager zelf aan zo’n beeld hecht, kon ik nog niet zeggen.",
       "tags": [
         "maker",
         "wearable",
@@ -2044,19 +2045,23 @@
       "references": [
         {
           "nodeId": "S12",
-          "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire"
+          "displayId": "S12",
+          "title": "TikTok van @codewithveronika · haarclip met een scherm"
         },
         {
           "nodeId": "S15",
-          "title": "Maker remixt digitale haarclip naar Magic 8 Ball"
+          "displayId": "S15",
+          "title": "TikTok van @mewtru · haarclip als Magic 8 Ball"
         },
         {
           "nodeId": "S11",
-          "title": "ESP32-C3-keychain met OLED krijgt verkoopreacties"
+          "displayId": "S11",
+          "title": "TikTok van @hack_updt · verkoopvragen bij de sleutelhanger"
         },
         {
           "nodeId": "S38",
-          "title": "Dott wearable-display trekt honderden backers"
+          "displayId": "S38",
+          "title": "Kickstarter · financiële steun voor het draagbare scherm dott"
         }
       ]
     },
@@ -2265,7 +2270,7 @@
       "type": "trend",
       "title": "Technologie wordt expressiever en persoonlijker",
       "summary": "Een scherm kan naast gebruikswaarde ook stijl, humor of herkenning aan een draagbaar voorwerp geven. Mijn voorbeelden laten dit het duidelijkst zien bij de makers.",
-      "body": "De vier niveaus van de trendpiramide\n\nWat kan ik op elk niveau zeggen over technologie als expressie? HAN-minor Onderneem! De Ontdekkingsreis, Trendduiding en Trendbrillen, dia 28–32. Ik begin bij voorwerpen en leg bij elke volgende stap uit wie of wat er in beeld komt.\n\nProduct · wat verandert er aan het voorwerp? (S12, S15, S11)\nEen scherm in het haar toont een tekst of grap. De remix voegt interactie toe. De sleutelhanger krijgt door een gezichtje een eigen karakter. Dat zijn zichtbare ontwerpkeuzes.\n\nMarkt · hoe bereikt het idee een publiek? (S11, S38)\nKijkers vragen de maker van de sleutelhanger via TikTok naar verkoop. Via Kickstarter bracht dott een specifiek draagbaar display onder de aandacht van mensen die het project financieel steunden. Zo zie ik twee manieren om geïnteresseerden te bereiken. De omvang van een markt voor mijn idee blijft open.\n\nConsument · welke waarde zou iemand ervaren? (S15)\nHumor tonen en herkenbaar maken wat je leuk vindt zijn mogelijke waarden. In de remix zie ik de grap van de maker. Op de tas van mijn broertje herken ik figuren en quotes die aansluiten bij zijn interesses. Mijn herinnering aan zijn buttons is geen uitspraak van hem over een digitale variant.\n\nMaatschappij · welke bredere ontwikkeling lees ik hierin? (S15, S38)\nMijn duiding is dat digitale beelden en online gedeelde grappen ook een plek kunnen krijgen op fysieke accessoires. De remix en de campagne maken zo’n overgang voorstelbaar. De voorbeelden geven geen tijdreeks of representatief beeld van hoe gewoon dit is.\n\nWat ik uit de piramide haal\nOp productniveau zie ik expressie in het ontwerp. Op marktniveau zie ik belangstelling voor specifieke voorwerpen. Op consumentenniveau wordt de conclusie voorzichtiger. Daarom houd ik bij mijn keuze de draagvorm open.\n\nDe kleine onderdelen maken de draagvorm mogelijk. Waarom iemand een digitaal accessoire zou willen dragen, werk ik uit bij de waardeverschuiving ‘Van vooral functioneel naar ook expressief’.",
+      "body": "De vier niveaus van de trendpiramide\n\nMet de trendpiramide uit de les Trendduiding en Trendbrillen (dia 28–32) bekijk ik draagbare accessoires op vier niveaus. Ik begin bij het voorwerp dat ik kan aanwijzen. Daarna kijk ik welke bredere uitspraken mijn waarnemingen toelaten.\n\nProduct · wat verandert er aan het voorwerp?\nOp TikTok zag ik een haarclip met een tekst of plaatje op een schermpje (S12), een haarclip met een Magic 8 Ball die voor de grap een vraag beantwoordt (S15) en een sleutelhanger met een gezichtje op het scherm (S11). Bij elk ontwerp bepaalt de maker mede hoe het voorwerp overkomt.\n\nMarkt · hoe bereikt het idee een publiek?\nOnder het filmpje van de sleutelhanger vroegen kijkers of hij te koop kwam (S11). Voor dott, een draagbaar scherm voor onder meer GIFs, zegden mensen op Kickstarter geld toe (S38). Ik zag dus twee manieren waarop een concreet ontwerp belangstelling kreeg. Hoe groot de markt voor mijn eigen idee is, blijft open.\n\nConsument · wat zou iemand eraan hebben?\nBij de Magic 8 Ball-haarclip zag ik welke grap de maker koos (S15). Iets dragen waar je zelf om moet lachen, of iets waarin een ander je herkent, kan een reden zijn om zo’n clip te dragen. In het filmpje hoorde ik geen drager die dat als reden gaf. Voor mij blijft het een mogelijke behoefte.\n\nMaatschappij · welke bredere ontwikkeling herken ik?\nEen grap die je op een scherm deelt, kan ook zichtbaar zijn op iets wat je draagt. De haarclips en de campagne voor dott maken die overgang voorstelbaar. Met vier voorbeelden kan ik niet zeggen hoe vaak dit voorkomt of dat het gebruik groeit.\n\nWat ik uit de piramide haal\nDe ontwerpkeuzes en de belangstelling kan ik aanwijzen. De betekenis voor een drager moet ik nog onderzoeken. Daarom houd ik bij mijn keuze open of een clip, een speld of een andere draagvorm zou passen.\n\nEr zijn ook aanwijzingen voor grenzen aan draagbare elektronica. Bij een bril die kan filmen speelt de privacy van omstanders (S49). In een publicatie over mediagebruik vond ik voorbeelden van mensen die juist telefoonvrije momenten zoeken (S50). Zulke signalen helpen mij ook de bezwaren naast de mogelijke behoefte te leggen.",
       "tags": [
         "hoofdtrend",
         "expressieve-technologie",
@@ -2277,89 +2282,68 @@
       "confidence": 0.89,
       "references": [
         {
-          "nodeId": "S11",
-          "displayId": "S11",
-          "title": "ESP32-C3-keychain met OLED krijgt verkoopreacties"
-        },
-        {
           "nodeId": "S12",
           "displayId": "S12",
-          "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire"
+          "title": "TikTok van @codewithveronika · haarclip met een scherm"
         },
         {
           "nodeId": "S15",
           "displayId": "S15",
-          "title": "Maker remixt digitale haarclip naar Magic 8 Ball"
+          "title": "TikTok van @mewtru · haarclip als Magic 8 Ball"
+        },
+        {
+          "nodeId": "S11",
+          "displayId": "S11",
+          "title": "TikTok van @hack_updt · verkoopvragen bij de sleutelhanger"
         },
         {
           "nodeId": "S38",
           "displayId": "S38",
-          "title": "Dott wearable-display trekt honderden backers"
-        },
-        {
-          "nodeId": "S39",
-          "displayId": "S39",
-          "title": "Omibo Smart Video Pin trekt meer dan duizend backers"
-        },
-        {
-          "nodeId": "S47",
-          "displayId": "S47",
-          "title": "Smart earrings combineren sensing en sieraad"
-        },
-        {
-          "nodeId": "S48",
-          "displayId": "S48",
-          "title": "AI-bril wordt modeproduct"
+          "title": "Kickstarter · financiële steun voor het draagbare scherm dott"
         },
         {
           "nodeId": "S49",
           "displayId": "S49",
-          "title": "Privacybacklash rond slimme brillen"
+          "title": "Reuters · privacybezwaren tegen een bril met camera"
         },
         {
           "nodeId": "S50",
           "displayId": "S50",
-          "title": "Dumbphone- en anti-screenbeweging groeit"
+          "title": "Reuters Institute · eenvoudige telefoons en telefoonvrije momenten"
         }
       ],
       "evidenceRefs": [
         {
-          "nodeId": "S11",
-          "title": "ESP32-C3-keychain met OLED krijgt verkoopreacties"
-        },
-        {
           "nodeId": "S12",
-          "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire"
+          "displayId": "S12",
+          "title": "TikTok van @codewithveronika · haarclip met een scherm"
         },
         {
           "nodeId": "S15",
-          "title": "Maker remixt digitale haarclip naar Magic 8 Ball"
+          "displayId": "S15",
+          "title": "TikTok van @mewtru · haarclip als Magic 8 Ball"
+        },
+        {
+          "nodeId": "S11",
+          "displayId": "S11",
+          "title": "TikTok van @hack_updt · verkoopvragen bij de sleutelhanger"
         },
         {
           "nodeId": "S38",
-          "title": "Dott wearable-display trekt honderden backers"
-        },
-        {
-          "nodeId": "S39",
-          "title": "Omibo Smart Video Pin trekt meer dan duizend backers"
-        },
-        {
-          "nodeId": "S47",
-          "title": "Smart earrings combineren sensing en sieraad"
-        },
-        {
-          "nodeId": "S48",
-          "title": "AI-bril wordt modeproduct"
+          "displayId": "S38",
+          "title": "Kickstarter · financiële steun voor het draagbare scherm dott"
         }
       ],
       "counterEvidenceRefs": [
         {
           "nodeId": "S49",
-          "title": "Privacybacklash rond slimme brillen"
+          "displayId": "S49",
+          "title": "Reuters · privacybezwaren tegen een bril met camera"
         },
         {
           "nodeId": "S50",
-          "title": "Dumbphone- en anti-screenbeweging groeit"
+          "displayId": "S50",
+          "title": "Reuters Institute · eenvoudige telefoons en telefoonvrije momenten"
         }
       ]
     },
@@ -2596,12 +2580,11 @@
       "id": "D_TECH_ACCESS",
       "type": "driver",
       "title": "Kleine elektronica past in een haarclip",
-      "summary": "Een microcontroller en een klein scherm passen zichtbaar samen in de clip. Daardoor kan ik voor een draagbaar voorwerp ontwerpen.",
-      "body": "Technologisch in mijn DESTEP voor expressieve accessoires.\n\nEen microcontroller en een klein scherm passen zichtbaar samen in de clip. Daardoor kan ik voor een draagbaar voorwerp ontwerpen.\n\nDe video levert geen meting van prijsontwikkeling, accuduur of draagcomfort.",
+      "summary": "In een TikTok-video zag ik dat een chip en een scherm samen in een haarclip passen.",
+      "body": "Bij de technologische factor in DESTEP keek ik naar de haarclip van @codewithveronika. De video laat zien dat een chip en een scherm in het accessoire passen. Hoe lang de batterij meegaat en hoe de clip zit als je hem een hele dag draagt, is nog open.",
       "tags": [
         "DESTEP:T",
-        "maintrend:expressive",
-        "sterk"
+        "maintrend:expressive"
       ],
       "status": "analysis_selected",
       "confidence": 0.9,
@@ -2617,46 +2600,52 @@
       "id": "D_SOCIAL_EXPRESSION",
       "type": "driver",
       "title": "Gedeelde maakideeën krijgen een eigen grap",
-      "summary": "Een tweede maker kon voortbouwen op het haarclipidee en er een Magic 8 Ball van maken. Zo kan een ontwerp iets van de humor van de maker laten zien.",
-      "body": "DESTEP voor expressieve accessoires\n\nWelke ontwikkelingen maken een expressief accessoire mogelijk, aantrekkelijk of moeilijker te gebruiken? In de minor brengt DESTEP externe krachten in kaart (Scenario-ontwikkeling, dia 6). Ik beschrijf per factor de ontwikkeling, het gedrag in de bron, de invloed op mijn thema en de onzekerheid.\n\nDemografisch (S12)\nDe clipvideo’s en de reacties geven geen leeftijdsverdeling van dragers. Mijn broertje is één persoon in mijn eigen omgeving. Ik kan op grond hiervan geen leeftijdsgroep als doelgroep aanwijzen.\n\nEconomisch (S38)\nEen platform kan geïnteresseerden rond een productvoorstel bijeenbrengen. De 649 toezeggingen aan dott laten deze financieringsroute voor dit aanbod zien. De bijdragen zeggen niets over verkoop of prijsacceptatie voor mijn eigen idee.\n\nSociaal-cultureel (S12, S15)\nEen tweede maker kon voortbouwen op het haarclipidee en er een Magic 8 Ball van maken. Zo kan een ontwerp iets van de humor van de maker laten zien. Hoeveel dragers zelf iets willen aanpassen, kan ik uit deze remix niet afleiden.\n\nTechnologisch (S12)\nEen microcontroller en een klein scherm passen zichtbaar samen in de clip. Daardoor kan ik voor een draagbaar voorwerp ontwerpen. De video levert geen meting van prijsontwikkeling, accuduur of draagcomfort.\n\nEcologisch (S12, S11)\nBij de clip en sleutelhanger is elektronica nodig. Voor een uitspraak over milieubelasting zou ik onder meer materialen, levensduur en vervanging moeten kunnen vergelijken. De oorspronkelijke signalen bevatten die gegevens niet.\n\nPolitiek-juridisch (S49)\nMijn oorspronkelijke kaart bevat zorgen over opname door een slimme bril. Dat beperkt de aanvaardbaarheid van accessoires die omstanders kunnen registreren. Bij de beschreven displayclip is zo’n opnamefunctie niet waargenomen. Het brilsignaal heeft dus een beperkte reikwijdte.\n\nWat dat betekent voor mijn idee\nDe schermclip is technisch mogelijk, een maker kan de grap aanpassen en crowdfunding kan geïnteresseerden bereiken. Wat iemand zelf op een tas, in het haar of op een jas zou willen tonen, blijft open.",
+      "summary": "In twee TikTok-video’s kreeg een haarclip met een schermpje een andere grap. Met DESTEP bekeek ik welke ontwikkelingen rond zulke accessoires meespelen.",
+      "body": "DESTEP voor expressieve accessoires\n\nWelke ontwikkelingen maken een draagbaar scherm mogelijk of aantrekkelijk, en wat begrenst het gebruik? Met DESTEP uit de les Scenario-ontwikkeling (dia 6) bekijk ik de omgeving van mijn idee vanuit zes invalshoeken.\n\nDemografisch\nDe filmpjes van de digitale haarclips en de reacties bij de sleutelhanger vertellen mij niets over de leeftijdsverdeling van mensen die zo’n accessoire willen dragen (S12, S15, S11). Ik kan hieruit nog geen leeftijdsgroep kiezen.\n\nEconomisch\nBij dott, een draagbaar scherm voor onder meer GIFs, zag ik hoe een maker via Kickstarter geld kon ophalen. De 649 toezeggingen laten een manier zien om één ontwerp te financieren (S38). Welke prijs iemand voor mijn idee zou betalen, blijft open.\n\nSociaal-cultureel\nOp TikTok vond ik twee invullingen van hetzelfde idee. De ene haarclip toonde een tekstje of plaatje. De andere werkte als een Magic 8 Ball, een speeltje dat antwoord geeft op een vraag (S12, S15). Daarin herken ik ruimte voor de humor van de maker. Hoeveel dragers zelf zoiets zouden willen aanpassen, weet ik nog niet.\n\nTechnologisch\nIn de eerste haarclip past een chip die het ingebouwde schermpje aanstuurt (S12). Dat maakt het technisch mogelijk om een beeld in je haar te dragen. In het filmpje vond ik geen meting van accuduur of draagcomfort.\n\nEcologisch\nVoor de schermpjes in de clip en de sleutelhanger zijn elektronica en stroom nodig (S12, S11). Om de milieugevolgen te beoordelen zou ik onder meer moeten weten welke materialen erin zitten en hoelang de onderdelen meegaan. Die gegevens heb ik niet.\n\nPolitiek-juridisch\nIk las bij Reuters over privacybezwaren tegen een slimme bril waarmee de drager omstanders kan filmen (S49). Die zorg hangt af van wat het accessoire registreert. In het filmpje van de haarclip zag ik een scherm dat een beeld toont. Daarin zag ik geen opnamefunctie.\n\nWat dat betekent voor mijn idee\nKleine onderdelen maken de clip mogelijk, een maker kan er een eigen grap mee delen en crowdfunding kan zo’n ontwerp een publiek geven. Dat verklaart hoe een accessoire er kan komen. Om te begrijpen waarom iemand het zou dragen, moest ik ook kijken naar wat mensen nu al dragen.",
       "tags": [
         "DESTEP:S",
-        "maintrend:expressive",
-        "sterk"
+        "maintrend:expressive"
       ],
       "status": "analysis_selected",
       "confidence": 0.9,
       "evidenceRefs": [
         {
           "nodeId": "S12",
-          "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire"
+          "displayId": "S12",
+          "title": "TikTok van @codewithveronika · haarclip met een scherm"
         },
         {
           "nodeId": "S15",
-          "title": "Maker remixt digitale haarclip naar Magic 8 Ball"
+          "displayId": "S15",
+          "title": "TikTok van @mewtru · haarclip als Magic 8 Ball"
         }
       ],
-      "evidenceNote": "Hoeveel dragers zelf iets willen aanpassen, kan ik uit deze remix niet afleiden.",
+      "evidenceNote": "De twee haarclips laten ontwerpkeuzes zien. Of dragers ook zelf het beeld willen aanpassen, is nog open.",
       "references": [
         {
           "nodeId": "S12",
-          "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire"
+          "displayId": "S12",
+          "title": "TikTok van @codewithveronika · haarclip met een scherm"
         },
         {
           "nodeId": "S15",
-          "title": "Maker remixt digitale haarclip naar Magic 8 Ball"
+          "displayId": "S15",
+          "title": "TikTok van @mewtru · haarclip als Magic 8 Ball"
         },
         {
           "nodeId": "S11",
-          "title": "ESP32-C3-keychain met OLED krijgt verkoopreacties"
+          "displayId": "S11",
+          "title": "TikTok van @hack_updt · verkoopvragen bij de sleutelhanger"
         },
         {
           "nodeId": "S38",
-          "title": "Dott wearable-display trekt honderden backers"
+          "displayId": "S38",
+          "title": "Kickstarter · financiële steun voor het draagbare scherm dott"
         },
         {
           "nodeId": "S49",
-          "title": "Privacybacklash rond slimme brillen"
+          "displayId": "S49",
+          "title": "Reuters · privacybezwaren tegen een bril met camera"
         }
       ]
     },
@@ -2664,12 +2653,11 @@
       "id": "D_ECON_CREATOR",
       "type": "driver",
       "title": "Crowdfunding kan een draagbaar display financieren",
-      "summary": "Een platform kan geïnteresseerden rond een productvoorstel bijeenbrengen. De 649 toezeggingen aan dott laten deze financieringsroute voor dit aanbod zien.",
-      "body": "Economisch in mijn DESTEP voor expressieve accessoires.\n\nEen platform kan geïnteresseerden rond een productvoorstel bijeenbrengen. De 649 toezeggingen aan dott laten deze financieringsroute voor dit aanbod zien.\n\nDe bijdragen zeggen niets over verkoop of prijsacceptatie voor mijn eigen idee.",
+      "summary": "Op Kickstarter zegden 649 mensen geld toe voor dott, een draagbaar scherm. Zo zag ik hoe een maker een specifiek ontwerp kan financieren.",
+      "body": "Bij de economische factor in DESTEP keek ik naar dott, een scherm voor onder meer GIFs en QR-codes. De maker zocht financiering via Kickstarter en 649 mensen zegden geld toe. Dat liet mij een manier zien om een ontwerp te financieren. Het bedrag dat een toekomstige drager voor mijn idee over zou hebben, blijft open.",
       "tags": [
         "DESTEP:E",
-        "maintrend:expressive",
-        "sterk"
+        "maintrend:expressive"
       ],
       "status": "analysis_selected",
       "confidence": 0.9,
@@ -2839,7 +2827,7 @@
       "type": "value_shift",
       "title": "Van vooral functioneel naar ook expressief",
       "summary": "Naast een praktische functie kan een draagbaar scherm ook plezier of herkenning bieden. Voor wie dat waarde heeft, hangt af van wat iemand zelf wil tonen.",
-      "body": "Trendcanvas · Technologie als expressie\n\nWelke verwachting van een drager kan ik uit mijn signalen afleiden? Ingevuld voor de herkansing op 22 november 2026 met de signalen uit de oorspronkelijke opdracht. Lesdoel uit Scenario-ontwikkeling, dia 6. Voor de invulvelden gebruik ik het Consumer Trend Canvas van TrendWatching.\n\nMijn eigen uitgangspunt\nIn mijn opleiding keek ik eerst naar de eisen aan een werkend apparaat. Bij het schermpje in het haar besefte ik dat techniek ook iets over je humor kan vertellen. De Magic 8 Ball-remix bevestigde dat voor mij. Op de tas van mijn broertje herken ik figuren en quotes die passen bij zijn interesses. Dat is mijn herinnering uit de herkansingschat van 19 november. Uit mijn waarneming volgt nog geen voorkeur van hem voor een digitale button.\n\nTrend en inspiratie (S12, S15, S38)\nEen zichtbaar scherm kan deel uitmaken van hoe iemand zich laat zien. De haarclip en de Magic 8 Ball laten twee ontwerpen zien. dott laat zien hoe een draagbaar display als concreet aanbod op de markt kwam.\n\nMenselijke behoefte (S15)\nPlezier kunnen hebben in een grap en iets van je interesses kunnen laten zien. Dat is mijn interpretatie van de remix en van de figuren op de buttons van mijn broertje. Het is onbekend of de mogelijke drager diezelfde behoefte met een scherm wil vervullen.\n\nAanjagers · langere ontwikkeling en directe aanleiding (S12, S15)\nKleinere elektronica kan meer draagvormen mogelijk maken. S12 toont wat in deze clip past. Bij de remix zie ik een directe aanleiding. Een maker ziet het clipidee en past de interactie aan. De voorbeelden tonen geen tempo van miniaturisering of algemene groei.\n\nOpkomende verwachting en spanning\nMijn hypothese is dat een drager zelf wil kiezen welke interesse of grap zichtbaar is. Losse buttons bieden die keuze ook. Een vast figuur of een verzameling op een tas kan juist deel van de waarde zijn. Of wisselen van beeld opweegt tegen dragen en opladen, en voor wie, blijft open.\n\nSoort innovatie en voor wie (S11, S38)\nEen persoonlijk elektronisch accessoire voor iemand die via een zichtbaar voorwerp een interesse wil tonen. De verkoopvragen en campagne geven mij reden om zo’n richting te overwegen. De mogelijke drager is een hypothese. Uit makers, kijkers en deelnemers volgt nog geen afgebakende doelgroep.\n\nMijn kansrichting\nBij een bouwkit bepaalt een andere maker de laatste vorm. Ik wilde de hardware en software zelf tot een draagbaar eindproduct samenbrengen. Daarom koos ik Embedded Expressie. De modulaire mini-display op de kaart is één mogelijke uitwerking. Programmeerbare badges bestaan al. De mogelijke waarde zit in wat iemand ermee kan uitdrukken.\n\nWat ik nog bij dragers wil toetsen\nIk zou iemand een eigen accessoire laten kiezen. Wanneer droeg je het voor het laatst en waarom koos je het toen? Wat zou een wisselend beeld op datzelfde moment toevoegen? Zou opladen daarvoor de moeite waard zijn?",
+      "body": "Trendcanvas · Technologie als expressie\n\nWat zou iemand met een draagbaar scherm willen laten zien? Voor deze terugblik op de trendopdracht vulde ik het Consumer Trend Canvas van TrendWatching in. In dat werkblad verbind ik voorbeelden aan een mogelijke behoefte en werk ik uit welk idee daaruit volgt. De vraag naar een opkomende verwachting komt ook terug in de les Scenario-ontwikkeling (dia 6).\n\nMijn eigen uitgangspunt\nIn mijn opleiding kijk ik eerst naar wat een apparaat moet kunnen. Bij een schermpje in een haarclip dacht ik meteen aan de voeding. Pas bij het grappige plaatje in het haar realiseerde ik me wat je er over jezelf mee kunt vertellen. Ook buiten de techniek herken ik dat. Mijn broertje draagt gewone buttons op zijn tas, met figuren of quotes die passen bij wat hij leuk vindt.\n\nTrend en inspiratie\nOp TikTok zag ik een haarclip waarop je een tekst of plaatje kunt tonen (S12). Een andere maker gaf een vergelijkbare clip de functie van een Magic 8 Ball, het speelgoed dat voor de grap een vraag beantwoordt (S15). Op Kickstarter vond ik dott, een draagbaar scherm voor onder meer GIFs en video (S38). Bij de clips zie ik ontwerpkeuzes van makers. Bij dott zie ik een product waarvoor mensen geld toezegden.\n\nMenselijke behoefte\nDe Magic 8 Ball liet mij zien hoe een maker plezier kan hebben in een zelfgekozen grap. Aan de buttons op de tas van mijn broertje herken ik iets anders. Met een figuur dat hij draagt, is een interesse al zichtbaar voor anderen. Ik vermoed dat zoiets ook waarde kan hebben voor de drager van een elektronisch accessoire.\n\nAanjagers · langere ontwikkeling en directe aanleiding\nKleine elektronica opent mogelijkheden voor nieuwe draagvormen. De chip en het scherm passen al in een haarclip (S12). Op korte termijn viel me op hoe makers op TikTok verschillende invullingen van dat idee laten zien (S15). Uit deze filmpjes kan ik het tempo van de technische ontwikkeling niet afleiden.\n\nOpkomende verwachting en spanning\nMisschien wil een drager op verschillende momenten een ander beeld laten zien. Met losse buttons kan iemand ook al kiezen en een verzameling samenstellen. Wanneer zou een wisselend scherm zo veel toevoegen dat dragen en opladen de moeite waard worden?\n\nSoort innovatie en voor wie\nIk zie een kans voor een elektronisch accessoire waarmee iemand een eigen grap of interesse kan dragen. Kijkers vroegen bij een sleutelhanger met een gezichtje of hij te koop was (S11). De campagne voor dott kreeg financiële steun (S38). Dat maakt dit een richting om te verkennen. Welke dragers mijn idee zouden kiezen, moet ik nog ontdekken.\n\nMijn kansrichting\nHet plezier in bouwen bracht me op een bouwkit. Ik zou de onderdelen aanleveren, waarna een andere maker het eindproduct vormgeeft. Het plezier in dragen bracht me op een tweede mogelijkheid. Ik zou zelf een accessoire ontwerpen en de drager zou kiezen wat erop te zien is. Die tweede richting noem ik Embedded Expressie.\n\nWat ik nog bij dragers wil toetsen\nIk zou iemand een eigen accessoire laten kiezen. Wanneer droeg je het voor het laatst en waarom koos je het toen? Wat zou een wisselend beeld op datzelfde moment toevoegen? Zou opladen daarvoor de moeite waard zijn?",
       "tags": [
         "geselecteerde-waardeverschuiving",
         "expressie",
@@ -2852,48 +2840,22 @@
         {
           "nodeId": "S12",
           "displayId": "S12",
-          "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire"
+          "title": "TikTok van @codewithveronika · haarclip met een scherm"
         },
         {
           "nodeId": "S15",
           "displayId": "S15",
-          "title": "Maker remixt digitale haarclip naar Magic 8 Ball"
+          "title": "TikTok van @mewtru · haarclip als Magic 8 Ball"
         },
         {
           "nodeId": "S38",
           "displayId": "S38",
-          "title": "Dott wearable-display trekt honderden backers"
-        },
-        {
-          "nodeId": "S39",
-          "displayId": "S39",
-          "title": "Omibo Smart Video Pin trekt meer dan duizend backers"
-        },
-        {
-          "nodeId": "S47",
-          "displayId": "S47",
-          "title": "Smart earrings combineren sensing en sieraad"
-        },
-        {
-          "nodeId": "S48",
-          "displayId": "S48",
-          "title": "AI-bril wordt modeproduct"
+          "title": "Kickstarter · financiële steun voor het draagbare scherm dott"
         },
         {
           "nodeId": "S11",
-          "title": "ESP32-C3-keychain met OLED krijgt verkoopreacties"
-        },
-        {
-          "nodeId": "IDEA_EXP_02",
-          "title": "Creator-kit voor expressieve wearables"
-        },
-        {
-          "nodeId": "OPP_EXPRESSIVE_MODULAR",
-          "title": "Verkend voorbeeld: modulaire mini-display"
-        },
-        {
-          "nodeId": "E_COMP_BADGEWARE",
-          "title": "Bestaand alternatief: Pimoroni Badgeware"
+          "displayId": "S11",
+          "title": "TikTok van @hack_updt · verkoopvragen bij de sleutelhanger"
         }
       ],
       "source": {
@@ -2905,7 +2867,7 @@
         "sourceType": "method",
         "accessedDate": "2026-11-22",
         "dateStatus": "verified",
-        "dateNote": "Model voor de terugblik op mijn eigen signalen en waarnemingen."
+        "dateNote": "Werkblad gebruikt voor de indeling van het canvas. De voorbeelden en de interpretatie staan in de ingevulde onderdelen."
       }
     },
     {
@@ -3052,8 +3014,8 @@
       "id": "CT_DIGITAL_REST",
       "type": "countertrend",
       "title": "Meer digitale mogelijkheden ↔ behoefte aan digitale rust",
-      "summary": "Tegenover meer connected en persoonlijke technologie staat een beweging naar minder schermen, minder prikkels en bewust offline zijn.",
-      "body": "In S50 vond ik voorbeelden van dumbphones en telefoonvrije momenten. In mijn eigen observatie S59 zag ik hoe mensen met oortjes in drukte een eigen ruimte kunnen maken. Daarin herken ik een behoefte om zelf te bepalen welke prikkels je toelaat.\n\nVoor een scherm dat je draagt maakt dat verschil. Een vaste button met een favoriet figuur kan iets persoonlijks tonen zonder te veranderen of te hoeven opladen. Op Comic Con in Utrecht vielen me gewone buttons op. In mijn terugblik van 10 november kon ik me daar geen bezoeker met een digitale button herinneren. Hoe vaak ze er voorkomen weet ik niet.\n\nMijn tegenvraag bij de haarclip werd daardoor concreet. In welke situatie zou wisselen van beeld iets toevoegen aan wat iemand al graag draagt, en wanneer zou iemand juist rust of eenvoud kiezen?",
+      "summary": "Een gewone button kan al iets persoonlijks laten zien. Dat zette mij aan het denken over wat een extra scherm aan een accessoire toevoegt.",
+      "body": "Een voorbeeld uit mijn eigen omgeving hielp me om kritisch naar het idee van een draagbaar scherm te kijken. Mijn broertje draagt buttons op zijn tas. Op die buttons staan figuren of quotes die passen bij zijn interesses en zijn humor. Aan de tas kan ik dus al zien wat hij leuk vindt. Op Comic Con in Utrecht vielen me ook gewone buttons op.\n\nEen andere tegenbeweging vond ik in een publicatie van het Reuters Institute over mediagebruik. Het rapport beschrijft eenvoudige telefoons en telefoonvrije momenten, bijvoorbeeld bij concerten waar bezoekers hun smartphone inleveren (S50). Zelf zag ik in een drukke omgeving mensen met oortjes of een koptelefoon op (S59). Ik las daarin een wens om grip te houden op wat er aan prikkels binnenkomt. Hun eigen reden heb ik niet gevraagd.\n\nEen vaste button hoeft niet te worden opgeladen. Bij de digitale haarclip kan het scherm wisselende beelden tonen. Daardoor werd mijn vraag aan een drager preciezer. Op welk moment zou je willen wisselen, terwijl je ook een button kunt opspelden die al bij je past?",
       "tags": [
         "digitale-rust",
         "countertrend"
@@ -3063,11 +3025,13 @@
       "references": [
         {
           "nodeId": "S50",
-          "title": "Dumbphone- en anti-screenbeweging groeit"
+          "displayId": "S50",
+          "title": "Reuters Institute · eenvoudige telefoons en telefoonvrije momenten"
         },
         {
           "nodeId": "S59",
-          "title": "Persoonlijke bubbel in publieke drukte"
+          "displayId": "S59",
+          "title": "Mijn waarneming · mensen met oortjes in een drukke omgeving"
         }
       ]
     },
@@ -3118,7 +3082,7 @@
       "type": "reflection",
       "title": "Mijn eerste bril was technisch",
       "summary": "Mijn eerste blik was heel technisch. Dat leverde goede signalen op, maar ik merkte ook dat ik daardoor snel in oplossingen en producten dacht.",
-      "body": "Ik begon deze opdracht eigenlijk precies zoals ik normaal naar dingen kijk.\n\nIk zie een sensor, microcontroller, AI-systeem of slim product en wil meteen weten hoe het werkt en wat ik ermee kan bouwen. Dat is handig als engineer, maar voor trendwatching zat daar ook een valkuil in.\n\nBij de digitale haarclip dacht ik bijvoorbeeld bijna meteen: die kan kleiner, daar kan ik wel iets van maken. Toen moest ik mezelf eigenlijk terugfluiten. Eerst kijken wat er gebeurt en waarom mensen dit interessant vinden. Pas daarna naar een oplossing.\n\nDat verschil is één van de belangrijkste dingen die ik uit deze opdracht haal.",
+      "body": "Ik studeer Embedded Systems Engineering. In mijn opleiding krijg ik vaak een vraag van een opdrachtgever. Daar horen eisen bij, en met hardware en software werk ik toe naar een apparaat dat aan die eisen voldoet.\n\nDie gewoonte nam ik mee naar deze opdracht. Als ik een klein scherm of een sensor zie, denk ik al na over de voeding en hoe ik het zelf zou bouwen. Voor het verzamelen van signalen had ik eerst een andere vraag nodig. Wat zie ik iemand met dat voorwerp doen, en waarom valt mij dat op?",
       "tags": [
         "reflectie",
         "technische-bril"
@@ -3131,7 +3095,7 @@
       "type": "reflection",
       "title": "Wat mij steeds opnieuw opvalt: wie heeft de regie?",
       "summary": "Na een tijdje zag ik dat ik bij heel verschillende onderwerpen steeds op dezelfde vraag uitkwam: wie houdt uiteindelijk de regie?",
-      "body": "Dit had ik vooraf echt niet bedacht.\n\nBij AI vroeg ik me af wie kan ingrijpen. Bij algoritmes waarom ik iets te zien krijg of een bepaalde prijs krijg. Bij slimme brillen wie bepaalt of ik word opgenomen. Bij toegankelijk ontwerp juist of iemand zelfstandig iets kan doen. Zelfs bij oortjes ging het ineens over zelf bepalen welke prikkels binnenkomen.\n\nToen viel het kwartje dat 'regie' meer zegt over mijn manier van kijken dan één specifieke technologie.\n\nIk noem regie daarom niet mijn grote bewezen trend. Het is mijn rode draad door de trends heen.",
+      "body": "Bij de digitale haarclip koos de maker welke grap er in het haar te zien was. Bij een AI-systeem dat zelfstandig een bericht kan versturen, vroeg ik me af wie vooraf toestemming kan geven. Bij mijn eigen feed ging mijn vraag over welke berichten ik zelf wil zien.\n\nNaast elkaar maakten die voorbeelden iets duidelijk over mijn manier van kijken. Ik vroeg bij elk ontwerp opnieuw wie een keuze kan maken. Dat bedoel ik met regie. Voor mij verbindt die vraag de drie trends.",
       "tags": [
         "reflectie",
         "regie",
@@ -3211,7 +3175,7 @@
       "type": "evidence",
       "title": "Consumenten vinden prijsalgoritmes vaak oneerlijk",
       "summary": "ACM/Motivaction onderzocht hoe consumenten prijsalgoritmes ervaren. 64% noemt het gebruik ervan oneerlijk en 23% vindt vliegtickets vergelijken moeilijk.",
-      "body": "Ik zocht hier bewust nog extra bewijs omdat ik bij algoritmische prijzen vooral techniek, beleid en mijn eigen fairness-reactie had.\n\nDit onderzoek helpt daar echt bij. Het gaat om ruim 1.000 mensen die vliegtickets boeken. 64% vindt het gebruik van prijsalgoritmes oneerlijk en 23% zegt dat vergelijken lastig is, onder andere door fluctuerende prijzen. Er is ook meer begrip voor gewone dynamische prijsstelling dan voor echte prijspersonalisatie.\n\nVoor mij is dit belangrijk omdat het laat zien dat fairness en transparantie niet alleen mijn eigen reactie zijn. Er zit ook aantoonbaar consumentengedrag en consumentenbeleving achter.",
+      "body": "Ik zocht hier bewust nog extra bewijs omdat ik bij algoritmische prijzen vooral techniek, beleid en mijn eigen fairness-reactie had.\n\nIn het onderzoek van Motivaction voor de Autoriteit Consument & Markt ging het om ruim 1.000 mensen die vliegtickets boeken. 64% vindt het gebruik van prijsalgoritmes oneerlijk en 23% zegt dat vergelijken lastig is, onder andere door fluctuerende prijzen. Er is ook meer begrip voor gewone dynamische prijsstelling dan voor echte prijspersonalisatie.\n\nVoor mij is dit belangrijk omdat het laat zien dat fairness en transparantie niet alleen mijn eigen reactie zijn. Er zit ook aantoonbaar consumentengedrag en consumentenbeleving achter.",
       "tags": [
         "pricing",
         "algoritmes",
@@ -3272,12 +3236,11 @@
       "id": "D_EXP_DEMO",
       "type": "driver",
       "title": "De leeftijd van mogelijke dragers is onbekend",
-      "summary": "De clipvideo’s en de reacties geven geen leeftijdsverdeling van dragers. Mijn broertje is één persoon in mijn eigen omgeving.",
-      "body": "Demografisch in mijn DESTEP voor expressieve accessoires.\n\nDe clipvideo’s en de reacties geven geen leeftijdsverdeling van dragers. Mijn broertje is één persoon in mijn eigen omgeving.\n\nIk kan op grond hiervan geen leeftijdsgroep als doelgroep aanwijzen.",
+      "summary": "Op TikTok zag ik twee varianten van een haarclip met een scherm en reacties op een sleutelhanger. Daaruit kan ik geen leeftijdsverdeling van mogelijke dragers afleiden.",
+      "body": "Bij de demografische factor in DESTEP vroeg ik me af wie zo’n digitaal accessoire zou willen dragen. In de video’s zag ik wat de makers bouwden. De reacties bij de sleutelhanger gingen over verkoop. Bij geen van die voorbeelden kon ik vaststellen hoe oud de mogelijke dragers zijn.",
       "tags": [
         "DESTEP:D",
-        "maintrend:expressive",
-        "zwak"
+        "maintrend:expressive"
       ],
       "status": "analysis_weak",
       "confidence": 0.45,
@@ -3288,12 +3251,11 @@
       "id": "D_EXP_ECO",
       "type": "driver",
       "title": "De milieugevolgen van een digitale variant blijven open",
-      "summary": "Bij de clip en sleutelhanger is elektronica nodig. Voor een uitspraak over milieubelasting zou ik onder meer materialen, levensduur en vervanging moeten kunnen vergelijken.",
-      "body": "Ecologisch in mijn DESTEP voor expressieve accessoires.\n\nBij de clip en sleutelhanger is elektronica nodig. Voor een uitspraak over milieubelasting zou ik onder meer materialen, levensduur en vervanging moeten kunnen vergelijken.\n\nDe oorspronkelijke signalen bevatten die gegevens niet.",
+      "summary": "Voor een haarclip of sleutelhanger met een schermpje zijn elektronica en stroom nodig. Hoe lang de onderdelen meegaan, maakt uit voor de milieugevolgen.",
+      "body": "Bij de ecologische factor in DESTEP keek ik naar de digitale haarclip en de sleutelhanger met een gezichtje op het scherm. Om ze met een gewoon accessoire te kunnen vergelijken, zou ik meer moeten weten over materialen, accuvervanging en levensduur. Die gegevens heb ik niet.",
       "tags": [
         "DESTEP:ECO",
-        "maintrend:expressive",
-        "zwak"
+        "maintrend:expressive"
       ],
       "status": "analysis_weak",
       "confidence": 0.45,
@@ -3313,12 +3275,11 @@
       "id": "D_EXP_POL",
       "type": "driver",
       "title": "De privacyvraag hangt af van de functies",
-      "summary": "Mijn oorspronkelijke kaart bevat zorgen over opname door een slimme bril. Dat beperkt de aanvaardbaarheid van accessoires die omstanders kunnen registreren.",
-      "body": "Politiek-juridisch in mijn DESTEP voor expressieve accessoires.\n\nMijn oorspronkelijke kaart bevat zorgen over opname door een slimme bril. Dat beperkt de aanvaardbaarheid van accessoires die omstanders kunnen registreren.\n\nBij de beschreven displayclip is zo’n opnamefunctie niet waargenomen. Het brilsignaal heeft dus een beperkte reikwijdte.",
+      "summary": "Bij een bril met camera kunnen omstanders gefilmd worden. Zo’n bezwaar hangt af van de functies van een accessoire.",
+      "body": "Bij de politiek-juridische factor in DESTEP gebruikte ik een bericht van Reuters over privacybezwaren tegen een slimme bril die mensen kan filmen. Bij de digitale haarclip zag ik een schermpje dat iets toont. Een opnamefunctie heb ik daarin niet gezien. Daarom trek ik het bezwaar tegen de bril niet zonder meer door naar de clip.",
       "tags": [
         "DESTEP:P",
-        "maintrend:expressive",
-        "middel"
+        "maintrend:expressive"
       ],
       "status": "analysis_medium",
       "confidence": 0.65,
@@ -3494,7 +3455,7 @@
       "type": "opportunity",
       "title": "Verkend voorbeeld: modulaire mini-display",
       "summary": "Een concreet productvoorbeeld binnen de bredere richting expressieve embedded accessoires.",
-      "body": "Een modulaire mini-display maakte mijn richting concreet. Een clip of badge zou een beeld of grap zichtbaar kunnen maken. Op mijn kaart staat ook Pimoroni Badgeware, een bestaande programmeerbare badge. De technische mogelijkheid alleen verklaart dus niet waarom iemand mijn variant zou dragen.\n\nVoor de trendopdracht neem ik de richting persoonlijke elektronische accessoires mee. Welk beeld iemand zou willen tonen en of een andere draagvorm al voldoet, is met mijn signalen nog open.",
+      "body": "Met een modulair scherm bedoel ik een klein scherm dat je op verschillende manieren kunt bevestigen, bijvoorbeeld als clip of badge. Zo zou een drager een beeld of grap kunnen laten zien. Pimoroni verkoopt onder de naam Badgeware al badges waarop je zelf iets kunt programmeren.\n\nIn de trendopdracht koos ik de bredere richting Embedded Expressie. Daarmee bedoel ik persoonlijke elektronische accessoires. Wat een drager erop zou willen tonen, en wanneer een gewone button al voldoet, wil ik nog toetsen.",
       "tags": [
         "kans",
         "expressieve-technologie",
@@ -3622,7 +3583,7 @@
       "type": "opportunity",
       "title": "Verkend voorbeeld: PrijsKompas",
       "summary": "Een concreet voorbeeld binnen de bredere richting beïnvloedbare en uitlegbare personalisatie.",
-      "body": "PrijsKompas is het prijsvoorbeeld bij de shortlistrichting beïnvloedbare personalisatie. Als een prijs verandert, zou iemand de historie erbij kunnen pakken. Pricewatch biedt prijshistorie en meldingen al aan. Een verschil in prijs alleen laat de oorzaak open. Welke extra uitleg iemand nodig heeft, is de vraag die overblijft.\n\nBij S22 gaat het om welke berichten iemand te zien krijgt en of die persoon dat kan bijsturen. Hetzelfde verlangen naar uitleg en invloed kan dus tot een heel ander idee leiden dan een prijsapp.",
+      "body": "PrijsKompas is het prijsvoorbeeld bij de shortlistrichting beïnvloedbare personalisatie. Als een prijs verandert, zou iemand de historie erbij kunnen pakken. Pricewatch biedt prijshistorie en meldingen al aan. Een verschil in prijs alleen laat de oorzaak open. Welke extra uitleg iemand nodig heeft, is de vraag die overblijft.\n\nIk keek ook naar mijn eigen socialemediafeed. Als ik langer naar een bericht kijk, krijg ik daarna meer soortgelijke berichten te zien (S22). Daar gaat het om de vraag of ik die selectie kan bijsturen. Hetzelfde verlangen naar uitleg en invloed kan dus tot een heel ander idee leiden dan een prijsapp.",
       "tags": [
         "kans",
         "pricing",
@@ -3687,7 +3648,7 @@
       "type": "scenario",
       "title": "Scenario-analyse: AI-autonomie x menselijke controle",
       "summary": "Ik vergelijk vier combinaties van zelfstandig handelen en menselijke controle. Welke toestemming of uitleg is in elke combinatie van waarde?",
-      "body": "Mijn horizontale as gaat van adviseren naar zelf handelen. S45 beschrijft de opkomst van systemen die taken uitvoeren. De verticale as gaat van weinig inzicht en bijsturing naar vooraf toestemming geven en achteraf kunnen zien wat er gebeurde. S04 beschrijft systemen die grenzen overschreden. Dat maakt toezicht een aparte onzekerheid. Een zelfstandige agent kan immers veel óf weinig toezicht hebben.\n\nEen e-mail opstellen is adviseren. Een e-mail versturen is handelen. Met een permission- en loglaag bedoel ik afspraken over toegestane handelingen. De gebruiker bepaalt wanneer verzenden mag, en krijgt een overzicht van uitgevoerde handelingen. Bij vooraf toegestane routinehandelingen kan het systeem doorwerken. Voor een afwijkende handeling kan het om toestemming vragen.\n\nScenario-ontwikkeling uit de minor, dia 6 en 9–11. Ik combineer de uitersten van beide assen en kijk per combinatie waar toestemming, uitleg of terugkijken zin heeft.",
+      "body": "Een AI-agent is een systeem dat zelf een taak kan uitvoeren. In een artikel van Reuters las ik over zulke systemen voor bedrijven (S45). Dat leverde mijn eerste as op. Geeft een systeem alleen advies of kan het ook zelf handelen? In een artikel van Tweakers las ik over agents die grenzen overschreden (S04). Daaruit volgde de tweede as. Wat kan een mens vooraf toestaan en achteraf inzien of bijsturen?\n\nEen e-mail opstellen is adviseren. Een e-mail versturen is handelen. Met een permission- en loglaag bedoel ik afspraken over wat het systeem mag doen en een overzicht van wat het heeft gedaan. De gebruiker kan routinehandelingen vooraf toestaan en bij een afwijking eerst om bevestiging laten vragen.\n\nMet de scenariomethode uit de les Scenario-ontwikkeling (dia 6 en 9–11) combineer ik de uitersten van beide assen. In de vier combinaties kan ik aanwijzen wanneer vooral uitleg, toestemming of terugkijken telt.",
       "tags": [
         "scenario",
         "ai",
@@ -3747,11 +3708,13 @@
       "references": [
         {
           "nodeId": "S45",
-          "title": "Autonome agents worden een echte productcategorie"
+          "displayId": "S45",
+          "title": "Reuters · AI-systemen die zelfstandig taken uitvoeren"
         },
         {
           "nodeId": "S04",
-          "title": "AI-agents gingen meerdere keren ‘te ver’"
+          "displayId": "S04",
+          "title": "Tweakers · voorbeelden van AI-agents die grenzen overschreden"
         }
       ]
     },
@@ -4130,7 +4093,7 @@
       "type": "cluster",
       "title": "Ideeënpool uit de drie hoofdtrends",
       "summary": "Ik bedacht 15 ideeën bij drie trends, koos 3 brede richtingen en verkende per richting 1 voorbeeld.",
-      "body": "In de kaart hebben 21 onderdelen de categorie ‘kans’. Dat getal telt drie verschillende zaken op. Ik begon met 15 ruwe ideeën, vijf per trend. Daaruit selecteerde ik 3 overkoepelende richtingen. Bij elke richting verkende ik één concreet voorbeeld, dus 3 voorbeelden in totaal.\n\nBij de expressieve trend passen zowel een bouwkit als een zelf ontworpen accessoire. Mijn gekozen richting is Embedded Expressie. De modulaire mini-display laat zien wat daaronder zou kunnen vallen.",
+      "body": "Op de kaart staan 21 onderdelen onder ‘kansen’. Eerst bedacht ik 15 ruwe ideeën, vijf voor elk van mijn drie trends. Die trends gaan over je uitdrukken met draagbare techniek, controle houden over AI die zelfstandig handelt, en invloed op aanbevelingen of prijzen. Uit de ideeën selecteerde ik 3 brede richtingen. Bij elke richting verkende ik één concreet voorbeeld.\n\nBij draagbare techniek zag ik bijvoorbeeld twee mogelijkheden. Ik kon losse onderdelen aanbieden aan iemand die graag zelf iets maakt, of een accessoire ontwerpen voor iemand die iets van zichzelf wil laten zien. Dat is de afweging waar ik in deze route mee begin.",
       "tags": [
         "creëren",
         "idee-pool",
@@ -4144,7 +4107,7 @@
       "type": "opportunity",
       "title": "Embedded Expressie · expressieve embedded accessoires",
       "summary": "Mijn gekozen kansrichting is zelf een persoonlijk elektronisch accessoire ontwerpen. Plezier en herkenning kunnen naast de technische functie waarde hebben.",
-      "body": "De grap in de haarclip en de Magic 8 Ball liet mij zien wat een maker met een klein scherm kan uitdrukken. Bij de sleutelhanger zag ik verkoopvragen en bij dott financiële steun voor een specifiek display. Dat gaf mij reden om een accessoire voor een drager te overwegen.\n\nBij Embedded Systems Engineering ben ik gewend om vanuit een vraag en toetsbare eisen hardware en software samen te brengen. Een bouwkit sprak een andere kant van dezelfde voorbeelden aan. Ik zou losse onderdelen aanreiken en een volgende maker zou de laatste ontwerpkeuze maken. Zelf wilde ik juist uitwerken hoe een drager een eigen interesse of grap zichtbaar kan maken. Daarom koos ik voor Embedded Expressie.\n\nDe modulaire mini-display op de kaart is één voorbeeld. Programmeerbare badges zoals Pimoroni Badgeware bestaan al. Of iemand op een bepaalde gelegenheid liever een beeld wisselt dan een van zijn vaste buttons kiest, is de aanname die ik overhoud. De vorm van het accessoire bleef aan het einde van de trendopdracht open.",
+      "body": "Mijn keuze begon bij een haarclip met een klein scherm waarop een grap te zien was. Op TikTok zag ik ook een variant die werkte als een Magic 8 Ball, het speelgoed dat antwoord geeft op een vraag. Die twee clips lieten mij de humor van de makers zien. Verkoopvragen bij een sleutelhanger met een gezichtje en financiële steun voor een draagbaar scherm op Kickstarter lieten zien dat zulke voorwerpen ook bij anderen belangstelling kunnen wekken.\n\nBij mijn opleiding Embedded Systems Engineering combineer ik hardware en software tot een werkend eindproduct. Voor mij kwamen uit de haarclips twee mogelijke ideeën. Met een bouwkit zou ik een volgende maker de losse onderdelen geven om zelf iets te ontwerpen. Met een draagbaar accessoire zou ik het voorwerp zelf kunnen ontwerpen voor iemand die een eigen grap of interesse wil laten zien. Dat laatste wilde ik doen. Die richting noem ik Embedded Expressie.\n\nEen mogelijk ontwerp is een klein scherm dat je op verschillende manieren kunt bevestigen. Programmeerbare badges bestaan al, zoals de Badgeware van Pimoroni. De vraag die ik overhoud gaat over het dragen. Mijn broertje laat bijvoorbeeld met de gewone buttons op zijn tas al zien wat hij leuk vindt. Wanneer zou iemand er meer aan hebben om het beeld op een scherm te wisselen? Die meerwaarde en de uiteindelijke draagvorm staan nog open.",
       "tags": [
         "shortlist",
         "expressieve-technologie",
@@ -4156,19 +4119,19 @@
         "badge": "Voorlopige kansrichting",
         "showLinkedTrendAndShift": true
       },
-      "selectionRationale": "Bij de remix past ook een bouwkit. Eigenlijk werk ik zelf al met losse onderdelen. Bij een kit bepaalt de volgende maker wat het eindproduct wordt. Ik wilde zelf het draagbare voorwerp ontwerpen. Dat verklaart waarom ik Embedded Expressie koos. Of iemand een digitaal beeld meer waarde vindt hebben dan een vaste button, blijft een aanname.",
+      "selectionRationale": "Bij een bouwkit ontwerpt de volgende maker het eindproduct. Zelf wilde ik de onderdelen samenbrengen en uitwerken hoe een drager kan kiezen welk beeld zichtbaar is. Mijn voorkeur als ontwerper gaf de doorslag. Voor de drager is de meerwaarde nog een open vraag.",
       "references": [
         {
           "nodeId": "IDEA_EXP_02",
-          "title": "Creator-kit voor expressieve wearables"
+          "title": "Een bouwkit voor iemand die zelf een accessoire wil maken"
         },
         {
           "nodeId": "OPP_EXPRESSIVE_MODULAR",
-          "title": "Verkend voorbeeld: modulaire mini-display"
+          "title": "Een scherm dat je op verschillende manieren kunt bevestigen"
         },
         {
           "nodeId": "E_COMP_BADGEWARE",
-          "title": "Bestaand alternatief: Pimoroni Badgeware"
+          "title": "Pimoroni · bestaande programmeerbare badge"
         }
       ]
     },

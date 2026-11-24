@@ -439,6 +439,32 @@ describe("guided tour progress", () => {
     }
   });
 
+  it("introduces the family observation before the canvas in both views of the route", () => {
+    const { data } = validateData(graph, tourDocument);
+    const stepContent = review.steps.map((step) => {
+      const node = data.nodes.find((item) => item.id === step.nodeId)!;
+      return {
+        story: step.text,
+        detail: [node.summary, node.body, node.evidenceNote].join(" "),
+      };
+    });
+    for (const field of ["story", "detail"] as const) {
+      const firstMention = stepContent.findIndex((step) =>
+        /broertje/i.test(step[field]),
+      );
+      assert.equal(review.steps[firstMention]?.nodeId, "CT_DIGITAL_REST");
+      assert.match(
+        stepContent[firstMention][field],
+        /mijn broertje draagt buttons op zijn tas/i,
+      );
+      assert.match(stepContent[firstMention + 1][field], /buttons.*tas/s);
+    }
+    assert.doesNotMatch(
+      JSON.stringify([graph.nodes, tourDocument.tours]),
+      /herkansingschat|mijn (?:eerste waarneming op 19|toelichting van 21) november|AI.chatbijlage/i,
+    );
+  });
+
   it("keeps the current step when a visitor temporarily opens another node", () => {
     const atStepSeven = progressAtStep({}, mainStory, 6);
     const temporaryNodeSelection = mainStory.steps[2].nodeId;
