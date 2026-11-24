@@ -1,12 +1,14 @@
 # Trendbrein · appversie 0.9.1
 
-Een statische React/TypeScript-app waarin een Sigma.js-kaart de hoofdinterface is. De werkdataset bevat **152 nodes, 346 verbindingen en zes tours met samen 61 stappen**. *Van één signaal naar een kans* volgt de oorspronkelijke zeven nodes. De vergelijking, trendpiramide, DESTEP en het ingevulde trendcanvas staan in de tekst van de betreffende node. Een routestap is rechtstreeks te openen, bijvoorbeeld via `?route=signal-to-opportunity&node=VS_FUNCTION_EXPRESS`. De versie in Onderzoeksmodus komt uit `graph.meta.version`.
+Trendbrein is een interactieve kaart van mijn trendonderzoek. De site bevat **152 nodes, 346 verbindingen en zes routes met samen 61 stappen**. De kaart is gebouwd met React, TypeScript en Sigma.js. [Open Trendbrein](https://hugodiepugo.github.io/TrendBrein/)
 
-Voor de inlevering staat een korte ingang voor beoordelaars in [docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx](docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx).
+Voor de herkansing laat *Van één signaal naar een kans* in zeven stappen zien waarom ik voor Embedded Expressie koos. Ik begin bij een haarclip met een schermpje. In stap 4 pas ik DESTEP toe, in stap 6 vergelijk ik in het trendcanvas de grap van een maker met de buttons die mijn broertje draagt. In stap 7 leg ik mijn keuze en de open vraag aan dragers uit. [Lees de route vanaf het begin](https://hugodiepugo.github.io/TrendBrein/?route=signal-to-opportunity)
+
+De oorspronkelijke inzending hoort bij versie 0.8.1. De wijzigingen voor de herkansing staan bij versie 0.9.1. [Oorspronkelijk inleverdocument (Word)](https://github.com/HugoDiePugo/TrendBrein/blob/37fa109175acd6bdec0445c3bbf7e3ef43dee2af/docs/Inleverdocument_Trendbrein_Hugo_Halfmouw.docx) · [Wijzigingen voor de herkansing](CHANGELOG_v0.9.1.md)
 
 ## Installatie en starten
 
-Gebruik Node.js 22 LTS of nieuwer en npm. De eerste versie is ook getest met de lokaal aanwezige Node.js 18.16.
+Gebruik Node.js 22 en npm om dezelfde hoofdversie te draaien als de GitHub Pages-workflow.
 
 ```sh
 npm ci
@@ -70,7 +72,7 @@ Voeg een object toe aan `nodes`:
 
 Alleen `id`, `type` en `title` zijn verplicht. `tags` krijgt standaard `[]`; `importance` standaard `0.5`. `confidence` en `importance` liggen tussen 0 en 1. Importance beïnvloedt de nodegrootte; confidence is uitsluitend metadata en wordt niet berekend. `status` is vrije tekst. Bronvelden zijn optioneel. Lege URL's worden behouden. Een datum mag een geldig `YYYY-MM-DD`, alleen `YYYY` of bewust `z.d.` zijn. `accessedDate` blijft apart van de publicatie- of campagnedatum; de app leidt nooit een publicatiedatum af uit de geraadpleegd-datum.
 
-Beschikbare types: `signal`, `evidence`, `cluster`, `trend`, `value`, `driver`, `value_shift`, `countertrend`, `scenario`, `opportunity`, `reflection`. Een driver kan later bijvoorbeeld een DESTEP-tag krijgen; de demo doet geen inhoudelijke uitspraken daarover.
+De beschikbare types zijn `signal`, `evidence`, `cluster`, `trend`, `value`, `driver`, `value_shift`, `countertrend`, `scenario`, `opportunity` en `reflection`. De technologische factor bij de expressieve accessoires heeft het type `driver` en de tag `DESTEP:T`.
 
 ### Een edge toevoegen
 
@@ -80,14 +82,14 @@ Voeg aan `edges` toe, met bestaande node-ID's:
 {
   "id": "demo-edge-nieuw",
   "source": "demo-signaal-d",
-  "target": "demo-6",
+  "target": "C_EXPRESSIVE",
   "type": "part_of",
   "strength": 0.8,
   "label": "is onderdeel van"
 }
 ```
 
-`id`, `source`, `target` en `type` zijn verplicht. `strength` ligt tussen 0 en 1, met standaard `0.5`, en beïnvloedt lijndikte en aantrekkingskracht in de layout. `label` is optioneel; zonder label wordt de centrale Nederlandse relatienaam gebruikt. De richting loopt van source naar target. Het detailpanel vermeldt zowel richting als bron- en doelnode, zodat inkomende relaties niet verkeerd gelezen worden.
+`id`, `source`, `target` en `type` zijn verplicht. Dit voorbeeld verbindt de hierboven toegevoegde demonode met de bestaande cluster `C_EXPRESSIVE`. `strength` ligt tussen 0 en 1, is standaard `0.5` en telt als gewicht mee bij het berekenen van de layout. De zichtbare lijndikte hangt af van de selectie en de kaartweergave. `label` is optioneel. Bij een ontbrekend label verschijnt de Nederlandse relatienaam. In het detailpaneel staat of een verbinding inkomend of uitgaand is en welke node aan de andere kant ligt.
 
 Relatietypes: `supports`, `contradicts`, `example_of`, `relates_to`, `driven_by`, `indicates_need`, `leads_to`, `countertrend_of`, `part_of`, `changed_my_view`.
 
@@ -103,14 +105,14 @@ Voeg in `src/data/tours.json` een object toe aan de `tours`-array binnen `{ "met
   "title": "Demo · Extra route",
   "intro": {
     "title": "Welkom bij deze route",
-    "text": "Deze korte inleiding verschijnt voordat de eerste node wordt geselecteerd."
+    "text": "Deze tekst verschijnt voordat de lezer de eerste stap opent."
   },
-  "nextTourId": "demo-vervolgroute",
+  "nextTourId": "signal-to-opportunity",
   "nextTourLabel": "Ga door naar het vervolg",
   "nextTourDescription": "Een korte uitleg over de volgende route.",
   "steps": [
     {
-      "nodeId": "demo-0",
+      "nodeId": "S12",
       "title": "Demo · Beginpunt",
       "text": "DEMO — Uitleg bij deze stap.",
       "phase": "Oriëntatie"
@@ -119,7 +121,11 @@ Voeg in `src/data/tours.json` een object toe aan de `tours`-array binnen `{ "met
 }
 ```
 
-Elke tour heeft minimaal één stap. Bij meerdere tours opent `Volg mijn reis` eerst een routekeuze met titel, description, aantal stappen en voortgang. De aanbevolen ingang start rechtstreeks `main-story`. Een optionele `intro` verschijnt vóór de eerste stap, met de eerste tournode al in beeld; `phase` groepeert stappen subtiel in het routepaneel. Vorige/volgende selecteert de bijbehorende node en centreert de camera. De persoonlijke `step.text` staat in het routepaneel, terwijl het detailpaneel de analyse en bronnen toont. Vanuit een tour mag je andere nodes openen: de actieve route en stap blijven bestaan, met `Terug naar tour` als directe terugkeeractie. Op mobiel opent de prominente knop `Bekijk analyse en bronnen` dezelfde inhoud in een dialoog en keert sluiten terug naar dezelfde tourstap. De laatste stap kan een primaire vervolgknop tonen; in deze versie leidt `main-story` daarmee rechtstreeks naar `from-trends-to-options`. Na het afronden van die aanbevolen hoofdroute verschijnt een afsluitend paneel met de persoonlijke rode draad en de drie kansrichtingen. Daaruit opent `Kies een verdiepende route` de routekeuze; de aparte kaartknop toont de drie kansrichtingen in de kernweergave. Afronden markeert de route als voltooid. Voortgang wordt per tour opgeslagen in `localStorage` onder `trendbreinTourProgress:v1`; onvoltooide routes tonen `Hervat tour` na herladen en de routekeuze bevat `Reset tourvoortgang`. De sluitknop verlaat alleen de actieve route, zonder opgeslagen voortgang te verwijderen. Pan en zoom blijven beschikbaar.
+Op het startscherm opent `Volg mijn reis` de aanbevolen route *Van techniek naar regie*. In de zijbalk opent dezelfde knop de routekeuze met titels, het aantal stappen en de voortgang. Elke route heeft minimaal één stap. Een optionele `intro` verschijnt vóór de eerste stap en `phase` geeft de fase aan.
+
+Met `Vorige` en `Volgende` ga je naar de bijbehorende node. Het routepaneel toont `step.text`. In het detailpaneel lees je de analyse en bronnen. Op mobiel opent `Bekijk analyse en bronnen` die verdieping. Als je doorklikt naar een andere node, brengt `Terug naar tour` je terug naar dezelfde stap.
+
+Vanuit de laatste stap van `main-story` kun je door naar `from-trends-to-options`. Na `Afronden` op die vervolgroute verschijnt een overzicht van de drie kansrichtingen. Per route bewaart `localStorage` de voortgang onder `trendbreinTourProgress:v1`. Via de routekeuze kun je een route hervatten of de voortgang resetten.
 
 ### Validatie en uitbreiden
 
@@ -138,7 +144,7 @@ Voeg nieuwe node-/edge-types toe in `src/types/graph.ts`. Voeg daarbij een categ
 - Nodes met `evidenceRefs` of `counterEvidenceRefs` tonen die als klikbare bewijsblokken. Bij bewust zwakke DESTEP-dimensies blijft de aangeleverde evidence-note zichtbaar.
 - De algoritmische hoofdtrend toont aanbevelingen en pricing als twee afzonderlijke, klikbare takken. Beide takken tonen hun eigen bewijs; de hoofdtrend toont ook de gekoppelde tegentrend.
 - Shortlistnodes tonen hun gekoppelde trend, waardeverschuiving en het aangeleverde blok `Waarom deze richting bleef staan`.
-- De AI-scenarioanalyse toont een interactieve 2×2-matrix. Opportunity-nodes bevatten een Kanscheck met klikbare bestaande oplossingen en concrete volgende tests.
+- De AI-scenariomatrix is zichtbaar in de bezoekersweergave. Schakel `Onderzoeksmodus` in om bij de drie verkende voorbeelden de Kanscheck met bestaande oplossingen en voorgestelde toetsen te lezen.
 - Alle categorieën hebben een eigen kleur en basisgrootte in `graphStyles.ts`. `importance` geeft extra gewicht. Selectie krijgt een subtiele lichtende ring.
 - De UI-basiskleuren staan bij `:root` in `styles.css`, de graphkleuren in `graphStyles.ts`; dit is een voorlopig palet. CSS verzorgt sterren, ornamenten en overgangen zonder extra animatiebibliotheek. De voorkeur voor minder beweging wordt gerespecteerd.
 - Op een smal scherm zitten zoeken en lagen achter een knop. Tijdens tours opent de verdieping als dialoog via `Bekijk analyse en bronnen`. In `Kern` blijven de drie shortlist-richtingen via een compacte, aanklikbare lijst herkenbaar. Voor de prettigste volledige ervaring is een laptop of groter scherm aanbevolen.
@@ -153,22 +159,22 @@ Voeg nieuwe node-/edge-types toe in `src/types/graph.ts`. Voeg daarbij een categ
 - Node-onderscheid gebruikt kleur plus grootte en tekst, zonder custom WebGL-vormprogramma's. Dit houdt de basis eenvoudig uitbreidbaar.
 - De ingebouwde Node-testrunner met `tsx` test de data en layout zonder extra browser- of UI-testserver.
 - Een lege dataset is toegestaan. Ontbrekende WebGL geeft een zichtbare melding; de nodelijst en details blijven beschikbaar.
-- Alleen tourvoortgang wordt lokaal opgeslagen bij herladen; selectie, filters en kaartweergave worden niet opgeslagen. Er is nog geen inhoudseditor, importfunctie of permanente link naar een geselecteerde node.
+- De adresbalk bevat tijdens een route een deelbare link naar de actieve stap. *Van één signaal naar een kans* gebruikt `route` en `node`. De andere routes gebruiken `route` en `stap`. De voortgang wordt lokaal bewaard. Na herladen gebruikt de vrije kaart de standaardinstellingen.
 
 ## Statisch publiceren, bijvoorbeeld GitHub Pages
 
 `npm run build` maakt `dist/`. Publiceer de **inhoud van dist**, inclusief `assets/` en `favicon.svg`, bij je statische host. Upload niet `src/` als website.
 
-Vite gebruikt `base: './'`, zodat assets ook vanuit een GitHub Pages-repositorysubpad werken. Er is geen router en dus geen server-side routefallback nodig. De workflow `.github/workflows/deploy-pages.yml` bouwt en publiceert iedere push naar `main`. De publieke versie staat op https://hugodiepugo.github.io/TrendBrein/.
+Vite gebruikt `base: './'`, zodat de bestanden ook vanuit het subpad van deze repository werken. GitHub Pages bouwt en publiceert de site via `.github/workflows/deploy-pages.yml` bij pushes naar `main`. [Open de gepubliceerde site](https://hugodiepugo.github.io/TrendBrein/)
 
 ## Validatie van deze versie
 
-De tests controleren onder meer datasetvelden, zoekresultaten, bronverwijzingen, matrix- en Kanscheckdata en kaartlayout. Ze controleren ook de zeven oorspronkelijke stappen, de modeluitwerkingen in de nodetekst, oude en nieuwe Handin-links en het hervatten van opgeslagen voortgang.
+De 24 tests controleren onder meer datasetvelden, zoekresultaten, bronverwijzingen, matrix- en Kanscheckdata en kaartlayout. Ze controleren ook de zeven oorspronkelijke stappen, de modeluitwerkingen in de nodetekst, oude en nieuwe links naar routestappen en het hervatten van opgeslagen voortgang.
 
-Technische referenties: [Sigma lifecycle](https://www.sigmajs.org/docs/advanced/lifecycle/), [Sigma camera](https://www.sigmajs.org/docs/typedoc/sigma/src/classes/Camera/), [Graphology ForceAtlas2](https://graphology.github.io/standard-library/layout-forceatlas2.html).
+De kaart gebruikt Sigma.js 3 en de ForceAtlas2-layout van Graphology. [Levenscyclus van Sigma.js 3](https://v3.sigmajs.org/docs/advanced/lifecycle/) · [Camera in Sigma.js 3](https://v3.sigmajs.org/docs/typedoc/sigma/src/classes/Camera/) · [Graphology ForceAtlas2](https://graphology.github.io/standard-library/layout-forceatlas2.html)
 
 ## Integratie van de werkdataset
 
 De graph behoudt alle nodes en edges. `graph.meta.graphPresentation` bepaalt de standaardpreset en labelprioriteiten. Het uitgezoomde overzicht geeft hoofdtrends, reflecties, geselecteerde waardeverschuivingen, scenario's en de shortlist voorrang; bij inzoomen volgen detailnodelabels. Selectie en hover benadrukken de directe buurt. Canvaslabels gebruiken zo nodig een visuele ellipsis; JSON, zoekresultaten en details behouden de volledige titel. Bij drukke nodes verschijnen relatielabels pas ingezoomd en blijven alle relaties altijd in het detailpanel beschikbaar. Dit verandert geen inhoud of onderzoeksgewicht.
 
-De integriteitstests vergelijken alle aangeleverde nodevelden, edges, metadata en tourstappen met het loaderresultaat. Ze controleren ook alle 346 gerichte eindpunten en eindige ForceAtlas2-posities. Bij het vervangen van de dataset tijdens development: herlaad de pagina om eventuele oude selectie- of tourstatus te wissen.
+De integriteitstests vergelijken de aangeleverde nodevelden, verbindingen, metadata en tourstappen met de ingelezen dataset. Ze controleren beide eindpunten van alle 346 verbindingen en de berekende kaartcoördinaten. Herladen begint een nieuwe kaartselectie. Eerder opgeslagen routevoortgang kun je wissen via `Reset tourvoortgang`.
