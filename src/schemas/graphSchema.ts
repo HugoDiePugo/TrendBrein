@@ -10,25 +10,6 @@ const referenceSchema = z.object({
   displayId: id.optional(),
   title: id.optional(),
 });
-const analysisSchema = z.object({
-  id,
-  title: id,
-  action: id,
-  question: id,
-  method: id,
-  methodUrl: z.string().url().startsWith("https://").optional(),
-  rows: z
-    .array(
-      z.object({
-        label: id,
-        finding: id,
-        limit: id.optional(),
-        sources: z.array(id).optional(),
-      }),
-    )
-    .min(1),
-  conclusion: id,
-});
 const sourceDate = z.union([
   z
     .string()
@@ -95,7 +76,6 @@ export const nodeSchema = z.object({
   importance: unit.default(0.5),
   references: z.array(referenceSchema).optional(),
   visualization: matrixVisualizationSchema.optional(),
-  analyses: z.array(analysisSchema).optional(),
   evidenceRefs: z.array(referenceSchema).optional(),
   counterEvidenceRefs: z.array(referenceSchema).optional(),
   evidenceStrength: id.optional(),
@@ -157,17 +137,7 @@ export const graphSchema = z
       nodes.add(node.id);
     });
     data.nodes.forEach((node, i) => {
-      const analyses = node.analyses ?? [];
-      if (new Set(analyses.map((item) => item.id)).size !== analyses.length)
-        ctx.addIssue({
-          code: "custom",
-          path: ["nodes", i, "analyses"],
-          message: "Dubbele analyse-id",
-        });
       const referencedIds = [
-        ...analyses.flatMap((item) =>
-          item.rows.flatMap((row) => row.sources ?? []),
-        ),
         ...(node.references?.map((reference) => reference.nodeId) ?? []),
         ...(node.evidenceRefs?.map((reference) => reference.nodeId) ?? []),
         ...(node.counterEvidenceRefs?.map((reference) => reference.nodeId) ??
@@ -225,7 +195,6 @@ export const tourSchema = z.object({
     .array(
       z.object({
         nodeId: id,
-        analysisId: id.optional(),
         title: id,
         text: z.string(),
         phase: z.string().optional(),
@@ -253,19 +222,9 @@ export function validateData(graph: unknown, tours: unknown) {
   for (const tour of routes) {
     if (routeIds.has(tour.id)) throw new Error(`Dubbele tour-id: ${tour.id}`);
     routeIds.add(tour.id);
-    for (const step of tour.steps) {
+    for (const step of tour.steps)
       if (!ids.has(step.nodeId))
         throw new Error(`Tour ${tour.id}: node ${step.nodeId} bestaat niet`);
-      if (
-        step.analysisId &&
-        !data.nodes
-          .find((n) => n.id === step.nodeId)
-          ?.analyses?.some((a) => a.id === step.analysisId)
-      )
-        throw new Error(
-          `Tour ${tour.id}: analyse ${step.analysisId} ontbreekt bij ${step.nodeId}`,
-        );
-    }
     if (
       tour.nextTourId &&
       !routeIds.has(tour.nextTourId) &&

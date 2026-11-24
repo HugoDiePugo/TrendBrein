@@ -2,14 +2,12 @@ import { ArrowRight, Route } from "lucide-react";
 export function Intro({
   onExplore,
   onTour,
-  onOpenReview,
   hasTour,
   demo,
   entry,
 }: {
   onExplore: () => void;
   onTour: () => void;
-  onOpenReview?: () => void;
   hasTour: boolean;
   demo: boolean;
   entry?: {
@@ -35,14 +33,6 @@ export function Intro({
           het netwerk zelf.
         </p>
         {entry?.title && <h2 className="entry-title">{entry.title}</h2>}
-        {onOpenReview && (
-          <button
-            className="primary-button reviewer-entry"
-            onClick={onOpenReview}
-          >
-            Hoe ik bij Embedded Expressie kwam <ArrowRight size={17} />
-          </button>
-        )}
         <div className="intro-actions entry-actions">
           <button
             className="primary-button entry-action"

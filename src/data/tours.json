@@ -1,7 +1,7 @@
 {
   "meta": {
-    "version": "0.9.0",
-    "updated": "2026-11-22",
+    "version": "0.9.1",
+    "updated": "2026-11-24",
     "description": "Routes zijn in de ik-vorm geschreven. De hoofdroute vertelt mijn proces; de themaroutes gaan dieper op analyse in.",
     "storytellingPrinciples": [
       "Iedere route is zelfstandig te volgen.",
@@ -36,7 +36,7 @@
         },
         {
           "nodeId": "S12",
-          "title": "Een grap zichtbaar in het haar",
+          "title": "Nog een voorbeeld, maar nu met een andere betekenis",
           "text": "Op TikTok zag ik bij @codewithveronika een ESP32 en een klein scherm in een haarclip. Ik dacht aan de voeding, het type display en hoe ik hem kleiner zou maken. Tegelijk viel me de lol van dat tekstje of grappige plaatje op. Daar besefte ik dat techniek ook iets van jezelf kan laten zien.",
           "phase": "1. Signaleren"
         },
@@ -49,13 +49,13 @@
         {
           "nodeId": "T_EXPRESSIVE",
           "title": "Mijn eerste hoofdtrend",
-          "text": "De eerste clip maakte zichtbaar dat een scherm ook iets van iemands humor of stijl kan laten zien. In de verdieping over Embedded Expressie laat ik zien hoe ik dat met de trendpiramide, DESTEP en het trendcanvas heb onderzocht. Wat een drager zelf waardeert, blijft een open vraag.",
+          "text": "De schermclip en de Magic 8 Ball maken de humor van de makers zichtbaar. De verkoopvragen en de steun voor dott laten belangstelling zien voor concrete voorwerpen. Met de trendpiramide kom ik bij een mogelijke behoefte aan herkenning. Hoe een drager dat beleeft, blijft open.",
           "phase": "2. Patronen zoeken"
         },
         {
           "nodeId": "VS_FUNCTION_EXPRESS",
           "title": "Dan een laag dieper: de waardeverschuiving",
-          "text": "Bij een waardeverschuiving probeer ik niet alleen te zeggen wat er verandert, maar vooral wat mensen belangrijker gaan vinden. Hier formuleer ik dat als: van vooral functioneel naar óók expressief. Functie blijft belangrijk, maar persoonlijkheid en uitstraling krijgen er waarde naast.",
+          "text": "Bij de haarclip dacht ik eerst aan voeding en display. Toen viel het grapje in iemands haar me op. Mijn broertje laat met de figuren op zijn buttons ook zien wat hij leuk vindt. In het trendcanvas verbind ik die voorbeelden. Voor mij telt nu ook wat je via techniek van jezelf kunt laten zien. De meerwaarde van een wisselend beeld voor een drager blijft open.",
           "phase": "3. Betekenis geven"
         },
         {
@@ -160,14 +160,14 @@
         },
         {
           "nodeId": "T_EXPRESSIVE",
-          "title": "Wat de modellen mij opleveren",
-          "text": "De clips laten expressieve ontwerpkeuzes zien. De campagne laat zien dat een concreet aanbod steun kan krijgen. De kleine hardware maakt de draagvorm mogelijk. In mijn verdieping over Embedded Expressie staan de vier trendniveaus, de zes externe invloeden en mijn ingevulde trendcanvas.",
+          "title": "Trendpiramide en DESTEP",
+          "text": "Op productniveau zie ik dat een scherm draagbaar is. Bij de verkoopreacties en dott zie ik twee manieren waarop een idee publiek bereikt. DESTEP laat zien hoe kleine elektronica en gedeelde ontwerpen dit mogelijk maken. Of meer dragers hun eigen beelden willen tonen, kan ik uit die voorbeelden nog niet afleiden.",
           "phase": "6. Stap"
         },
         {
           "nodeId": "VS_FUNCTION_EXPRESS",
           "title": "Waardeverschuiving",
-          "text": "Bij de clip viel mij het plezier van een zichtbaar tekstje op. De remix bevestigde dat de grap van de maker het ontwerp persoonlijk kan maken. Wat ik in de video’s kan aanwijzen is de keuze van de maker. Welke behoefte een drager heeft, blijft mijn interpretatie.",
+          "text": "De grap in de haarclip maakte mijn blik op elektronica breder. In het canvas leg ik de remix naast de buttons van mijn broertje. Een vast beeld kan al een interesse herkenbaar maken. Bij een digitaal accessoire zou het wisselen van beeld dus iets moeten toevoegen in een situatie die voor de drager telt.",
           "phase": "7. Stap"
         },
         {
@@ -178,7 +178,7 @@
         },
         {
           "nodeId": "OPP_EXPRESSIVE_MODULAR",
-          "title": "Een voorbeeld binnen mijn gekozen richting",
+          "title": "Mijn kans, maar niet vanaf nul",
           "text": "De modulaire mini-display is één voorbeeld binnen Embedded Expressie. Bij Pimoroni bestaan programmeerbare badges al. Mijn bredere keuze is om zelf een accessoire te ontwerpen waarmee iemand iets van zichzelf kan laten zien. Welke draagvorm zinvol is, bleef open.",
           "phase": "9. Stap"
         }
@@ -237,7 +237,7 @@
         },
         {
           "nodeId": "SC_AI_MATRIX",
-          "title": "Zelf handelen en kunnen bijsturen",
+          "title": "Scenario's",
           "text": "S45 gaat over AI die zelf taken uitvoert. S04 laat zien waarom kunnen ingrijpen een afzonderlijke vraag is. Ik kruis daarom twee assen. De ene gaat over wat AI zelfstandig mag doen, de andere over wat een gebruiker kan toestaan en terugzien. Denk aan een mail opstellen of hem ook mogen versturen. In de vier vakken staat waar controle iets toevoegt.",
           "phase": "8. Stap"
         },
@@ -308,7 +308,7 @@
         },
         {
           "nodeId": "OPP_PRICE_TRANSPARENCY",
-          "title": "Wat PrijsKompas toevoegt blijft een vraag",
+          "title": "Deze kans is juist zwakker geworden",
           "text": "Prijshistorie en meldingen bestaan al. Bij een veranderde prijs weet ik nog niet welke uitleg iemand daarbovenop mist. Bij een feed speelt een verwante vraag over invloed op aanbevelingen. Ik hield de richting daarom breder dan het prijsvoorbeeld.",
           "phase": "8. Stap"
         }
@@ -321,66 +321,56 @@
     {
       "id": "signal-to-opportunity",
       "title": "Van één signaal naar een kans",
-      "description": "Mijn keuze voor Embedded Expressie, van de TikTok-haarclip via de trendpiramide, DESTEP en het trendcanvas naar een kansrichting.",
+      "description": "Een korte methoderoute waarmee ik laat zien hoe ik van waarneming naar trend, analyse, waardeverschuiving en kans ga.",
       "steps": [
         {
           "nodeId": "S12",
-          "title": "Het schermpje in het haar",
-          "text": "Op TikTok zag ik bij @codewithveronika een ESP32 en een klein scherm in een haarclip. Ik dacht aan de voeding, het type display en hoe ik hem kleiner zou maken. Tegelijk viel me de lol van dat tekstje of grappige plaatje op. Daar besefte ik dat techniek ook iets van jezelf kan laten zien.",
-          "phase": "Mijn waarneming"
-        },
-        {
-          "nodeId": "S15",
-          "title": "De maker die er een grap van maakte",
-          "text": "Bij @mewtru zag ik een eigen versie met een Magic 8 Ball. De maker gaf hetzelfde idee een andere interactie. De keuze voor juist die grap vertelde mij iets over de humor van de maker. Dat bevestigde mijn eerste inzicht. Ik kon me voorstellen dat zoiets een praatje uitlokt. Of dat gebeurde, heb ik niet waargenomen.",
-          "phase": "Mijn interpretatie"
+          "title": "1. Eerst alleen het signaal",
+          "text": "Op TikTok zag ik bij @codewithveronika een ESP32 en een klein scherm in een haarclip. Ik dacht meteen aan de voeding, het display en hoe ik hem kleiner kon maken. Tegelijk viel me de lol van dat tekstje of grappige plaatje op. Toen besefte ik dat je met techniek ook iets van jezelf kunt laten zien.",
+          "phase": "1. Stap"
         },
         {
           "nodeId": "C_EXPRESSIVE",
-          "title": "Wie bouwt, wie vraagt, wie betaalt?",
-          "text": "De twee clips tonen één maakidee dat wordt aangepast. Onder een sleutelhanger met een gezichtje vroegen kijkers of hij te koop kwam. Bij dott zegden 649 mensen geld toe voor een draagbaar display. Zo zie ik ook belangstelling buiten de makers. Waarom iemand het accessoire wil dragen blijft open.",
-          "phase": "Signalen vergelijken",
-          "analysisId": "vergelijking"
+          "title": "2. Dan pas clusteren",
+          "text": "Bij @mewtru werd de haarclip een Magic 8 Ball. Dezelfde vorm kreeg een eigen grap. Onder een andere video vroegen kijkers of de sleutelhanger met een gezichtje te koop kwam. Bij dott zegden 649 mensen geld toe voor een draagbaar display. Ik zie dus wat makers ermee uitdrukken én belangstelling van anderen. Wat die mensen zelf zouden willen dragen, blijft open.",
+          "phase": "2. Stap"
         },
         {
           "nodeId": "T_EXPRESSIVE",
-          "title": "Van een product naar een trend",
-          "text": "Op productniveau zie ik schermen die zichtbaar gedragen worden. Op marktniveau zie ik verkoopvragen en financiële steun. Plezier of herkenning is mijn mogelijke verklaring op consumentenniveau. Mijn maatschappelijke duiding is dat digitale beelden ook op fysieke accessoires een plek krijgen. Hoe wijd dat gebruik verspreid is, weet ik uit deze voorbeelden nog niet.",
-          "phase": "Trendpiramide",
-          "analysisId": "piramide"
+          "title": "3. Van product naar trendniveau",
+          "text": "Op productniveau zie ik een scherm dat deel wordt van iemands uiterlijk. Op marktniveau zie ik verkoopvragen en steun voor dott. Voor de consument zijn plezier en herkenning mogelijke waarden. Mijn maatschappelijke duiding is dat digitale beelden een plek kunnen krijgen op fysieke accessoires. Hoe gangbaar dit is, kan ik uit mijn voorbeelden niet afleiden.",
+          "phase": "3. Stap"
         },
         {
-          "nodeId": "T_EXPRESSIVE",
-          "title": "Wat maakt een draagbaar scherm mogelijk?",
-          "text": "Met DESTEP onderzocht ik de invloeden rondom deze trend. Kleine onderdelen passen in een clip. Een gedeeld ontwerp kan worden aangepast. Crowdfunding kan zo’n product helpen financieren. Mijn bronnen geven geen leeftijdsverdeling, levensduur of draagcomfort. Zo kan ik de technische mogelijkheid onderbouwen en de behoefte van dragers openlaten.",
-          "phase": "DESTEP",
-          "analysisId": "destep"
+          "nodeId": "D_SOCIAL_EXPRESSION",
+          "title": "4. Waarom gebeurt dit?",
+          "text": "Met DESTEP keek ik welke ontwikkelingen deze accessoires mogelijk maken. Een maker kon de gedeelde clip een eigen grap geven. Kleine onderdelen passen in het haar en crowdfunding bracht voor dott geld bijeen. De bronnen geven geen leeftijdsverdeling of meting van draagcomfort. Zo weet ik beter wat een maker kán bouwen. De reden om het te dragen blijft een andere vraag.",
+          "phase": "4. Stap"
         },
         {
-          "nodeId": "T_EXPRESSIVE",
-          "title": "Wat zou de drager eraan hebben?",
-          "text": "In mijn trendcanvas voor de herkansing verbind ik die aanwijzingen. De remix laat zien dat een maker plezier kan halen uit een eigen grap. Een drager zou misschien zelf willen kiezen welk beeld anderen zien. Het kan voor de maker ook juist om het bouwen gaan. Die twee lezingen geven verschillende ideeën. Ik kan een bouwkit ontwerpen of een accessoire om te dragen.",
-          "phase": "Trendcanvas · 22 november 2026",
-          "analysisId": "canvas"
+          "nodeId": "CT_DIGITAL_REST",
+          "title": "5. Ook zoeken naar wat niet past",
+          "text": "Bij telefoonvrije momenten zie ik de behoefte aan digitale rust. Waarom zou iemand dan nóg een scherm dragen? Een gewone button kan al iets persoonlijks laten zien en hoeft nooit aan de lader. Daardoor werd mijn vraag specifieker. Wanneer zou wisselen van beeld echt iets toevoegen?",
+          "phase": "5. Stap"
         },
         {
           "nodeId": "VS_FUNCTION_EXPRESS",
-          "title": "Wat een gewone button al kan",
-          "text": "Mijn broertje draagt op zijn tas buttons met figuren en quotes. Ik herken wat hij grappig vindt en welke personages hij leuk vindt. Als ik die herinnering naast de haarclip leg, zie ik dat een vast beeld al iets persoonlijks kan tonen. De waarde verschuift voor mij van wat techniek doet naar óók wat je ermee laat zien. Wat wisselen van beeld toevoegt, blijft een aanname.",
-          "phase": "Waardeverschuiving"
+          "title": "6. Naar de waardeverschuiving",
+          "text": "Op de buttons van mijn broertje herken ik zijn favoriete figuren en humor. Die vaste beelden drukken al uit wat hij leuk vindt. In het trendcanvas voor mijn terugblik werk ik uit wat dit betekent. Het plezier van de remix kan in het bouwen zitten, of in het dragen van een eigen grap. Het eerste bracht me op een bouwkit voor een maker, het tweede op een accessoire voor een drager.",
+          "phase": "6. Stap"
         },
         {
           "nodeId": "SHORT_01",
-          "title": "Waarom ik Embedded Expressie koos",
-          "text": "Bij Embedded Systems Engineering combineer ik hardware en software tot een werkend eindproduct. Bij een bouwkit maakt de volgende maker de laatste ontwerpkeuzes. Ik wilde zelf die stap zetten voor iemand die het accessoire draagt. Daarom koos ik de richting Embedded Expressie. Een clip, button of sieraad bleef mogelijk. Of een drager er meer aan heeft dan aan een gewone button, weet ik nog niet.",
-          "phase": "Mijn keuze"
+          "title": "7. En dan pas naar een kansrichting",
+          "text": "Bij Embedded Systems Engineering combineer ik hardware en software tot een eindproduct. Bij een bouwkit zet de volgende maker de laatste ontwerpstap. Ik wilde zelf die stap zetten voor iemand die een grap of interesse wil dragen. Daarom koos ik voor Embedded Expressie. Of wisselbare inhoud voor die drager meerwaarde heeft naast een vaste button, moet ik nog toetsen.",
+          "phase": "7. Stap"
         }
       ],
       "intro": {
-        "title": "Hoe ik bij Embedded Expressie kwam",
-        "text": "Ik begon met een schermpje in iemands haar. In acht stappen laat ik zien wat ik op TikTok zag, wat ik uit de vergelijking met een sleutelhanger en een crowdfundingcampagne haal en waarom ik voor een draagbaar eindproduct koos. Bij de modellen kun je mijn volledige uitwerking openen."
+        "title": "Waarom deze korte route?",
+        "text": "Ik begin bij het schermpje in een haarclip. Met een vergelijking, de trendpiramide en DESTEP kijk ik wat dit voor een drager zou kunnen betekenen. Bij de waardeverschuiving staat mijn ingevulde trendcanvas. De laatste stap is mijn keuze voor Embedded Expressie."
       },
-      "revision": "2026-11-herkansing"
+      "revision": "2026-11-24"
     },
     {
       "id": "from-trends-to-options",
@@ -393,14 +383,14 @@
       "steps": [
         {
           "nodeId": "C_IDEA_POOL",
-          "title": "15 ideeën, 3 richtingen en 3 voorbeelden",
+          "title": "Eerst breder denken dan drie ideeën",
           "text": "Ik begon met 15 ruwe ideeën, vijf per trend. Ik bracht die terug tot 3 brede kansrichtingen. Voor elke richting verkende ik 1 voorbeeld, dus 3 voorbeelden in totaal. De 21 onderdelen op de kaart horen bij deze drie verschillende stappen. Voor de trendopdracht koos ik uiteindelijk Embedded Expressie.",
           "phase": "1. Eerst divergeren"
         },
         {
           "nodeId": "T_EXPRESSIVE",
           "title": "Wat kan uit expressieve technologie komen?",
-          "text": "In de clips kan het plezier zitten in het maken van een grap, maar ook in wat iemand ermee zou kunnen laten zien. Dat gaf mij zowel een bouwkit voor makers als een accessoire voor dragers als mogelijkheid. In mijn verdieping laat ik zien welke rol de bronnen spelen bij die afweging.",
+          "text": "Wie plezier haalt uit het bouwen van een Magic 8 Ball-clip zou iets kunnen hebben aan een bouwkit. Wie graag een eigen grap draagt, heeft misschien meer aan een afgewerkt accessoire. De reacties op de sleutelhanger en de steun voor dott laten beide mogelijkheden open.",
           "phase": "2. Expressieve technologie"
         },
         {
@@ -411,7 +401,7 @@
         },
         {
           "nodeId": "SHORT_01",
-          "title": "Waarom ik Embedded Expressie koos",
+          "title": "Wat ik uit dit spoor meeneem",
           "text": "Bij een kit bepaalt een andere maker het eindresultaat. Ik wilde zelf de onderdelen combineren tot een voorwerp dat iemand kan dragen. Daarom koos ik uit mijn ideeën de richting Embedded Expressie. Mijn voorkeur als ontwerper verklaart de keuze. De digitale meerwaarde voor een drager blijft open.",
           "phase": "2. Expressieve technologie"
         },
@@ -447,13 +437,13 @@
         },
         {
           "nodeId": "SHORT_03",
-          "title": "PrijsKompas en de invloed op mijn feed",
+          "title": "Wat ik uit dit spoor meeneem",
           "text": "Bij een prijsverandering kan PrijsKompas de historie tonen. Zulke diensten bestaan al. Welke extra uitleg mist iemand dan nog? Bij mijn feed gaat het bijvoorbeeld om kunnen aangeven dat ik minder van een aanbeveling wil zien. Zo is PrijsKompas één toepassing van de bredere richting beïnvloedbare personalisatie.",
           "phase": "4. Personalisatie en keuze"
         },
         {
           "nodeId": "R_BROADEN",
-          "title": "Welke richting ik kies",
+          "title": "Waar ik na deze opdracht wil eindigen",
           "text": "Ik heb drie richtingen onderbouwd en per richting één voorbeeld verkend. Bij Embedded Expressie komen mijn technische achtergrond en mijn belangstelling voor wat iemand via een voorwerp laat zien samen. Daarom kies ik uit de shortlist deze richting. De definitieve draagvorm blijft open.",
           "phase": "5. Afronding"
         }

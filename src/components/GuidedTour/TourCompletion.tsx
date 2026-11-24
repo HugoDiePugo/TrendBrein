@@ -3,11 +3,9 @@ import { Map, Route } from "lucide-react";
 export function TourCompletion({
   onChooseRoute,
   onViewOptions,
-  onOpenReview,
 }: {
   onChooseRoute: () => void;
   onViewOptions: () => void;
-  onOpenReview?: () => void;
 }) {
   return (
     <section
@@ -40,11 +38,6 @@ export function TourCompletion({
         verdiepende routes, of de drie kansrichtingen op de kaart bekijken.
       </p>
       <div className="tour-completion-actions">
-        {onOpenReview && (
-          <button className="primary-button" onClick={onOpenReview}>
-            Hoe ik bij Embedded Expressie kwam <Route size={15} />
-          </button>
-        )}
         <button className="primary-button" onClick={onChooseRoute}>
           Kies een verdiepende route <Route size={15} />
         </button>

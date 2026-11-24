@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import graph from "../data/graph.json";
 import tourDocument from "../data/tours.json";
 import { validateData } from "./graphSchema";
-import { readTourLink } from "../tours/tourLink";
+import { readTourLink, writeTourLink } from "../tours/tourLink";
 import { buildGraph, displayNodeSize } from "../graph/buildGraph";
 import { nodeTypes, edgeTypes } from "../types/graph";
 import { matchesNodeQuery } from "../components/Search/Search";
@@ -45,14 +45,14 @@ describe("dataset integrity", () => {
   it("loads the complete retake dataset without changing supplied fields", () => {
     const result = validateData(graph, tourDocument);
     assert.equal(result.data.demo, false);
-    assert.equal(result.data.meta?.version, "0.9.0");
-    assert.equal(result.tourMeta?.version, "0.9.0");
+    assert.equal(result.data.meta?.version, "0.9.1");
+    assert.equal(result.tourMeta?.version, "0.9.1");
     assert.equal(result.data.nodes.length, 152);
     assert.equal(result.data.edges.length, 346);
     assert.equal(result.tours.length, 6);
     assert.equal(
       result.tours.reduce((total, tour) => total + tour.steps.length, 0),
-      62,
+      61,
     );
     assert.deepEqual(
       result.tours.map((tour) => tour.title),
@@ -332,10 +332,36 @@ describe("guided tour progress", () => {
   )!;
   const review = tours.find((tour) => tour.id === "signal-to-opportunity")!;
 
-  it("opens Handin links at their one-based step and handles outdated or invalid links", () => {
+  it("opens stable Handin links and keeps links from the eight-step edition on topic", () => {
+    const oldDestinations = [0, 1, 1, 2, 3, 5, 5, 6];
+    for (const [oldIndex, currentIndex] of oldDestinations.entries()) {
+      assert.equal(
+        readTourLink(`?route=signal-to-opportunity&stap=${oldIndex + 1}`, tours)
+          ?.index,
+        currentIndex,
+      );
+    }
+    for (const tour of tours) {
+      const params = new URLSearchParams(
+        "context=handin&node=verouderd&stap=99",
+      );
+      for (const [index, step] of tour.steps.entries()) {
+        writeTourLink(params, tour, index);
+        assert.equal(params.get("context"), "handin");
+        if (tour.id === review.id)
+          assert.equal(params.get("node"), step.nodeId);
+        else assert.equal(params.get("stap"), String(index + 1));
+        assert.deepEqual(readTourLink(params.toString(), tours), {
+          tour,
+          index,
+        });
+      }
+      writeTourLink(params, undefined, null);
+      assert.equal(params.toString(), "context=handin");
+    }
     assert.deepEqual(
-      readTourLink("?route=signal-to-opportunity&stap=6", tours),
-      { tour: review, index: 5 },
+      readTourLink("?route=signal-to-opportunity&node=onbekend", tours),
+      { tour: review, index: null },
     );
     for (const value of ["", "0", "-1", "6.5", "99", "01"]) {
       assert.equal(
@@ -349,7 +375,12 @@ describe("guided tour progress", () => {
 
   it("resets only obsolete review progress and resumes the revised route normally", () => {
     const old = {
-      [review.id]: { started: true, completed: false, currentStep: 5 },
+      [review.id]: {
+        started: true,
+        completed: false,
+        currentStep: 7,
+        revision: "2026-11-herkansing",
+      },
       [mainStory.id]: { started: true, completed: false, currentStep: 2 },
     };
     const storage = { getItem: () => JSON.stringify(old), setItem: () => {} };
@@ -366,35 +397,46 @@ describe("guided tour progress", () => {
     );
   });
 
-  it("connects the reviewer to the correct comparison, four levels, six factors and filled canvas", () => {
+  it("keeps the seven original nodes and puts each method in the existing node body", () => {
     const { data } = validateData(graph, tourDocument);
-    const panels = review.steps
-      .filter((s) => s.analysisId)
-      .map((s) =>
-        data.nodes
-          .find((n) => n.id === s.nodeId)
-          ?.analyses?.find((a) => a.id === s.analysisId),
-      );
     assert.deepEqual(
-      panels.map((a) => [a?.id, a?.rows.length]),
+      review.steps.map((step) => step.nodeId),
       [
-        ["vergelijking", 4],
-        ["piramide", 4],
-        ["destep", 6],
-        ["canvas", 6],
+        "S12",
+        "C_EXPRESSIVE",
+        "T_EXPRESSIVE",
+        "D_SOCIAL_EXPRESSION",
+        "CT_DIGITAL_REST",
+        "VS_FUNCTION_EXPRESS",
+        "SHORT_01",
       ],
     );
-    assert.deepEqual(
-      [review.steps[0].nodeId, review.steps[review.steps.length - 1].nodeId],
-      ["S12", "SHORT_01"],
-    );
-    assert.throws(
-      () =>
-        validateData(graph, [
-          { ...review, steps: [{ ...review.steps[0], analysisId: "canvas" }] },
-        ]),
-      /analyse canvas ontbreekt/,
-    );
+    const headings: Record<string, string[]> = {
+      C_EXPRESSIVE: ["Vier signalen vergeleken", "S12", "S15", "S11", "S38"],
+      T_EXPRESSIVE: ["Product ·", "Markt ·", "Consument ·", "Maatschappij ·"],
+      D_SOCIAL_EXPRESSION: [
+        "Demografisch",
+        "Economisch",
+        "Sociaal-cultureel",
+        "Technologisch",
+        "Ecologisch",
+        "Politiek-juridisch",
+      ],
+      VS_FUNCTION_EXPRESS: [
+        "Trend en inspiratie",
+        "Menselijke behoefte",
+        "Aanjagers",
+        "Opkomende verwachting",
+        "Soort innovatie",
+        "Mijn kansrichting",
+        "Wat ik nog bij dragers wil toetsen",
+      ],
+    };
+    for (const [id, labels] of Object.entries(headings)) {
+      const node = data.nodes.find((n) => n.id === id)!;
+      for (const label of labels)
+        assert.ok(node.body?.includes(label), id + " mist " + label);
+    }
   });
 
   it("keeps the current step when a visitor temporarily opens another node", () => {
