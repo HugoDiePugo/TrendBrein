@@ -2580,8 +2580,8 @@
       "id": "D_TECH_ACCESS",
       "type": "driver",
       "title": "Kleine elektronica past in een haarclip",
-      "summary": "In een TikTok-video zag ik dat een chip en een scherm samen in een haarclip passen.",
-      "body": "Bij de technologische factor in DESTEP keek ik naar de haarclip van @codewithveronika. De video laat zien dat een chip en een scherm in het accessoire passen. Hoe lang de batterij meegaat en hoe de clip zit als je hem een hele dag draagt, is nog open.",
+      "summary": "Bij een haarclip telt hoeveel ruimte er overblijft voor het plaatje. Twee generaties horloges laten zien wat de breedte van een schermrand uitmaakt.",
+      "body": "In de TikTok-video van @codewithveronika passen een chip en een scherm in een haarclip. Voor deze terugblik heb ik ook gekeken wat er bij een ander draagbaar scherm veranderde. Apple vergeleek in 2021 de Watch Series 7 met de Series 6. De rand rond het scherm werd smaller. Daardoor was er bijna 20% meer plek voor beeld, terwijl de horlogekast nauwelijks groter werd.\n\nBij mijn accessoire zou ik letten op hoeveel van de voorkant ik voor het plaatje kan gebruiken. Hoe klein kan het voorwerp blijven terwijl iemand de grap nog herkent?",
       "tags": [
         "DESTEP:T",
         "maintrend:expressive"
@@ -2594,14 +2594,23 @@
           "title": "Digitale haarclip: ESP32 + OLED als fashion-accessoire"
         }
       ],
-      "evidenceNote": "De video levert geen meting van prijsontwikkeling, accuduur of draagcomfort."
+      "evidenceNote": "De video laat de haarclip zien. De cijfers over het scherm komen uit de vergelijking van Apple en gelden voor de twee horloges.",
+      "source": {
+        "title": "Apple presenteert de Apple Watch Series 7, met een groter en geavanceerder display",
+        "publisher": "Apple",
+        "url": "https://www.apple.com/nl/newsroom/2021/09/apple-reveals-apple-watch-series-7-featuring-the-largest-most-advanced-display/",
+        "date": "2021-09-14",
+        "dateType": "publication",
+        "sourceType": "persbericht",
+        "accessedDate": "2026-11-24"
+      }
     },
     {
       "id": "D_SOCIAL_EXPRESSION",
       "type": "driver",
       "title": "Gedeelde maakideeën krijgen een eigen grap",
       "summary": "In twee TikTok-video’s kreeg een haarclip met een schermpje een andere grap. Met DESTEP bekeek ik welke ontwikkelingen rond zulke accessoires meespelen.",
-      "body": "DESTEP voor expressieve accessoires\n\nWelke ontwikkelingen maken een draagbaar scherm mogelijk of aantrekkelijk, en wat begrenst het gebruik? Met DESTEP uit de les Scenario-ontwikkeling (dia 6) bekijk ik de omgeving van mijn idee vanuit zes invalshoeken.\n\nDemografisch\nDe filmpjes van de digitale haarclips en de reacties bij de sleutelhanger vertellen mij niets over de leeftijdsverdeling van mensen die zo’n accessoire willen dragen (S12, S15, S11). Ik kan hieruit nog geen leeftijdsgroep kiezen.\n\nEconomisch\nBij dott, een draagbaar scherm voor onder meer GIFs, zag ik hoe een maker via Kickstarter geld kon ophalen. De 649 toezeggingen laten een manier zien om één ontwerp te financieren (S38). Welke prijs iemand voor mijn idee zou betalen, blijft open.\n\nSociaal-cultureel\nOp TikTok vond ik twee invullingen van hetzelfde idee. De ene haarclip toonde een tekstje of plaatje. De andere werkte als een Magic 8 Ball, een speeltje dat antwoord geeft op een vraag (S12, S15). Daarin herken ik ruimte voor de humor van de maker. Hoeveel dragers zelf zoiets zouden willen aanpassen, weet ik nog niet.\n\nTechnologisch\nIn de eerste haarclip past een chip die het ingebouwde schermpje aanstuurt (S12). Dat maakt het technisch mogelijk om een beeld in je haar te dragen. In het filmpje vond ik geen meting van accuduur of draagcomfort.\n\nEcologisch\nVoor de schermpjes in de clip en de sleutelhanger zijn elektronica en stroom nodig (S12, S11). Om de milieugevolgen te beoordelen zou ik onder meer moeten weten welke materialen erin zitten en hoelang de onderdelen meegaan. Die gegevens heb ik niet.\n\nPolitiek-juridisch\nIk las bij Reuters over privacybezwaren tegen een slimme bril waarmee de drager omstanders kan filmen (S49). Die zorg hangt af van wat het accessoire registreert. In het filmpje van de haarclip zag ik een scherm dat een beeld toont. Daarin zag ik geen opnamefunctie.\n\nWat dat betekent voor mijn idee\nKleine onderdelen maken de clip mogelijk, een maker kan er een eigen grap mee delen en crowdfunding kan zo’n ontwerp een publiek geven. Dat verklaart hoe een accessoire er kan komen. Om te begrijpen waarom iemand het zou dragen, moest ik ook kijken naar wat mensen nu al dragen.",
+      "body": "DESTEP voor expressieve accessoires\n\nWelke ontwikkelingen maken een draagbaar scherm mogelijk of aantrekkelijk, en wat begrenst het gebruik? Met DESTEP uit de les Scenario-ontwikkeling (dia 6) bekijk ik de omgeving van mijn idee vanuit zes invalshoeken.\n\nDemografisch\nDe filmpjes van de digitale haarclips en de reacties bij de sleutelhanger vertellen mij niets over de leeftijdsverdeling van mensen die zo’n accessoire willen dragen (S12, S15, S11). Ik kan hieruit nog geen leeftijdsgroep kiezen.\n\nEconomisch\nBij dott, een draagbaar scherm voor onder meer GIFs, zag ik hoe een maker via Kickstarter geld kon ophalen. De 649 toezeggingen laten een manier zien om één ontwerp te financieren (S38). Welke prijs iemand voor mijn idee zou betalen, blijft open.\n\nSociaal-cultureel\nOp TikTok vond ik twee invullingen van hetzelfde idee. De ene haarclip toonde een tekstje of plaatje. De andere werkte als een Magic 8 Ball, een speeltje dat antwoord geeft op een vraag (S12, S15). Daarin herken ik ruimte voor de humor van de maker. Hoeveel dragers zelf zoiets zouden willen aanpassen, weet ik nog niet.\n\nTechnologisch\nIn de haarclip op TikTok zag ik dat een chip en een schermpje samen in een accessoire passen (S12). Voor deze terugblik zocht ik een voorbeeld van wat er aan draagbare schermen is veranderd. In 2021 meldde Apple dat de schermrand van de Watch Series 7 40% smaller was dan die van de Series 6. Het schermoppervlak nam met bijna 20% toe terwijl de horlogekast nauwelijks groter werd. Bij een haarclip zou ik dus kijken hoeveel van de voorkant ik voor het plaatje kan gebruiken. Hoe klein kan de clip blijven terwijl een ander de grap nog herkent? De accuduur en het draagcomfort van de clip zijn nog open vragen.\n\nEcologisch\nVoor de schermpjes in de clip en de sleutelhanger zijn elektronica en stroom nodig (S12, S11). Om de milieugevolgen te beoordelen zou ik onder meer moeten weten welke materialen erin zitten en hoelang de onderdelen meegaan. Die gegevens heb ik niet.\n\nPolitiek-juridisch\nIk las bij Reuters over privacybezwaren tegen een slimme bril waarmee de drager omstanders kan filmen (S49). Die zorg hangt af van wat het accessoire registreert. In het filmpje van de haarclip zag ik een scherm dat een beeld toont. Daarin zag ik geen opnamefunctie.\n\nWat dat betekent voor mijn idee\nKleine onderdelen maken de clip mogelijk, een maker kan er een eigen grap mee delen en crowdfunding kan zo’n ontwerp een publiek geven. Dat verklaart hoe een accessoire er kan komen. Om te begrijpen waarom iemand het zou dragen, moest ik ook kijken naar wat mensen nu al dragen.",
       "tags": [
         "DESTEP:S",
         "maintrend:expressive"
@@ -2647,7 +2656,16 @@
           "displayId": "S49",
           "title": "Reuters · privacybezwaren tegen een bril met camera"
         }
-      ]
+      ],
+      "source": {
+        "title": "Apple presenteert de Apple Watch Series 7, met een groter en geavanceerder display",
+        "publisher": "Apple",
+        "url": "https://www.apple.com/nl/newsroom/2021/09/apple-reveals-apple-watch-series-7-featuring-the-largest-most-advanced-display/",
+        "date": "2021-09-14",
+        "dateType": "publication",
+        "sourceType": "persbericht",
+        "accessedDate": "2026-11-24"
+      }
     },
     {
       "id": "D_ECON_CREATOR",
@@ -3455,7 +3473,7 @@
       "type": "opportunity",
       "title": "Verkend voorbeeld: modulaire mini-display",
       "summary": "Een concreet productvoorbeeld binnen de bredere richting expressieve embedded accessoires.",
-      "body": "Met een modulair scherm bedoel ik een klein scherm dat je op verschillende manieren kunt bevestigen, bijvoorbeeld als clip of badge. Zo zou een drager een beeld of grap kunnen laten zien. Pimoroni verkoopt onder de naam Badgeware al badges waarop je zelf iets kunt programmeren.\n\nIn de trendopdracht koos ik de bredere richting Embedded Expressie. Daarmee bedoel ik persoonlijke elektronische accessoires. Wat een drager erop zou willen tonen, en wanneer een gewone button al voldoet, wil ik nog toetsen.",
+      "body": "Met een modulair scherm bedoel ik een klein scherm dat je op verschillende manieren kunt bevestigen, bijvoorbeeld als clip of badge. Zo zou een drager een beeld of grap kunnen laten zien. Pimoroni verkoopt onder de naam Badgeware al badges waarop je zelf iets kunt programmeren.\n\nIn de trendopdracht koos ik voor de bredere richting Embedded Expressie. Ik wil zelf een accessoire ontwerpen waarmee een drager kan kiezen wat er te zien is. Wie daar plezier aan zou hebben, wil ik nog onderzoeken. Ik zou beginnen bij iemand die al buttons draagt. Welke button droeg je het laatst en waarom koos je die? Wat had een wisselend beeld op dat moment toegevoegd?",
       "tags": [
         "kans",
         "expressieve-technologie",
@@ -3466,8 +3484,8 @@
       "status": "explored_direction",
       "confidence": 0.65,
       "opportunityAssessment": {
-        "problem": "Bestaande maker-wearables zijn vaak groot, technisch of aan één vorm gebonden; persoonlijke digitale expressie kan compacter en makkelijker te gebruiken.",
-        "targetGroup": "Makers, early adopters en mensen die opvallende, cute of futuristische accessoires dragen.",
+        "problem": "Met een vaste button kun je al een grap of interesse laten zien. Ik wil weten op welk moment iemand op diezelfde plek een ander beeld zou willen tonen.",
+        "targetGroup": "Ik zou eerst mensen spreken die buttons op hun tas of kleding dragen. Hun eigen keuzes kunnen me helpen begrijpen voor wie een wisselend beeld iets toevoegt.",
         "existingSolutions": [
           {
             "nodeId": "E_COMP_BADGEWARE",
@@ -3488,12 +3506,12 @@
         ],
         "novelty": "laag tot middel",
         "fitWithHugo": "hoog",
-        "differentiation": "Kleiner, fashion-first, één elektronische kern met meerdere bevestigingsvormen en no-code personalisatie.",
-        "biggestRisk": "De differentiatie kan te klein blijken ten opzichte van bestaande wearables.",
+        "differentiation": "Ik denk aan een klein scherm dat je als clip of badge kunt dragen en waarop je zonder programmeren je eigen plaatje kunt zetten. Of iemand dat handiger vindt dan een andere button opspelden, wil ik nog toetsen.",
+        "biggestRisk": "Misschien wisselt iemand al makkelijk tussen favoriete buttons. Dan vraagt een scherm wel om opladen, terwijl het voor die drager weinig toevoegt.",
         "nextTests": [
-          "Concurrentievergelijking op formaat, prijs, batterijduur, bevestiging en personalisatie.",
-          "Drie vormconcepten laten beoordelen door potentiële gebruikers.",
-          "Een compact prototype bouwen en echte draagbaarheid testen."
+          "Een drager een eigen button laten kiezen. Wanneer droeg je die voor het laatst en waarom koos je toen juist die button?",
+          "Bij datzelfde moment blijven. Had je toen een ander beeld willen laten zien? Wat had je daarvoor kunnen doen met de buttons die je al hebt?",
+          "Daarna het idee van een wisselend scherm voorleggen. Wanneer zou je zo’n scherm kiezen en welke rol speelt het opladen bij die keuze?"
         ]
       },
       "references": [
